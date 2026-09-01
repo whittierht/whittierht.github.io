@@ -3,51 +3,112 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hyrum Whittier | Website Design and Development, Rexburg Idaho</title>
-<meta name="description" content="Hyrum Whittier designs and builds websites in Rexburg, Idaho, and does the technical SEO behind them. Page builder migrations, structured data, custom functionality, and audits.">
-<link rel="canonical" href="https://hyrumwhittier.com/">
+<title>Hyrum Whittier | Web Design, Development and SEO in Idaho</title>
+<meta name="description" content="Websites designed, built and made findable from Rexburg, Idaho. Page builder migrations, structured data, custom tools and technical audits.">
+<!-- Canonical points at the URL that actually resolves. Swap to hyrumwhittier.com once that domain is live and a CNAME is in the repo. -->
+<link rel="canonical" href="https://whittierht.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hyrum Whittier | Website Design and Development">
-<meta property="og:description" content="Websites designed, built, and made findable. Page builder migrations, structured data, custom functionality, and search work.">
-<meta property="og:image" content="images/bravo6.jpg">
+<meta property="og:url" content="https://whittierht.github.io/">
+<meta property="og:title" content="Hyrum Whittier | Web Design, Development and SEO">
+<meta property="og:description" content="Websites designed, built and made findable. Page builder migrations, structured data, custom tools, technical audits, and the applications that run an agency.">
+<meta property="og:image" content="https://whittierht.github.io/images/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hyrum Whittier. Web design, development and search. Rexburg, Idaho.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0c0d0e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0d0e'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='17' fill='%23fafaf8' text-anchor='middle'%3EHW%3C/text%3E%3C/svg%3E">
-
+<script>try{var t=localStorage.getItem('hw-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;450;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://whittierht.github.io/#website",
+      "url": "https://whittierht.github.io/",
+      "name": "Hyrum Whittier",
+      "publisher": { "@id": "https://whittierht.github.io/#person" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://whittierht.github.io/#person",
+      "name": "Hyrum Whittier",
+      "url": "https://whittierht.github.io/",
+      "image": "https://whittierht.github.io/images/hyrum.jpg",
+      "jobTitle": "SEO Specialist and Internal Tools Builder",
+      "email": "mailto:whittierht@gmail.com",
+      "address": { "@type": "PostalAddress", "addressLocality": "Rexburg", "addressRegion": "ID", "addressCountry": "US" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Brigham Young University-Idaho" },
+      "knowsAbout": ["Web design", "Web development", "Technical SEO", "Structured data", "Page builder migration", "Local search"],
+      "sameAs": ["https://www.linkedin.com/in/hyrum-whittier/", "https://github.com/whittierht"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://whittierht.github.io/#webpage",
+      "url": "https://whittierht.github.io/",
+      "name": "Hyrum Whittier | Web Design, Development and SEO in Idaho",
+      "description": "Websites designed, built and made findable from Rexburg, Idaho. Page builder migrations, structured data, custom tools and technical audits.",
+      "isPartOf": { "@id": "https://whittierht.github.io/#website" },
+      "about": { "@id": "https://whittierht.github.io/#person" },
+      "primaryImageOfPage": { "@type": "ImageObject", "url": "https://whittierht.github.io/images/share.png", "width": 1200, "height": 630 },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
-<div class="progress" id="progress" aria-hidden="true"></div>
-<div class="grain" aria-hidden="true"></div>
 
-<header class="masthead" id="masthead">
-  <div class="bar">
-    <a class="wordmark" href="#top">Hyrum Whittier</a>
-    <p class="clock" id="clock">Rexburg, ID</p>
-    <nav class="nav" aria-label="Primary">
-      <a href="#work">Work</a>
-      <a href="#services">Services</a>
-      <a href="#systems">Systems</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<aside class="rail" id="rail">
+  <a class="brand" href="#top">Hyrum Whittier</a>
+  <p class="clock" id="clock">Rexburg, ID</p>
+
+  <nav class="toc" aria-label="Sections">
+    <a href="#work">Work</a>
+    <div class="sub">
+      <a href="#c-bravo6">Bravo 6 Flight Academy</a>
+      <a href="#c-ofy">Outdoors for Youth</a>
+      <a href="#c-nadia">Nadia's Dog Nanny</a>
+    </div>
+    <a href="#products">Applications</a>
+    <a href="#tools">Tools</a>
+    <a href="#findings">Audit findings</a>
+    <a href="#enterprise">Enterprise</a>
+    <a href="#play">Games</a>
+    <a href="#about">About</a>
+    <a href="#process">How this works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="rail-foot">
+    <p class="status"><span class="live-dot"></span>Taking on new builds<span>Rexburg, Idaho</span></p>
+    <a class="mail" href="mailto:whittierht@gmail.com">whittierht@gmail.com</a>
+    <button class="theme" id="theme" type="button" aria-label="Switch between light and dark">
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <span>Light / dark</span>
+    </button>
   </div>
-</header>
+</aside>
 
-<main id="main">
-<div id="top"></div>
+<main class="main" id="main">
 
 <!-- ============================== HERO ============================== -->
-<section class="hero">
-  <img class="hero-image" src="images/hero-tetons.jpg" alt="Grand Teton mountain range reflected across a wide lake" width="3840" height="1354" fetchpriority="high">
-  <div class="bar">
+<section class="hero" id="top" data-spy>
+  <img class="hero-image" src="images/hero-tetons.jpg" alt="Grand Teton mountain range reflected across a wide lake" width="2560" height="903" fetchpriority="high">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wrap">
     <p class="kicker reveal">Portfolio <i>/</i> Web design, development, and search</p>
 
-    <h1 class="mega name" data-split>
+    <h1 class="name" data-split>
       <span class="ln"><span>Hyrum</span></span>
       <span class="ln"><span>Whittier</span></span>
     </h1>
@@ -58,13 +119,12 @@
       </p>
     </div>
   </div>
-
   <div class="scroll-cue" aria-hidden="true"><span>Scroll</span></div>
 </section>
 
 <!-- ============================== CREDENTIALS ============================== -->
 <section class="creds" aria-label="Credentials">
-  <div class="bar creds-grid">
+  <div class="wrap creds-grid">
     <div class="cred reveal">
       <p class="cred-k">Education</p>
       <p class="cred-v">B.S. Web Design and Development</p>
@@ -88,343 +148,685 @@
   </div>
 </section>
 
-<!-- ============================== WORK ============================== -->
-<section class="sheet" id="work">
-  <div class="bar">
-    <header class="sheet-head reveal">
+<!-- ============================== 01 WORK ============================== -->
+<section class="sec" id="work" data-spy>
+  <div class="wrap">
+    <header class="sec-head reveal">
       <p class="label"><span class="num">01</span> Selected work</p>
-      <h2 class="mask">Recent builds</h2>
+      <h2>Recent builds</h2>
+      <p class="standfirst">Three client sites, all hand-coded and all live. The screenshots were taken on the live domains in September 2026, on desktop and on a phone.</p>
     </header>
 
-    <!-- index table -->
-    <ol class="index reveal" id="index">
+    <ol class="index stagger">
       <li>
-        <a href="#c-bravo6" data-preview="images/bravo6.jpg">
+        <a href="#c-bravo6">
           <span class="ix-name">Bravo 6 Flight Academy</span>
-          <span class="ix-sector">Flight training</span>
+          <span class="ix-sector">Flight training. WordPress to 135 static pages, plus two tools.</span>
           <span class="ix-year">2026</span>
           <span class="ix-status"><i class="live-dot"></i>Live</span>
         </a>
       </li>
       <li>
-        <a href="#c-ofy" data-preview="images/ofy.jpg">
+        <a href="#c-ofy">
           <span class="ix-name">Outdoors for Youth</span>
-          <span class="ix-sector">Teen adventure camp</span>
+          <span class="ix-sector">Teen adventure camp. Off Wix, 22 pages, custom registration.</span>
           <span class="ix-year">2026</span>
           <span class="ix-status"><i class="live-dot"></i>Live</span>
         </a>
       </li>
       <li>
-        <a href="#c-nadia" data-preview="images/nadia.jpg">
+        <a href="#c-nadia">
           <span class="ix-name">Nadia's Dog Nanny Services</span>
-          <span class="ix-sector">Boarding and daycare</span>
+          <span class="ix-sector">Boarding and daycare. Off GoDaddy, fourteen pages, schema on every one.</span>
           <span class="ix-year">2026</span>
           <span class="ix-status"><i class="live-dot"></i>Live</span>
         </a>
       </li>
     </ol>
-    <figure class="index-peek" id="peek" aria-hidden="true"><img alt="" id="peekImg"></figure>
   </div>
 
   <!-- ---------- Bravo 6 ---------- -->
-  <article class="case" id="c-bravo6">
-    <figure class="shot reveal">
-      <div class="shot-frame">
-        <img src="images/bravo6.jpg" alt="Homepage of Bravo 6 Flight Academy showing an aerial photo of a training aircraft" width="1400" height="972" loading="lazy">
-      </div>
-    </figure>
-    <div class="bar case-grid">
-      <div class="case-meta">
-        <p class="case-name">Bravo 6 Flight Academy</p>
-        <dl class="meta">
-          <div><dt>Scope</dt><dd>WordPress to 135 static pages, plus two tools</dd></div>
-          <div><dt>Built with</dt><dd>HTML, CSS, Python, PHP</dd></div>
-          <div><dt>Live at</dt><dd><a class="txtlink" href="https://bravo6flightacademy.com" target="_blank" rel="noopener">bravo6flightacademy.com</a></dd></div>
-        </dl>
-        <ul class="tags"><li>Static HTML</li><li>Python builder</li><li>PHP</li><li>METAR API</li><li>Leaflet</li><li>FTPS deploy</li><li>Schema</li></ul>
+  <article class="case" id="c-bravo6" data-spy>
+    <div class="wrap">
+      <div class="case-top reveal">
+        <p class="case-kicker"><span>Flight training</span><span>Rexburg and Pocatello, Idaho</span><span>2026</span></p>
+        <h3>Bravo 6 Flight Academy</h3>
       </div>
 
-      <div class="case-body">
-        <h3>135 pages off WordPress</h3>
-        <p class="standfirst">
-          Homepage, 23 subpages, 109 blog posts, generated by a Python builder. On the main
-          domain since August 2026.
-        </p>
-
-        <p class="case-links">
-          <a class="txtlink" href="https://bravo6flightacademy.com" target="_blank" rel="noopener">Visit the site</a>
-          <a class="txtlink" href="https://bravo6flightacademy.com/flyable/" target="_blank" rel="noopener">Is It Flyable Today</a>
-          <a class="txtlink" href="https://bravo6flightacademy.com/training-area-map/" target="_blank" rel="noopener">Training area map</a>
-        </p>
+      <div class="case-visual">
+        <figure class="win reveal">
+          <div class="win-bar">bravo6flightacademy.com</div>
+          <div class="win-body"><img src="images/b6-home.jpg" width="2880" height="1800" alt="Homepage of Bravo 6 Flight Academy with the navy header, hero video and enrollment call to action" loading="lazy"></div>
+        </figure>
+        <figure class="phone reveal">
+          <div class="screen"><img src="images/b6-home-m.jpg" width="1170" height="2532" alt="The Bravo 6 homepage on a phone" loading="lazy"></div>
+        </figure>
       </div>
-    </div>
 
-    <div class="bar plates">
-      <figure class="plate reveal">
-        <div class="shot-frame tall"><img src="images/b6-flyable.jpg" alt="The Is It Flyable Today tool showing a red NO-GO verdict for VFR conditions" width="1000" height="694" loading="lazy"></div>
-        <figcaption><b>Is It Flyable Today</b> Live weather scored against the school's own flight limits.</figcaption>
-      </figure>
-      <figure class="plate reveal">
-        <div class="shot-frame tall"><img src="images/b6-map.jpg" alt="Training area map with practice area boundaries drawn over an aeronautical sectional chart" width="1000" height="694" loading="lazy"></div>
-        <figcaption><b>Training area map</b> Practice area boundaries over a georeferenced sectional chart.</figcaption>
-      </figure>
-      <figure class="plate reveal">
-        <div class="shot-frame tall"><img src="images/b6-news.jpg" alt="The in-the-news page laid out with a print newspaper aesthetic" width="1000" height="694" loading="lazy"></div>
-        <figcaption><b>Newsroom</b> Press coverage, laid out like print.</figcaption>
-      </figure>
+      <div class="case-grid">
+        <aside class="case-meta reveal">
+          <dl class="meta">
+            <div><dt>Scope</dt><dd>WordPress to 135 static pages, plus two tools</dd></div>
+            <div><dt>Built with</dt><dd>HTML, CSS, Python, PHP, Leaflet</dd></div>
+            <div><dt>Live at</dt><dd><a href="https://bravo6flightacademy.com" target="_blank" rel="noopener">bravo6flightacademy.com</a></dd></div>
+            <div><dt>Year</dt><dd>2026. On the main domain since August.</dd></div>
+          </dl>
+          <ul class="tags"><li>Static HTML</li><li>Python builder</li><li>PHP</li><li>METAR API</li><li>Leaflet</li><li>FTPS deploy</li><li>Schema</li><li>Cloudflare</li></ul>
+        </aside>
+
+        <div class="case-body reveal">
+          <h4>135 pages off WordPress</h4>
+          <p class="standfirst">Homepage, 23 subpages, 109 blog posts, generated by a Python builder. On the main domain since August 2026.</p>
+          <p>Bravo 6 had a Divi site on WordPress. I rebuilt it as 135 static pages: the homepage, 23 subpages and 109 blog posts. Each page lives in its own folder with an index file, so the clean URLs work on ordinary shared hosting without any rewrite rules.</p>
+          <p>Two Python scripts do the generating. One builds the subpages from a set of component specs, and the other picks up every captured blog post, pulls out the article body, downloads the images and writes the post pages and the blog index. Adding a post means dropping in a file and running it again.</p>
+          <p>The two tools in the Resources menu are new. Is It Flyable Today pulls the current METAR for the Rexburg airport through a small PHP proxy and checks it against the school's own written weather minimums rather than generic VFR rules, then shows GO, MARGINAL or NO-GO along with whichever condition caused it. The training area map draws the school's three practice areas, traced from its operating procedures, over an FAA sectional chart in Leaflet.</p>
+          <p>Every content page carries a single connected schema graph that validates with no errors. The site deploys over FTPS to SiteGround behind Cloudflare, and the stylesheet URL is fingerprinted on each change so returning visitors are not served a cached copy for a year.</p>
+          <p class="case-links">
+            <a class="txtlink" href="https://bravo6flightacademy.com" target="_blank" rel="noopener">Visit the site</a>
+            <a class="txtlink" href="https://bravo6flightacademy.com/flyable/" target="_blank" rel="noopener">Is It Flyable Today</a>
+            <a class="txtlink" href="https://bravo6flightacademy.com/training-area-map/" target="_blank" rel="noopener">Training area map</a>
+            <a class="txtlink" href="https://bravo6flightacademy.com/in-the-news/" target="_blank" rel="noopener">Newsroom</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="plates">
+        <figure class="plate reveal">
+          <div class="win"><div class="win-bar">bravo6flightacademy.com/flyable/</div><div class="win-body"><img src="images/b6-flyable.jpg" width="2880" height="1800" alt="The Is It Flyable Today tool with a live verdict, current conditions cards and the forecast" loading="lazy"></div></div>
+          <figcaption><b>Is It Flyable Today</b> Live weather scored against the school's own limits.</figcaption>
+        </figure>
+        <figure class="plate reveal">
+          <div class="win"><div class="win-bar">bravo6flightacademy.com/training-area-map/</div><div class="win-body"><img src="images/b6-map.jpg" width="2880" height="1800" alt="Training area map with practice area boundaries drawn over an aeronautical chart" loading="lazy"></div></div>
+          <figcaption><b>Training area map</b> Practice area boundaries over a georeferenced sectional chart.</figcaption>
+        </figure>
+        <figure class="plate reveal">
+          <div class="win"><div class="win-bar">bravo6flightacademy.com/in-the-news/</div><div class="win-body"><img src="images/b6-news.jpg" width="2880" height="1800" alt="The In the News page laid out like a newspaper, with datelines and a featured story" loading="lazy"></div></div>
+          <figcaption><b>Newsroom</b> Press coverage, laid out like print.</figcaption>
+        </figure>
+      </div>
     </div>
   </article>
 
   <!-- ---------- Outdoors for Youth ---------- -->
-  <article class="case" id="c-ofy">
-    <figure class="shot reveal">
-      <div class="shot-frame">
-        <img src="images/ofy.jpg" alt="Homepage of Outdoors for Youth showing a group photo under a rainbow at camp" width="1400" height="830" loading="lazy">
-      </div>
-    </figure>
-    <div class="bar case-grid">
-      <div class="case-meta">
-        <p class="case-name">Outdoors for Youth</p>
-        <dl class="meta">
-          <div><dt>Scope</dt><dd>Wix migration, 22 pages, registration flow</dd></div>
-          <div><dt>Built with</dt><dd>HTML, CSS, custom form engine</dd></div>
-          <div><dt>Live at</dt><dd><a class="txtlink" href="https://outdoorsforyouth.org" target="_blank" rel="noopener">outdoorsforyouth.org</a></dd></div>
-        </dl>
-        <ul class="tags"><li>Static HTML</li><li>Custom form engine</li><li>localStorage</li><li>FTPS deploy</li><li>Redirect mapping</li></ul>
+  <article class="case" id="c-ofy" data-spy>
+    <div class="wrap">
+      <div class="case-top reveal">
+        <p class="case-kicker"><span>Teen adventure camp</span><span>Newdale, Idaho</span><span>2026</span></p>
+        <h3>Outdoors for Youth</h3>
       </div>
 
-      <div class="case-body">
-        <h3>Off Wix, rankings intact</h3>
-        <p class="standfirst">
-          Half the content was stuck inside iframes. Rebuilt as real pages, original slugs kept.
-        </p>
-
-        <p class="case-links">
-          <a class="txtlink" href="https://outdoorsforyouth.org" target="_blank" rel="noopener">Visit the site</a>
-        </p>
+      <div class="case-visual">
+        <figure class="win reveal">
+          <div class="win-bar">outdoorsforyouth.org</div>
+          <div class="win-body"><img src="images/ofy-home.jpg" width="2880" height="1800" alt="Homepage of Outdoors for Youth with campers under a rainbow and the camp's navigation" loading="lazy"></div>
+        </figure>
+        <figure class="phone reveal">
+          <div class="screen"><img src="images/ofy-home-m.jpg" width="1170" height="2532" alt="The Outdoors for Youth homepage on a phone" loading="lazy"></div>
+        </figure>
       </div>
-    </div>
 
-    <div class="bar plates">
-      <figure class="plate reveal">
-        <div class="shot-frame tall"><img src="images/ofy-register.jpg" alt="The Register for OFY page showing session dates" width="1000" height="583" loading="lazy"></div>
-        <figcaption><b>Registration</b> Seven steps, saved progress, live payment total.</figcaption>
-      </figure>
-      <figure class="plate reveal">
-        <div class="shot-frame tall"><img src="images/ofy-camp.jpg" alt="The What Is OFY page" width="1000" height="583" loading="lazy"></div>
-        <figcaption><b>The camp</b> Former iframe content, now real markup.</figcaption>
-      </figure>
-      <figure class="plate reveal">
-        <div class="shot-frame tall"><img src="images/ofy-tetons.jpg" alt="The Tetons expedition page" width="1000" height="583" loading="lazy"></div>
-        <figcaption><b>Expeditions</b> One of twenty-two pages.</figcaption>
-      </figure>
+      <div class="case-grid">
+        <aside class="case-meta reveal">
+          <dl class="meta">
+            <div><dt>Scope</dt><dd>Wix migration, 22 pages, registration flow</dd></div>
+            <div><dt>Built with</dt><dd>HTML, CSS, compiled Tailwind, custom form engine</dd></div>
+            <div><dt>Live at</dt><dd><a href="https://www.outdoorsforyouth.org" target="_blank" rel="noopener">outdoorsforyouth.org</a></dd></div>
+            <div><dt>Year</dt><dd>2026. Live since July.</dd></div>
+          </dl>
+          <ul class="tags"><li>Static HTML</li><li>Slug parity</li><li>Custom form engine</li><li>localStorage</li><li>Salesforce inventory</li><li>FTPS deploy</li><li>Schema</li></ul>
+        </aside>
+
+        <div class="case-body reveal">
+          <h4>Off Wix, rankings intact</h4>
+          <p class="standfirst">Half the content was stuck inside iframes. Rebuilt as real pages, original slugs kept.</p>
+          <p>On Wix, some of the most important sections of the site were rendered inside iframes, which meant search engines saw the frame and not the text. All of that content is now ordinary HTML on the page.</p>
+          <p>There are 22 pages. Every slug matches the old site so the existing rankings carried over, the URLs have no extensions, the Tailwind build is compiled to one stylesheet instead of loading from a CDN, and each page carries an organization schema block with the camp's actual name, address and phone number.</p>
+          <p>The registration form is the biggest piece of custom work. It runs in seven steps with a progress indicator, saves every answer in the browser so a parent can finish later, keeps a running total as rentals and apparel are added, pulls the session tiles from the camp's Salesforce inventory, and only shows the waitlist once a week has actually sold out.</p>
+          <p>The site went live on the real domain in July 2026. The gallery has more than two hundred of the camp's own photos, converted to WebP.</p>
+          <p class="case-links">
+            <a class="txtlink" href="https://www.outdoorsforyouth.org" target="_blank" rel="noopener">Visit the site</a>
+            <a class="txtlink" href="https://www.outdoorsforyouth.org/register-for-ofy" target="_blank" rel="noopener">Dates and registration</a>
+            <a class="txtlink" href="https://www.outdoorsforyouth.org/gallery" target="_blank" rel="noopener">Gallery</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="plates">
+        <figure class="plate reveal">
+          <div class="win"><div class="win-bar">outdoorsforyouth.org/register-for-ofy</div><div class="win-body"><img src="images/ofy-dates.jpg" width="2880" height="1800" alt="The dates and registration page showing session tiles" loading="lazy"></div></div>
+          <figcaption><b>Dates and registration</b> Session tiles, cabin pricing, one Register button.</figcaption>
+        </figure>
+        <figure class="plate reveal">
+          <div class="win"><div class="win-bar">outdoorsforyouth.org/what-is-ofy</div><div class="win-body"><img src="images/ofy-camp.jpg" width="2880" height="1800" alt="The What Is OFY page" loading="lazy"></div></div>
+          <figcaption><b>The camp</b> Former iframe content, now real markup.</figcaption>
+        </figure>
+        <figure class="plate reveal">
+          <div class="win"><div class="win-bar">outdoorsforyouth.org/gallery</div><div class="win-body"><img src="images/ofy-gallery.jpg" width="2880" height="1800" alt="The photo gallery grid" loading="lazy"></div></div>
+          <figcaption><b>Gallery</b> More than two hundred of the camp's own photos in a masonry grid with a lightbox.</figcaption>
+        </figure>
+      </div>
     </div>
   </article>
 
   <!-- ---------- Nadia's ---------- -->
-  <article class="case" id="c-nadia">
-    <figure class="shot reveal">
-      <div class="shot-frame">
-        <img src="images/nadia.jpg" alt="Homepage of Nadia's Dog Nanny Services showing a golden retriever and the Phoenix service area" width="1400" height="972" loading="lazy">
-      </div>
-    </figure>
-    <div class="bar case-grid">
-      <div class="case-meta">
-        <p class="case-name">Nadia's Dog Nanny Services</p>
-        <dl class="meta">
-          <div><dt>Scope</dt><dd>Rebuild, structured data, photo pass</dd></div>
-          <div><dt>Built with</dt><dd>HTML, CSS, JSON-LD</dd></div>
-          <div><dt>Live at</dt><dd><a class="txtlink" href="https://nadiawalksdogs.com" target="_blank" rel="noopener">nadiawalksdogs.com</a></dd></div>
-        </dl>
-        <ul class="tags"><li>Static HTML</li><li>JSON-LD graph</li><li>FAQPage</li><li>OfferCatalog</li><li>Image pipeline</li></ul>
+  <article class="case" id="c-nadia" data-spy>
+    <div class="wrap">
+      <div class="case-top reveal">
+        <p class="case-kicker"><span>Boarding and daycare</span><span>Phoenix, Arizona</span><span>2026</span></p>
+        <h3>Nadia's Dog Nanny Services</h3>
       </div>
 
-      <div class="case-body">
-        <h3>The site was never slow</h3>
-        <p class="standfirst">
-          Quarter-second TTFB, images already optimized. The actual problems: no canonicals,
-          broken schema, junk sitemap URLs, 200KB of builder markup.
-        </p>
-
-        <p class="case-links">
-          <a class="txtlink" href="https://nadiawalksdogs.com" target="_blank" rel="noopener">Visit the site</a>
-        </p>
+      <div class="case-visual">
+        <figure class="win reveal">
+          <div class="win-bar">nadiawalksdogs.com</div>
+          <div class="win-body"><img src="images/nadia-home.jpg" width="2880" height="1800" alt="Homepage of Nadia's Dog Nanny Services with the green brand, hero photo and service cards" loading="lazy"></div>
+        </figure>
+        <figure class="phone reveal">
+          <div class="screen"><img src="images/nadia-home-m.jpg" width="1170" height="2532" alt="The Nadia's Dog Nanny Services homepage on a phone" loading="lazy"></div>
+        </figure>
       </div>
-    </div>
 
-    <div class="bar plates">
-      <figure class="plate reveal">
-        <div class="shot-frame tall"><img src="images/nadia-services.jpg" alt="The services page of Nadia's Dog Nanny Services" width="1000" height="694" loading="lazy"></div>
-        <figcaption><b>Services</b> Seven services, verified prices, marked up as an offer catalog.</figcaption>
-      </figure>
-      <figure class="plate reveal">
-        <div class="shot-frame tall"><img src="images/nadia-boarding.jpg" alt="The boarding page of Nadia's Dog Nanny Services" width="1000" height="694" loading="lazy"></div>
-        <figcaption><b>Boarding</b> Client's own photos, compressed and self-hosted.</figcaption>
-      </figure>
-      <figure class="plate reveal">
-        <div class="shot-frame tall"><img src="images/nadia-edu.jpg" alt="The education and credentials page of Nadia's Dog Nanny Services" width="1000" height="694" loading="lazy"></div>
-        <figcaption><b>Credentials</b> Real certifications. No review-star markup.</figcaption>
-      </figure>
+      <div class="case-grid">
+        <aside class="case-meta reveal">
+          <dl class="meta">
+            <div><dt>Scope</dt><dd>Rebuild off GoDaddy, structured data, photo pass</dd></div>
+            <div><dt>Built with</dt><dd>HTML, CSS, JSON-LD, Tag Manager</dd></div>
+            <div><dt>Live at</dt><dd><a href="https://nadiawalksdogs.com" target="_blank" rel="noopener">nadiawalksdogs.com</a></dd></div>
+            <div><dt>Year</dt><dd>2026. Live since August.</dd></div>
+          </dl>
+          <ul class="tags"><li>Static HTML</li><li>JSON-LD graph</li><li>OfferCatalog</li><li>FAQPage</li><li>Image pipeline</li><li>GTM</li><li>FTPS deploy</li></ul>
+        </aside>
+
+        <div class="case-body reveal">
+          <h4>The site was never slow</h4>
+          <p class="standfirst">Quarter-second TTFB, images already optimized. The actual problems: broken schema, junk sitemap URLs, double-encoded titles, 200KB of builder markup.</p>
+          <p>The brief said the GoDaddy site was slow, and it was not. Time to first byte was about a quarter of a second, the images were already optimized on a CDN, and there was no autoplay video. The problem was control. GoDaddy's builder had generated a broken business schema block with a made-up domain in it, put junk URLs in the sitemap, double-encoded the page titles, and wrapped about 30KB of content in 247KB of markup.</p>
+          <p>I rebuilt it as fourteen hand-coded pages using the client's own copy and prices, compressed and self-hosted her photos, and gave every page one schema graph covering the business, the page type, breadcrumbs, and a seven-service offer catalog. There are no review stars in the markup, because marking up your own ratings is against Google's rules.</p>
+          <p>It has been live on SiteGround since August 2026 with Tag Manager, analytics and Clarity on every page. A crawl after launch came back with no issues: all 211 images have alt text, the structured data validates on every page, and there are no duplicate titles or descriptions.</p>
+          <p class="case-links">
+            <a class="txtlink" href="https://nadiawalksdogs.com" target="_blank" rel="noopener">Visit the site</a>
+            <a class="txtlink" href="https://nadiawalksdogs.com/services" target="_blank" rel="noopener">Services</a>
+            <a class="txtlink" href="https://nadiawalksdogs.com/boarding" target="_blank" rel="noopener">Boarding</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="plates">
+        <figure class="plate reveal">
+          <div class="win"><div class="win-bar">nadiawalksdogs.com/services</div><div class="win-body"><img src="images/nadia-services.jpg" width="2880" height="1800" alt="The services page of Nadia's Dog Nanny Services" loading="lazy"></div></div>
+          <figcaption><b>Services</b> Seven services, verified prices, marked up as an offer catalog.</figcaption>
+        </figure>
+        <figure class="plate reveal">
+          <div class="win"><div class="win-bar">nadiawalksdogs.com/boarding</div><div class="win-body"><img src="images/nadia-boarding.jpg" width="2880" height="1800" alt="The boarding page of Nadia's Dog Nanny Services" loading="lazy"></div></div>
+          <figcaption><b>Boarding</b> Client's own photos, compressed and self-hosted.</figcaption>
+        </figure>
+        <figure class="plate reveal">
+          <div class="win"><div class="win-bar">nadiawalksdogs.com/education-1</div><div class="win-body"><img src="images/nadia-edu.jpg" width="2880" height="1800" alt="The education and credentials page of Nadia's Dog Nanny Services" loading="lazy"></div></div>
+          <figcaption><b>Credentials</b> Real certifications. No review-star markup.</figcaption>
+        </figure>
+      </div>
     </div>
   </article>
 
-  <div class="bar">
+  <div class="wrap">
     <p class="aside reveal">
-      Also: Arlington Dog Nanny off Wix onto Divi 5, plus a long tail of smaller builds, audits,
-      and schema work across pet care, aviation, healthcare, and home services.
+      Also this year: <b>Arlington Dog Nanny</b> moved off Wix onto Divi 5. I rebuilt a 39-page nonprofit site from Squarespace into static HTML, keeping the live wording as it was, and gave a fourteen-page dog daycare site in Massachusetts a full schema graph, new metadata and a fix list for its hosting problems. The smaller audits and schema jobs are what the findings section further down is made of.
     </p>
   </div>
 </section>
 
-<!-- ============================== SERVICES ============================== -->
-<section class="sheet sheet-tint" id="services">
-  <div class="bar">
-    <header class="sheet-head reveal">
-      <p class="label"><span class="num">02</span> Services</p>
-      <h2 class="mask">What I do</h2>
+<!-- ============================== 02 APPLICATIONS ============================== -->
+<section class="sec sec-tint" id="products" data-spy>
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="label"><span class="num">02</span> Beyond websites</p>
+      <h2>Applications</h2>
+      <p class="standfirst">Three internal products I built for the agency I work at. They run the place day to day. All three are behind a company sign-in, so screenshots are all I can show here.</p>
     </header>
 
-    <dl class="detail detail-2 reveal">
-      <div><dt>Website design and build</dt><dd>Hand-coded pages, no platform lock-in. You own the files.</dd></div>
-      <div><dt>Page builder migration</dt><dd>Off Wix, GoDaddy, or Divi with slugs and metadata intact.</dd></div>
-      <div><dt>Custom functionality</dt><dd>Multi-step forms, calculators, maps, live data tools. Built in, not embedded.</dd></div>
-      <div><dt>Structured data</dt><dd>One clean graph per page, written from your real content.</dd></div>
-      <div><dt>Technical audits</dt><dd>A crawl, a diagnosis, and a list in priority order.</dd></div>
-      <div><dt>Local search</dt><dd>Google Business Profile, citations, reviews, service-area pages.</dd></div>
-      <div><dt>Tracking and reporting</dt><dd>Tags that fire, conversions that record, a monthly report you can read.</dd></div>
-      <div><dt>AI search visibility</dt><dd>Pages structured so AI answers can quote them.</dd></div>
-    </dl>
-  </div>
-</section>
-
-<!-- ============================== SYSTEMS ============================== -->
-<section class="sheet" id="systems">
-  <div class="bar">
-    <header class="sheet-head reveal">
-      <p class="label"><span class="num">03</span> Beyond websites</p>
-      <h2 class="mask">Applications</h2>
-      <p class="standfirst">
-        Two internal products I built. They run a marketing agency day to day. Both are behind a
-        company sign-in.
-      </p>
-    </header>
-
-    <div class="rows">
-      <article class="row reveal">
-        <div class="row-head">
-          <h3>Memphis</h3>
-          <span class="tag">Sign-in required</span>
-        </div>
-        <p class="mono">memphis.hangarmarketing.com</p>
-        <p>
-          The agency's project management system. It replaced Asana. Tasks, subtasks, timers,
-          boards, calendars, timelines, KPI dashboards, hours by client, approvals, and a live
-          inbox.
-        </p>
-        <figure class="system-screen reveal">
-          <div class="shot-frame"><img src="images/memphis.jpg" alt="The Memphis project management dashboard with daily tasks, agency KPIs, overdue work, upcoming work, and a live task inbox" width="2048" height="1020" loading="lazy"></div>
-          <figcaption>The daily dashboard: schedule, active work, KPIs, deadlines, inbox.</figcaption>
+    <article class="prod">
+      <div class="prod-head reveal">
+        <h3>Memphis</h3>
+        <span class="tag">Sign-in required</span>
+      </div>
+      <p class="mono reveal">memphis.hangarmarketing.com</p>
+      <div class="prod-stack">
+        <figure class="prod-shot win reveal">
+          <div class="win-bar">memphis.hangarmarketing.com</div>
+          <div class="win-body free"><img src="images/memphis.jpg" width="2048" height="1020" alt="The Memphis dashboard with daily tasks, agency KPIs, overdue and upcoming work, and a live task inbox" loading="lazy"></div>
         </figure>
-        <p class="row-meta">React 19, TypeScript, Vite, Tailwind, Firebase. Built solo.</p>
-      </article>
-
-      <article class="row reveal">
-        <div class="row-head">
-          <h3>Tarmac</h3>
-          <span class="tag">Sign-in required</span>
+        <div class="prod-text cols reveal">
+          <p>The agency's project management system. It replaced Asana. Tasks, subtasks, timers, boards, calendars, timelines, KPI dashboards, hours by client, approvals, and a live inbox.</p>
+          <ul class="bullets">
+            <li>A REST API with scoped keys, and an MCP server with 17 tools so tasks can be created, timed and commented on from a chat.</li>
+            <li>Team messaging goes through Slack's API, so a message sent from the app shows up in the real workspace.</li>
+            <li>The old Asana board was imported as an archive of 367 tasks and 841 subtasks, with its columns and tags kept. None of it counts as live work.</li>
+            <li>There is an arcade of multiplayer games built on Firebase's realtime database, with Elo ladders. A test fails the build if a hand's download cost grows, which is what keeps it inside the free allowance.</li>
+            <li>A weekly storage sweep clears uploads whose task has been deleted. It shipped switched off so the counts could be read first.</li>
+          </ul>
+          <p class="row-meta">React 19, TypeScript, Vite, Tailwind, Firebase. Built solo.</p>
         </div>
-        <p class="mono">tarmac.hangarmarketing.com</p>
-        <p>
-          The agency's staff time and operations app, including the timeclock. I built it on
-          Firebase and later moved it to AWS Amplify.
-        </p>
-        <figure class="device reveal">
-          <div class="shot-frame"><img src="images/tarmac-tight.jpg" alt="The Tarmac timeclock on mobile, showing hours logged today, this week, and for the pay period" width="912" height="1724" loading="lazy"></div>
+      </div>
+    </article>
+
+    <article class="prod">
+      <div class="prod-head reveal">
+        <h3>Tarmac</h3>
+        <span class="tag">Sign-in required</span>
+      </div>
+      <p class="mono reveal">tarmac.hangarmarketing.com</p>
+      <div class="prod-grid">
+        <figure class="prod-shot reveal">
+          <div class="phone"><div class="screen"><img src="images/tarmac-tight.jpg" width="900" height="1951" alt="The Tarmac timeclock on a phone, showing hours today, this week and for the pay period" loading="lazy"></div></div>
           <figcaption>The timeclock. Hours today, this week, pay period.</figcaption>
         </figure>
-        <p class="row-meta">React, TypeScript, AWS Amplify. Built solo.</p>
-      </article>
-    </div>
+        <div class="prod-text reveal">
+          <p>The agency's staff time and operations app, including the timeclock: an iPad kiosk, a phone portal and an admin panel. I built it on Firebase and later moved it to AWS Amplify, with Cognito and Google sign-in.</p>
+          <ul class="bullets">
+            <li>PTO accrues per pay period, holidays credit that day's scheduled hours, and a shortfall is covered from the balance automatically unless someone opts out for that period. The payroll export shows worked and paid hours as separate columns.</li>
+            <li>Employees can clock in by face at the kiosk. Recognition runs on the device, it is opt-in, consent is recorded before the camera opens, and no image ever leaves the iPad.</li>
+            <li>Local development runs against an in-memory mock of the backend. There are 99 unit tests and a 68-assertion verify script that run before any deploy.</li>
+          </ul>
+          <p class="row-meta">React, TypeScript, AWS Amplify Gen 2. Built solo.</p>
+        </div>
+      </div>
+    </article>
 
-    <p class="label label-rule reveal">Built alongside them</p>
-
-    <dl class="detail detail-2 reveal">
-      <div><dt>Enterprise Mockups</dt><dd>Client review board. Pan-and-zoom canvas, pinned comments that hold position at any zoom, exports that name the exact element.</dd></div>
-      <div><dt>Office KPI board</dt><dd>The wall dashboard. One HTML file, live off the Memphis API, rotating at 1080p.</dd></div>
-      <div><dt>Meeting notes</dt><dd>A bot joins the call, records it, and files the action items back into Memphis as tasks.</dd></div>
-      <div><dt>WordPress plugin</dt><dd>v3.2 to v4.0 across the year. CSV meta editing, schema, pixels, WebP conversion, alt text repair.</dd></div>
-      <div><dt>Browser extensions</dt><dd><b>FlashCompress</b> for image and video compression. <b>MetaCounter</b> for pixel-width meta lengths. <b>StackLens</b> for stack detection.</dd></div>
-    </dl>
+    <article class="prod">
+      <div class="prod-head reveal">
+        <h3>Enterprise Mockups</h3>
+        <span class="tag">Sign-in required</span>
+      </div>
+      <p class="mono reveal">enterprisemockups.web.app</p>
+      <div class="prod-grid">
+        <div class="prod-text reveal">
+          <p>The client review board. It is a Figma-style canvas where each mockup is a frame, reviewers pin comments to the exact spot, and the export includes the file, the position and the element, so the fix can be handed to a person or an AI.</p>
+          <ul class="bullets">
+            <li>Frames can be PDFs, single HTML files, images, live URLs, or a zipped multi-page site that navigates inside its own frame.</li>
+            <li>Pins are stored as fractions of the frame, so they stay put at any zoom, survive the file being replaced, and can be dragged if the design moves under them.</li>
+            <li>Presentation mode with authored slides, PowerPoint import that reads theme colors and master chrome, and PDF export of the whole deck.</li>
+          </ul>
+        </div>
+        <div class="prod-text reveal">
+          <ul class="bullets" style="margin-top:0">
+            <li>A design editor inside the app, with snapping guides, rotation, groups, align and distribute, a component library, and live multi-cursor presence.</li>
+            <li>Undo and redo on a shared board. Each entry carries its own inverse operation rather than a snapshot.</li>
+            <li>Dark mode, folders, board statuses and an admin panel for managing people.</li>
+            <li>An admin-gated REST API and an MCP server. Deleting archives, purging is the only action that destroys anything, and the privacy page says so.</li>
+          </ul>
+          <p class="row-meta">Vite, React, TypeScript, Tailwind, Firebase. Built June 2026, solo.</p>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- ============================== ENTERPRISE ============================== -->
-<section class="sheet sheet-tint" id="enterprise">
-  <div class="bar">
-    <header class="sheet-head reveal">
-      <p class="label"><span class="num">04</span> Enterprise</p>
-      <h2 class="mask">SEO at national scale</h2>
+<!-- ============================== 03 TOOLS ============================== -->
+<section class="sec" id="tools" data-spy>
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="label"><span class="num">03</span> Tools</p>
+      <h2>Things I built along the way</h2>
+      <p class="standfirst">Extensions, plugins, servers and scripts that make the client work go faster. Most of them exist because I wanted a tool that did not exist yet.</p>
     </header>
 
-    <ol class="numlist reveal">
+    <div class="tl stagger">
+      <div class="tl-row tl-head"><span>Name</span><span>Kind</span><span>What it does</span><span>Built with</span></div>
+
+      <div class="tl-row">
+        <div class="tl-name">SEO Meta Manager<small>WordPress plugin</small></div>
+        <div class="tl-kind">Plugin</div>
+        <div class="tl-desc">A spreadsheet-style meta editor and CSV bulk upload for titles, descriptions and JSON-LD that overrides Yoast and Rank Math, plus tracking pixels, code injection, WebP conversion, alt-text repair, and an export bundle an AI can fill in. Went from version 3.2 to 4.0 this year.</div>
+        <div class="tl-stack">PHP, GD, JavaScript</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">FlashCompress<small>Extension, MCP server, CLI</small></div>
+        <div class="tl-kind">Browser</div>
+        <div class="tl-desc">Image and video compression in the browser: WebP, JPEG, PNG and AVIF. The server version runs the extension's own worker inside headless Chromium, so the output is byte-for-byte the same.</div>
+        <div class="tl-stack">JavaScript, WebAssembly, Puppeteer</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">MetaCounter<small>Chrome extension</small></div>
+        <div class="tl-kind">Browser</div>
+        <div class="tl-desc">Measures title and description length in pixels, which is how Google truncates them, rather than in characters.</div>
+        <div class="tl-stack">JavaScript</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">StackLens<small>Chrome extension</small></div>
+        <div class="tl-kind">Browser</div>
+        <div class="tl-desc">Detects the stack behind whatever site you have open.</div>
+        <div class="tl-stack">JavaScript</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Site crawler<small>Command line</small></div>
+        <div class="tl-kind">CLI</div>
+        <div class="tl-desc">Follows links the way Screaming Frog does and records status codes, indexability, titles and descriptions with pixel widths, canonicals, hreflang, schema types, word counts and redirect chains, then cross-checks orphans against every sitemap it can find.</div>
+        <div class="tl-stack">Python</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Structured data validator<small>Command line</small></div>
+        <div class="tl-kind">CLI</div>
+        <div class="tl-desc">The full schema.org vocabulary offline, plus Google's own eligibility rules, so a graph can be checked and scored for richness before it ships.</div>
+        <div class="tl-stack">Runs offline</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Web capture<small>Command line</small></div>
+        <div class="tl-kind">CLI</div>
+        <div class="tl-desc">Full-page screenshots and PDFs for one URL, a list, or a whole sitemap. Lazy content gets scrolled into view and cookie banners are dismissed first.</div>
+        <div class="tl-stack">Python, Playwright</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Brand assets<small>Command line</small></div>
+        <div class="tl-kind">CLI</div>
+        <div class="tl-desc">Pulls a site's real logo, favicon and brand colors so nothing made for a business goes out with a placeholder.</div>
+        <div class="tl-stack">Python, standard library only</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Hangar Daily MCP<small>Memphis from a chat</small></div>
+        <div class="tl-kind">MCP server</div>
+        <div class="tl-desc">17 tools over the Memphis API: tasks, subtasks, comments, timers, clients, members. Credentials live in the environment and never in the code.</div>
+        <div class="tl-stack">Node</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Signal MCP<small>Client reporting</small></div>
+        <div class="tl-kind">MCP server</div>
+        <div class="tl-desc">16 tools over a client-reporting API: create reports, add and edit slides, hide rows, set themes and give dates.</div>
+        <div class="tl-stack">Node</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Meeting Notes MCP<small>Calls into tasks</small></div>
+        <div class="tl-kind">MCP server</div>
+        <div class="tl-desc">A bot joins the call and records it. This server reads the meetings, transcripts and action items so they can be filed into Memphis as tasks.</div>
+        <div class="tl-stack">Node</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Enterprise Mockups MCP<small>Plus the REST API</small></div>
+        <div class="tl-kind">MCP server</div>
+        <div class="tl-desc">Boards, frames, comments, slides and folders from a chat. Upload a mockup, replace it in place, read and resolve review comments.</div>
+        <div class="tl-stack">Node, Firebase Functions</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Screenshot Save Prompt<small>macOS utility</small></div>
+        <div class="tl-kind">Desktop</div>
+        <div class="tl-desc">Dims the screen for Cmd+Shift+4 with a live pixel readout, asks whether you want to save the capture, and keeps the last ten under Cmd+Option+4. Installs as a launch agent.</div>
+        <div class="tl-stack">Swift, AppKit</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">KeyRack<small>Password manager</small></div>
+        <div class="tl-kind">App</div>
+        <div class="tl-desc">A local password manager for the agency. Argon2 tuned per host, TOTP, an importer for the spreadsheet it replaces, and an agent gate that only fires when a secret is actually printed. 236 tests.</div>
+        <div class="tl-stack">Next.js, SQLite, Drizzle</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">FuelBurn<small>Subscription tracker</small></div>
+        <div class="tl-kind">App</div>
+        <div class="tl-desc">Tracks the agency's recurring software spend. Google sign-in is locked to the company domain and the server is the only thing that writes.</div>
+        <div class="tl-stack">Next.js, Firebase</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Office KPI board<small>Wall dashboard</small></div>
+        <div class="tl-kind">App</div>
+        <div class="tl-desc">One HTML file that pulls live numbers from the Memphis API through a scoped key and rotates screens at 1080p on the office TV.</div>
+        <div class="tl-stack">HTML, Firebase</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Report generator<small>PPTX engine</small></div>
+        <div class="tl-kind">App</div>
+        <div class="tl-desc">Branded monthly client reports as native, editable PowerPoint files, rendered from one layout model with a pixel-matched HTML preview for checking.</div>
+        <div class="tl-stack">Node, pptxgenjs</div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-name">Competitor Ad Spy<small>Internal tool</small></div>
+        <div class="tl-kind">App</div>
+        <div class="tl-desc">Type a competitor and see their current Google ads, through a pluggable ad source with a 12-hour cache so repeat lookups cost nothing.</div>
+        <div class="tl-stack">React, Express</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 04 FINDINGS ============================== -->
+<section class="sec sec-tint" id="findings" data-spy>
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="label"><span class="num">04</span> Audits</p>
+      <h2>Findings from the audit work</h2>
+      <p class="standfirst">I have audited, marked up or sped up more than twenty local-business sites this year, on WordPress, Divi, Squarespace, Wix and one franchise CMS. The clients are not named here, but the findings are real, and these are the ones worth repeating.</p>
+    </header>
+
+    <ol class="findings stagger">
+      <li>
+        <div>
+          <p class="f-tag">Flooring store, Idaho</p>
+          <p class="f-find">131 of the 191 reachable pages had a canonical tag pointing at the franchise parent's website, and not one of them ranked for anything.</p>
+          <p class="f-note">Rewriting the copy on those pages was never going to work, so the plan moved to the sixty pages the store actually controls.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Dog daycare, Houston</p>
+          <p class="f-find">The schema was there, but it was injected through Tag Manager, so a fetch of the server HTML made it look like there was none.</p>
+          <p class="f-note">Worth checking the rendered page before calling anything missing. The same audit also found a live search ad naming the wrong city.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Dog daycare, California</p>
+          <p class="f-find">The hero image URL sat 90 percent of the way through a 391,000-character HTML file, in a style block near the end of the body, so the browser could not start loading it until it had parsed almost the whole page.</p>
+          <p class="f-note">A single preload tag in the head is the biggest speed win on that site. The WebP plugin was also producing files larger than the JPEGs it replaced.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Dog groomer, Idaho</p>
+          <p class="f-find">The business had moved, and the citations had not.</p>
+          <p class="f-note">Same zip code, so a quick check looked consistent. There was also no SEO plugin installed at all, which explained why thirteen pages had no meta description.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Dog trainer, Tennessee</p>
+          <p class="f-find">The live structured data had the business name spelled wrong and pointed the logo property at a featured image.</p>
+          <p class="f-note">Only the homepage had any schema, none of the twenty titles was in range, and the server would not negotiate HTTP/2 while serving 71 files per page.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Dog resort, North Carolina</p>
+          <p class="f-find">The WordPress login name was being published on all 23 pages, both in the data layer and in the Twitter card.</p>
+          <p class="f-note">That is a credential-hygiene problem before it is an SEO problem. Otherwise it was the strongest site I looked at this year, scoring 79 out of 100.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Healthcare marketing agency, Idaho</p>
+          <p class="f-find">Zero keywords in the top twenty. It was a standing start, not a decline.</p>
+          <p class="f-note">Most of what did rank was cardiology terms landing on the blog because the agency's name looks like the word cardiac. I did not report those as wins.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Hospital, Idaho</p>
+          <p class="f-find">The hospital shares its name with four bigger places, so national search volume for its own name was meaningless.</p>
+          <p class="f-note">Positions have to come from a rank tracker located in the town itself. The word False was also printing 248 times across thirty specialty pages.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Dog daycare, Texas</p>
+          <p class="f-find">The map-pack grid for dog boarding read 11 to 13 at every point in the city, including the pin on their own address.</p>
+          <p class="f-note">That is a relevance ceiling rather than a proximity problem, so service-area pages would not move it. The site had no backlinks at all, and some of the competitors above it had eight.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Dog park and lodge, Washington</p>
+          <p class="f-find">Squarespace injects its own Organization schema, so the site was carrying two of them with different phone numbers.</p>
+          <p class="f-note">Nothing had been installed wrong. The platform's block and the custom block simply disagreed, across twelve pages. The custom graph now covers 23 schema types and 118 question and answer pairs.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Dog daycare, Massachusetts</p>
+          <p class="f-find">Every URL with a trailing slash returned a 500, and every old WordPress inbound link had a trailing slash.</p>
+          <p class="f-note">One extensionless path also returned a 403 that nothing in the config explained. The metadata and the schema graph shipped the same day, and the hosting problems went into a fix list.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <p class="f-tag">Developer portfolio, Idaho</p>
+          <p class="f-find">The staging hostname was still inside the structured data on eleven pages, so the articles pointed at an author and a publisher that did not exist.</p>
+          <p class="f-note">Apart from that it was the cleanest crawl of the year: 27 pages, no faults, every image with alt text and dimensions.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================== 05 ENTERPRISE ============================== -->
+<section class="sec" id="enterprise" data-spy>
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="label"><span class="num">05</span> Enterprise</p>
+      <h2>SEO at national scale</h2>
+      <p class="standfirst">The other half of my week goes to one account: a national payments processor and its co-branded programs, across four websites in the US and Canada. The work there is research, recommendations and working mockups that the client's own teams take live, so I do not name it here.</p>
+    </header>
+
+    <ol class="numlist stagger">
       <li>
         <h4>Site-wide keyword architecture</h4>
-        <p>Every indexable page mapped to one target keyword, with a retain, optimize, consolidate, redirect, or decommission call on each URL.</p>
+        <p>Every indexable page mapped to one target keyword, with a retain, optimize, consolidate, redirect or decommission call on each of 238 URLs.</p>
       </li>
       <li>
         <h4>Resource and support center rebuilds</h4>
-        <p>Two pitches delivered as working mockups instead of slides, built from a harvested library of the client's real content.</p>
+        <p>Two pitches delivered as working mockups instead of slides, built from a harvested library of the client's real content inside the client's real header and footer.</p>
+      </li>
+      <li>
+        <h4>Schema and metadata for 501 pages</h4>
+        <p>One JSON-LD graph plus a rewritten title and description for every indexable page across the four sites. Each graph validated with zero errors, and the work was delivered as per-account workbooks with the issue log attached.</p>
+      </li>
+      <li>
+        <h4>The orphaned library</h4>
+        <p>Five category pages linked to 106 articles, but nothing linked to the category pages, because the View all controls were buttons rather than anchors. That left 87 of 102 articles with no crawlable path from their own section. Googlebot follows links and does not click buttons, so the fix was five anchors and five sitemap entries.</p>
       </li>
       <li>
         <h4>Content plan restructure</h4>
-        <p>One page type per week per account. The template gets built once and rolls across every page of that type.</p>
+        <p>One page type per week per account. The template gets built once and rolls across every page of that type, instead of a page picked at random each week.</p>
+      </li>
+      <li>
+        <h4>FAQ program for a Canadian site</h4>
+        <p>135 questions mapped across 29 pages, 81 of them answerable from copy that was already approved, with the live site's own contradictions flagged before anything was written.</p>
       </li>
       <li>
         <h4>Partner bank web audits</h4>
-        <p>Six-dimension scoring of a bank's public web presence, delivered as a scorecard, gap analysis, and roadmap. The crawl rig is re-runnable for the next partner.</p>
+        <p>Six-dimension scoring of a bank's public web presence, delivered as a scorecard, gap analysis and roadmap. The crawl rig is re-runnable for the next partner.</p>
       </li>
       <li>
         <h4>Personalized marketing toolkit</h4>
         <p>A marketing page for merchants. A code in the URL swaps in that merchant's own QR code and matches the downloadable assets to their account.</p>
       </li>
+      <li>
+        <h4>A 220-page partner marketplace</h4>
+        <p>Titles, descriptions and structured data for every listing on a marketplace where 155 pages shared one title and nothing carried a canonical.</p>
+      </li>
     </ol>
   </div>
 </section>
 
-<!-- ============================== ABOUT ============================== -->
-<section class="sheet" id="about">
-  <div class="bar">
-    <header class="sheet-head reveal">
-      <p class="label"><span class="num">05</span> About</p>
-      <h2 class="mask">Background</h2>
+<!-- ============================== 06 GAMES ============================== -->
+<section class="sec sec-tint" id="play" data-spy>
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="label"><span class="num">06</span> Games</p>
+      <h2>Side projects</h2>
+      <p class="standfirst">Games I have built for fun. The rules are covered by tests and the balance is tuned by running simulations, the same way I treat everything else.</p>
+    </header>
+
+    <div class="games">
+      <article class="game reveal">
+        <div class="shot pixel"><img src="images/game-last-light.png" width="2560" height="1440" alt="Last Light: a pixel-art fox running across platforms in a forest" loading="lazy"></div>
+        <div class="game-body">
+          <p class="mono">2D platformer. Vanilla JS, no build step.</p>
+          <h3>Last Light</h3>
+          <p>An endless pixel-art survival platformer with coyote time, jump buffering and a difficulty ramp that keeps creeping. All the assets are CC0, and if a file fails to load the game falls back to coloured shapes instead of breaking.</p>
+        </div>
+      </article>
+      <article class="game reveal">
+        <div class="shot pixel"><img src="images/game-blood-ante.png" width="2560" height="1440" alt="Blood Ante: an arena with enemies closing in and a damage scorebox in the corner" loading="lazy"></div>
+        <div class="game-body">
+          <p class="mono">Roguelike. Vanilla JS, ES modules.</p>
+          <h3>Blood Ante</h3>
+          <p>A survivors-style game where damage is a score formula: base plus chips, times mult, times every xmult. The balance is tuned by a headless bot that plays whole runs, then plays them again with an immortal player to check that the damage quota is actually doing something.</p>
+        </div>
+      </article>
+      <article class="game reveal">
+        <div class="shot"><img src="images/game-dice.jpg" width="2560" height="1440" alt="Dice Tray: a full set of 3D polyhedral dice on a tray" loading="lazy"></div>
+        <div class="game-body">
+          <p class="mono">3D dice roller. Three.js, cannon-es.</p>
+          <h3>Dice Tray</h3>
+          <p>A seven-piece set where each die's collision hull is built from the same vertices as its mesh, so the result is whichever face physically lands up. Gravity runs at about 0.18 g on purpose, because real gravity settles in under a second and is no fun to watch.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="rule-label reveal">The Memphis arcade</p>
+    <dl class="arcade stagger">
+      <div>
+        <dt>Hangar One<small>Uno, two to six players</small></dt>
+        <dd>Hands are private, which on Firebase's realtime database takes some care because read rules cascade. Each hand lives in a node only its owner can read. A test fails the build if a hand's download cost grows past budget, and sixty full games run in the test suite.</dd>
+      </div>
+      <div>
+        <dt>Radar<small>Battleship with aircraft</small></dt>
+        <dd>Four board sizes. A squadron is private, so the player being shot at is the only one who can say whether it hit, and both squadrons are published at the end so either side can check. The aircraft are drawn SVG, nose to tail across the span.</dd>
+      </div>
+      <div>
+        <dt>Hangar Checkers<small>English draughts</small></dt>
+        <dd>The whole game state is a 64-character string. The jump animation replays the finished move hop by hop and ghosts the captured pieces until the hop reaches them. Three practice bots, 35 tests.</dd>
+      </div>
+      <div>
+        <dt>Hangar Chess<small>Complete chess, three CPUs</small></dt>
+        <dd>Castling, en passant, promotion, stalemate, the fifty-move rule and threefold repetition. Move generation is proved by perft: 4,865,609 leaf nodes from the opening position and 4,085,603 from Kiwipete, all matching. 46 tests, and the piece art is drawn in-house.</dd>
+      </div>
+      <div>
+        <dt>Hangar Sortie<small>Turn-based tactics</small></dt>
+        <dd>Pick three units from six, deploy on an eight-by-eight apron, and alternate activations. Everything is orthogonal on purpose. Unit stats were tuned by simulating colour-swapped bot pairs until every type won between 43 and 56 percent of its drafts.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============================== 07 ABOUT ============================== -->
+<section class="sec" id="about" data-spy>
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="label"><span class="num">07</span> About</p>
+      <h2>Background</h2>
     </header>
 
     <div class="about-grid">
       <figure class="portrait reveal">
-        <img src="images/hyrum.jpg" alt="Portrait of Hyrum Whittier" width="800" height="800" loading="lazy">
+        <img src="images/hyrum.jpg" width="800" height="800" alt="Portrait of Hyrum Whittier" loading="lazy">
         <figcaption>Hyrum Whittier. Rexburg, Idaho.</figcaption>
       </figure>
 
-      <div class="reveal">
-        <p class="standfirst">
-          B.S. in Web Design and Development from BYU&ndash;Idaho. I work agency side, running
-          search across a book of client accounts and building the tools behind it.
-        </p>
+      <div class="about-text reveal">
+        <p class="standfirst">B.S. in Web Design and Development from BYU&ndash;Idaho. I work agency side, running search across a book of client accounts and building the tools behind it.</p>
+        <p>Most of what is on this page comes from one habit: when a tool I need does not exist, I build it. The project management system exists because the agency outgrew Asana. The crawler exists because I wanted every page's title width, canonical and schema in one table. The review board exists because a comment on a mockup should say exactly which element it means.</p>
+        <p>The same process runs on a four-page site for a local business as on a five-hundred-page enterprise site, and most of my work is the former.</p>
+        <p>I am in Rexburg, Idaho. The photo at the top of the page is the Tetons.</p>
 
         <dl class="cv">
           <div>
             <dt>Education</dt>
-            <dd>
-              <b>Bachelor of Science, Web Design and Development</b>
-              <span>Brigham Young University&ndash;Idaho, Rexburg</span>
-            </dd>
+            <dd><b>Bachelor of Science, Web Design and Development</b><span>Brigham Young University&ndash;Idaho, Rexburg</span></dd>
           </div>
           <div>
             <dt>Current</dt>
-            <dd>
-              <b>SEO Specialist and Internal Tools Builder</b>
-              <span>Marketing agency, Rexburg Idaho</span>
-            </dd>
+            <dd><b>SEO Specialist and Internal Tools Builder</b><span>Marketing agency, Rexburg, Idaho</span></dd>
+          </div>
+          <div>
+            <dt>Elsewhere</dt>
+            <dd><b>LinkedIn and GitHub</b><span><a class="txtlink" href="https://www.linkedin.com/in/hyrum-whittier/" target="_blank" rel="noopener">linkedin.com/in/hyrum-whittier</a> &nbsp; <a class="txtlink" href="https://github.com/whittierht" target="_blank" rel="noopener">github.com/whittierht</a></span></dd>
           </div>
         </dl>
       </div>
@@ -432,17 +834,75 @@
   </div>
 </section>
 
-<!-- ============================== CONTACT ============================== -->
-<section class="contact sheet-invert" id="contact">
-  <div class="bar">
+<!-- ============================== 08 PROCESS ============================== -->
+<section class="sec sec-tint" id="process" data-spy>
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="label"><span class="num">08</span> Process</p>
+      <h2>How this works</h2>
+      <p class="standfirst">What happens after you send me a URL.</p>
+    </header>
+
+    <ol class="steps stagger">
+      <li>
+        <h4>Send the URL</h4>
+        <p>Tell me what the site is for and what you have already tried. I will load the site before I reply, so the first answer is about your pages and not about web design in general.</p>
+      </li>
+      <li>
+        <h4>I crawl it before I recommend anything</h4>
+        <p>Every page gets checked: status, titles and descriptions with pixel widths, canonicals, structured data, internal links and images. The findings above came out of crawls like that, not out of a checklist.</p>
+      </li>
+      <li>
+        <h4>You get a written diagnosis</h4>
+        <p>What is wrong, why it matters, and what to fix first, in priority order. It is a document you can read and forward, not a slide deck.</p>
+      </li>
+      <li>
+        <h4>The build keeps your URLs</h4>
+        <p>Hand-coded pages, old URLs mapped to new ones with redirects, and metadata and structured data written from your real content. Nothing invented and nothing from a stock library.</p>
+      </li>
+      <li>
+        <h4>Launch gets verified</h4>
+        <p>After a push I read the live files back through every cache layer. Then the redirects, the sitemap and the structured data are checked again on the live domain.</p>
+      </li>
+      <li>
+        <h4>You own the files</h4>
+        <p>Plain HTML, CSS and JavaScript on hosting in your name. Any host can serve it and any developer can read it.</p>
+      </li>
+    </ol>
+
+    <p class="rule-label reveal">Common questions</p>
+    <dl class="faq stagger">
+      <div>
+        <dt>Do I own the site afterward?</dt>
+        <dd>Yes. You get the files, and the hosting and domain stay in your name.</dd>
+      </div>
+      <div>
+        <dt>I am on Wix or Squarespace. Do I have to move?</dt>
+        <dd>No. Titles, descriptions, structured data and redirects can all be managed inside Wix through its own API, and Squarespace accepts code injection. Moving makes sense when the platform gets in the way of the content, which is what happened with the iframes above.</dd>
+      </div>
+      <div>
+        <dt>Can you work on my existing site instead of rebuilding it?</dt>
+        <dd>Most of the audit work on this page was exactly that: WordPress, Divi, Squarespace, Wix and a franchise CMS, fixed in place.</dd>
+      </div>
+      <div>
+        <dt>What do you need from me to start?</dt>
+        <dd>The URL. Access to Search Console and Analytics sharpens the priorities if you have them, but a crawl needs neither, so the first look can start with the URL alone.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============================== 09 CONTACT ============================== -->
+<section class="contact" id="contact" data-spy>
+  <div class="wrap">
     <p class="label reveal">Contact</p>
-    <h2 class="mega mega-sm reveal">Tell me about the site.</h2>
-    <p class="standfirst reveal">
-      Building, rebuilding, or diagnosing. Send the URL and what you have tried.
-    </p>
+    <h2 class="reveal">Tell me about the site.</h2>
+    <p class="standfirst reveal">Building, rebuilding, or diagnosing. Send the URL and what you have tried.</p>
     <p class="contact-mail reveal"><a href="mailto:whittierht@gmail.com">whittierht@gmail.com</a></p>
     <p class="contact-alt reveal">
+      <button class="copy" type="button" data-copy="whittierht@gmail.com">Copy address</button>
       <a class="txtlink" href="https://www.linkedin.com/in/hyrum-whittier/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="txtlink" href="https://github.com/whittierht" target="_blank" rel="noopener">GitHub</a>
       <span>Rexburg, Idaho</span>
     </p>
   </div>
@@ -451,7 +911,7 @@
 </main>
 
 <footer class="colophon">
-  <div class="bar colophon-inner">
+  <div class="wrap colophon-inner">
     <p>&copy; <span id="yr">2026</span> Hyrum Whittier</p>
     <p><a href="#top">Back to top</a></p>
   </div>

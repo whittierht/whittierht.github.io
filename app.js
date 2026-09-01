@@ -1,40 +1,41 @@
-/* Clock, scroll progress, reveals and the index hover preview.
-   Progressive enhancement: the page is complete without it. */
+/* Clock, theme, scroll spy, reveals, the hero letters. Progressive enhancement:
+   the page is complete without any of this. */
 (function () {
   'use strict';
 
   var root = document.documentElement;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* only hide things we are going to animate */
   if (!reduced) root.classList.add('js-anim');
 
-  /* ------------------------------------------------------------- clock */
+  /* ---------------------------------------------------------- theme */
+  var themeBtn = document.getElementById('theme');
+  function currentTheme() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('hw-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---------------------------------------------------------- clock */
   var clock = document.getElementById('clock');
   function tick() {
     if (!clock) return;
     var t;
     try {
-      t = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/Boise', hour: 'numeric', minute: '2-digit', hour12: true
-      }).format(new Date());
+      t = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Boise', hour: 'numeric', minute: '2-digit', hour12: true }).format(new Date());
     } catch (e) {
       t = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
     }
-    clock.textContent = 'Rexburg, ID — ' + t.replace(/ /g, ' ');
+    clock.textContent = 'Rexburg, ID. ' + t;
   }
   tick();
   setInterval(tick, 20000);
-
-  /* -------------------------------------------- masked heading reveals */
-  /* wrap contents so they can slide up out of the box */
-  Array.prototype.forEach.call(document.querySelectorAll('.mask'), function (el) {
-    if (el.querySelector('.mask-in')) return;
-    var span = document.createElement('span');
-    span.className = 'mask-in';
-    while (el.firstChild) span.appendChild(el.firstChild);
-    el.appendChild(span);
-  });
 
   /* ------------------------------------------------- split the name up */
   /* one delay per letter; the counter runs across lines, not per line */
@@ -46,7 +47,7 @@
       text.split('').forEach(function (c) {
         var ch = document.createElement('span');
         ch.className = 'ch';
-        ch.textContent = c === ' ' ? ' ' : c;
+        ch.textContent = c === ' ' ? ' ' : c;
         ch.style.transitionDelay = (i * 34) + 'ms';
         line.appendChild(ch);
         i++;
@@ -55,60 +56,61 @@
     });
   });
 
-  /* ------------------------------------------------------------ scroll */
-  var masthead = document.getElementById('masthead');
-  var progress = document.getElementById('progress');
-  var shots = Array.prototype.slice.call(document.querySelectorAll('.shot-frame img'));
-  var portrait = document.querySelector('.portrait img');
-  var ticking = false;
-
-  function frame() {
-    ticking = false;
-    var y = window.scrollY || window.pageYOffset;
-    var vh = window.innerHeight;
-
-    if (masthead) masthead.classList.toggle('stuck', y > 10);
-
-    if (progress) {
-      var max = document.documentElement.scrollHeight - vh;
-      progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, Math.max(0, y / max)) : 0) + ')';
+  var lines = Array.prototype.slice.call(document.querySelectorAll('.hero .ln'));
+  function raiseHero() { lines.forEach(function (l) { l.classList.add('up'); }); }
+  function armHero() {
+    if (document.hidden) {
+      document.addEventListener('visibilitychange', function once() {
+        if (document.hidden) return;
+        document.removeEventListener('visibilitychange', once);
+        requestAnimationFrame(raiseHero);
+      });
+      return;
     }
-
-    if (reduced) return;
-
-    /* Screenshots are top-anchored in CSS. This just opens any that have
-   reached the viewport, in case an observer callback is missed. */
-    for (var i = 0; i < shots.length; i++) {
-      var fr = shots[i].parentElement.getBoundingClientRect();
-      var fig = shots[i].parentElement.parentElement;
-      if (fig && !fig.classList.contains('in') && fr.top < vh * 0.95) {
-        fig.classList.add('in');
-      }
+    raiseHero();
+  }
+  if (reduced) {
+    raiseHero();
+  } else {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { requestAnimationFrame(armHero); });
+      setTimeout(armHero, 900); /* do not let a slow font stall it */
+    } else {
+      requestAnimationFrame(armHero);
     }
-
-    /* grey to colour as it rises through the viewport */
-    if (portrait) {
-      var pr = portrait.getBoundingClientRect();
-      if (pr.height) {
-        var mid = pr.top + pr.height / 2;
-        var p = (vh * 0.92 - mid) / (vh * 0.42);
-        portrait.style.setProperty('--gs', (1 - Math.min(1, Math.max(0, p))).toFixed(3));
-      }
-    }
+    /* force the resting state if the transition never lands */
+    setTimeout(function () { root.classList.add('hero-settled'); }, 3000);
   }
 
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(frame);
+  /* ------------------------------------------------------ scroll spy */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  var spied = Array.prototype.slice.call(document.querySelectorAll('[data-spy]'));
+
+  function setActive(id) {
+    links.forEach(function (a) { a.classList.remove('is-active'); });
+    var a = byId[id];
+    if (!a) return;
+    a.classList.add('is-active');
+    var sub = a.closest('.sub');
+    if (sub && sub.previousElementSibling) sub.previousElementSibling.classList.add('is-active');
   }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
+  if ('IntersectionObserver' in window && spied.length) {
+    var visible = {};
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+      var pick = null;
+      for (var i = 0; i < spied.length; i++) if (visible[spied[i].id]) pick = spied[i].id;
+      if (pick) setActive(pick);
+    }, { rootMargin: '-38% 0px -52% 0px', threshold: 0 });
+    spied.forEach(function (s) { spy.observe(s); });
+  }
 
-  /* ----------------------------------------------------------- reveals */
+  /* ---------------------------------------------------------- reveals */
   var blocks = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-  var rows = Array.prototype.slice.call(document.querySelectorAll('.detail > div, .numlist li, .index li'));
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.stagger > *'));
 
   if (reduced || !('IntersectionObserver' in window)) {
     blocks.forEach(function (el) { el.classList.add('in'); });
@@ -129,95 +131,51 @@
         e.target.classList.add('lit');
         rio.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.12 });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.1 });
     rows.forEach(function (el, i) {
-      el.style.transitionDelay = (i % 4) * 65 + 'ms';
+      el.style.transitionDelay = (i % 5) * 60 + 'ms';
       rio.observe(el);
     });
-
-    /* a .mask outside a .reveal needs its own trigger */
-    var lone = Array.prototype.slice.call(document.querySelectorAll('.mask')).filter(function (m) {
-      return !m.closest('.reveal');
-    });
-    if (lone.length) {
-      var mio = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          e.target.classList.add('in');
-          mio.unobserve(e.target);
-        });
-      }, { threshold: 0.1 });
-      lone.forEach(function (m) { mio.observe(m); });
-    }
   }
 
-  /* --------------------------------------------------------- hero lines */
-  /* The name starts clipped, so this reveal cannot be allowed to fail.
-     Deferred while the tab is hidden: a transform transition started while
-     the page is not compositing can stay unfinished indefinitely. */
-  var lines = Array.prototype.slice.call(document.querySelectorAll('.hero .ln'));
-  function raiseHero() { lines.forEach(function (l) { l.classList.add('up'); }); }
-
-  function armHero() {
-    if (document.hidden) {
-      document.addEventListener('visibilitychange', function once() {
-        if (document.hidden) return;
-        document.removeEventListener('visibilitychange', once);
-        requestAnimationFrame(raiseHero);
-      });
-      return;
+  /* ---------------------------------------- portrait: grey to colour */
+  var portrait = document.querySelector('.portrait img');
+  var ticking = false;
+  function frame() {
+    ticking = false;
+    if (reduced || !portrait) return;
+    var vh = window.innerHeight;
+    var pr = portrait.getBoundingClientRect();
+    if (pr.height) {
+      var mid = pr.top + pr.height / 2;
+      var q = (vh * 0.92 - mid) / (vh * 0.42);
+      portrait.style.setProperty('--gs', (1 - Math.min(1, Math.max(0, q))).toFixed(3));
     }
-    raiseHero();
   }
-
-  if (reduced) {
-    raiseHero();
-  } else {
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function () { requestAnimationFrame(armHero); });
-      setTimeout(armHero, 900); /* do not let a slow font stall it */
-    } else {
-      requestAnimationFrame(armHero);
-    }
-    /* force the resting state if the transition never lands */
-    setTimeout(function () { root.classList.add('hero-settled'); }, 3000);
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(frame);
   }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  frame();
 
-  /* ------------------------------------------------- index hover preview */
-  var peek = document.getElementById('peek');
-  var peekImg = document.getElementById('peekImg');
-  var index = document.getElementById('index');
-
-  if (peek && peekImg && index && window.matchMedia('(pointer: fine)').matches && !reduced) {
-    var px = 0, py = 0, cx = 0, cy = 0, running = false;
-
-    function glide() {
-      cx += (px - cx) * 0.14;
-      cy += (py - cy) * 0.14;
-      peek.style.left = cx + 'px';
-      peek.style.top = cy + 'px';
-      if (running) requestAnimationFrame(glide);
-    }
-
-    index.addEventListener('pointermove', function (e) { px = e.clientX; py = e.clientY; });
-
-    Array.prototype.forEach.call(index.querySelectorAll('a[data-preview]'), function (a) {
-      a.addEventListener('pointerenter', function (e) {
-        peekImg.src = a.dataset.preview;
-        px = cx = e.clientX; py = cy = e.clientY;
-        peek.classList.add('on');
-        if (!running) { running = true; glide(); }
-      });
-      a.addEventListener('pointerleave', function () {
-        peek.classList.remove('on');
-        running = false;
+  /* -------------------------------------------------------- copy email */
+  var copy = document.querySelector('[data-copy]');
+  if (copy && navigator.clipboard) {
+    copy.addEventListener('click', function () {
+      var text = copy.getAttribute('data-copy');
+      var was = copy.textContent;
+      navigator.clipboard.writeText(text).then(function () {
+        copy.textContent = 'Copied';
+        setTimeout(function () { copy.textContent = was; }, 1600);
       });
     });
+  } else if (copy) {
+    copy.hidden = true;
   }
 
-  /* --------------------------------------------------------------- misc */
   var yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
-
-  frame();
 })();

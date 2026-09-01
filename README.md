@@ -1,85 +1,50 @@
-# hyrumwhittier.com
+# hyrumwhittier.com, second edition
 
 Portfolio site. Static HTML, CSS and vanilla JS. No framework, no build step.
 
 ```
-index.html
-styles.css
-app.js
-images/
+index.html     the whole site
+styles.css     tokens, layout, motion
+app.js         clock, theme, scroll spy, reveals, parallax
+images/        screenshots (2880x1800 desktop, 1170x2532 phone), portrait, panorama, share card
+robots.txt
+sitemap.xml
+.nojekyll      keeps GitHub Pages from running the files through Jekyll
 ```
 
 ## Running locally
 
-Open `index.html`, or serve the folder:
-
 ```bash
-python -m http.server 5599 --directory .
+python3 -m http.server 5599 --directory .
 ```
+
+Then open http://localhost:5599/. Opening index.html straight from disk also works.
 
 ## Deploying
 
-Deployed to GitHub Pages from `main`. `.nojekyll` keeps Pages from running the
-files through Jekyll. To host elsewhere, upload the folder to any static host.
+Push the folder contents to `main` on `whittierht/whittierht.github.io`. A push is a publish.
 
-The only external request is the Google Fonts stylesheet for Inter and Inter
-Tight. Drop that `<link>` and the system sans stack takes over.
+The canonical, `og:url` and the JSON-LD all point at `https://whittierht.github.io/`, because that is the URL that resolves today. When `hyrumwhittier.com` is pointed at Pages and a `CNAME` file is added, search-and-replace that host in `index.html`, `sitemap.xml` and `robots.txt`.
 
-## Structure
+## Design
 
-| Section | Content |
-|---|---|
-| Hero | Name, statement, credential strip |
-| 01 Work | Index table and three case studies |
-| 02 Services | Eight service lines |
-| 03 Beyond websites | Memphis and Tarmac, plus smaller tools |
-| 04 Enterprise | Payments account |
-| 05 About | Background and degree |
-| Contact | Inverted closing panel |
+- Type: Inter Tight (display) and Inter (text) from Google Fonts, the same pair as the first edition. Drop the `<link>` and the system stacks take over.
+- Colour: a light page with a burnt orange accent under the first edition's dark photographic hero. A dark scheme follows the OS and can be forced with the Light / dark button (stored in `localStorage` as `hw-theme`). The hero and the contact panel keep their own literal colours in both themes.
+- Layout: a fixed left rail with a scroll-spied table of contents on desktop, a sticky top bar below 1100px.
+- Hero photo: Grand Teton lake panorama by David Chalifoux, CC0 1.0, free to use commercially without attribution.
 
 ## Motion
 
-`app.js` adds `js-anim` to `<html>` and only that class hides anything, so with
-JS off or `prefers-reduced-motion: reduce` the page renders complete and static.
+`app.js` adds `js-anim` to `<html>` and only that class hides anything, so with JS off or `prefers-reduced-motion: reduce` the page renders complete and static.
 
-- Scroll progress bar
-- Name reveals letter by letter
-- Masked line reveals on section headings
-- Screenshots wipe open from the top
-- Portrait desaturates to colour on scroll (`--gs`)
-- Sticky case meta and portrait columns
-- Hover preview on the work index, pointer devices only
-- Film grain overlay
-
-Two things to keep in mind when touching the screenshot reveal:
-
-- The clip goes on the `img`, never on `.shot`. `.shot` is the element the
-  IntersectionObserver watches, and clipping it to zero height makes the
-  observer treat it as off screen, so it never gets the class that opens it.
-- `.shot-frame img` is top-anchored and cropped from the bottom. Adding a
-  vertical drift crops the captured site's own header, which is the part
-  worth showing.
+- Name rides up letter by letter on load (`[data-split]`), with a 3s fallback that forces the resting state
+- Hero photo pans slowly; film grain sits over the hero only
+- Blocks fade in on scroll (`.reveal`), rows stagger (`.stagger > *`)
+- Screenshots develop from the top. The clip is on the `img`, never on the observed element.
+- The portrait goes from grey to colour as it rises through the viewport
 
 ## Images
 
-Case screenshots captured at 1440x1000, heroes resized to 1400px wide and
-supporting plates to 1000px.
+Client sites were captured on their live domains on 2026-09-01 with Playwright: 1440x900 at 2x for desktop, 390x844 at 3x for phone, Safari user agent, chat widgets removed. Re-capture with the same settings so the frames keep their aspect ratios (`1440 / 900` and `390 / 844` in `styles.css`).
 
-| Case | Hero | Plates |
-|---|---|---|
-| Bravo 6 | `bravo6.jpg` | `b6-flyable.jpg`, `b6-map.jpg`, `b6-news.jpg` |
-| Outdoors for Youth | `ofy.jpg` | `ofy-register.jpg`, `ofy-camp.jpg`, `ofy-tetons.jpg` |
-| Nadia's | `nadia.jpg` | `nadia-services.jpg`, `nadia-boarding.jpg`, `nadia-edu.jpg` |
-| Memphis | `memphis.jpg` | shown in the Systems section |
-| Tarmac | `tarmac-tight.jpg` | shown in the Systems section |
-
-Hero background is `hero-tetons.jpg`, David Chalifoux's *Grand Teton lake
-panorama*, released under CC0 1.0 and free to use commercially without
-attribution.
-[Source](https://commons.wikimedia.org/wiki/File:Grand_Teton_lake_panorama_(Unsplash).jpg)
-
-## Notes
-
-- Name size is one value: the middle of `font-size: clamp(...)` on `.name`.
-- Canonical URL and Open Graph tags point at `https://hyrumwhittier.com/`.
-  Update if the domain changes.
+Games were captured from the local builds at 1280x720 at 2x. Memphis and Tarmac screenshots are the originals from the first edition.
