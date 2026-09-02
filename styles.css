@@ -316,8 +316,16 @@ b, strong { font-weight: 600; }
 .phone .screen { border-radius: 22px; overflow: hidden; background: var(--paper-2); position: relative; }
 .phone img { width: 100%; aspect-ratio: 390 / 844; object-fit: cover; object-position: 50% 0; }
 
-.case-visual { position: relative; padding-right: 15%; padding-bottom: 5%; }
-.case-visual .phone { position: absolute; right: 0; bottom: 0; width: 24%; max-width: 250px; }
+/* Desktop and phone sit side by side on a shared baseline. The phone used to
+   be absolutely positioned over the corner, which left it stranded in the
+   middle once the layout stacked. */
+.case-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(120px, 15%, 200px);
+  gap: clamp(.9rem, 1.8vw, 1.8rem);
+  align-items: end;
+}
+.case-visual .phone { width: 100%; }
 
 .case-grid {
   display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
@@ -424,8 +432,7 @@ b, strong { font-weight: 600; }
 /* ---------- about ---------- */
 .about-grid { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
 .about-side { position: sticky; top: 1.5rem; }
-.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(var(--gs, 0)); }
-.js-anim .portrait img { transition: filter .35s linear; }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .portrait figcaption { margin-top: .7rem; padding-top: .7rem; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: .68rem; color: var(--muted); }
 .about-text p { font-size: 1rem; color: var(--ink-2); max-width: 60ch; }
 .about-text p + p { margin-top: 1.05em; }
@@ -609,8 +616,7 @@ b, strong { font-weight: 600; }
   .ix-sector { grid-column: 1; }
   .ix-year { display: none; }
   .ix-status { grid-column: 2; grid-row: 1; }
-  .case-visual { padding-right: 0; padding-bottom: 0; }
-  .case-visual .phone { position: static; width: 46%; max-width: 220px; margin: -12% auto 0; transform: translateX(28%); }
+  .case-visual { grid-template-columns: minmax(0, 1fr) clamp(96px, 22%, 150px); gap: .8rem; }
   .case-grid, .about-grid, .prod-grid, .prod-text.cols { grid-template-columns: 1fr; }
   .case-meta { position: static; }
   .meta { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; }

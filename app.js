@@ -163,28 +163,27 @@
     });
   }
 
-  /* ---------------------------------------- portrait: grey to colour */
-  var portrait = document.querySelector('.portrait img');
-  var ticking = false;
-  function frame() {
-    ticking = false;
-    if (reduced || !portrait) return;
+  /* Belt and braces. Nineteen screenshots are hidden until their block is
+     revealed, so a missed observer callback would leave the work section
+     blank. Anything that has reached the viewport gets opened here too. */
+  function sweepReveals() {
     var vh = window.innerHeight;
-    var pr = portrait.getBoundingClientRect();
-    if (pr.height) {
-      var mid = pr.top + pr.height / 2;
-      var q = (vh * 0.92 - mid) / (vh * 0.42);
-      portrait.style.setProperty('--gs', (1 - Math.min(1, Math.max(0, q))).toFixed(3));
+    for (var i = blocks.length - 1; i >= 0; i--) {
+      var el = blocks[i];
+      if (el.classList.contains('in')) { blocks.splice(i, 1); continue; }
+      if (el.getBoundingClientRect().top < vh * 0.95) el.classList.add('in');
     }
   }
+
+  var ticking = false;
   function onScroll() {
     if (ticking) return;
     ticking = true;
-    requestAnimationFrame(frame);
+    requestAnimationFrame(function () { ticking = false; sweepReveals(); });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
-  frame();
+  sweepReveals();
 
   /* -------------------------------------------------------- copy email */
   var copy = document.querySelector('[data-copy]');
