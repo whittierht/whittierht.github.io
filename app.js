@@ -74,9 +74,10 @@
   var spied = Array.prototype.slice.call(document.querySelectorAll('[data-spy]'));
 
   function setActive(id) {
-    links.forEach(function (a) { a.classList.remove('is-active'); });
     var a = byId[id];
+    /* Sections without a link in the contents (the hero) must not clear it. */
     if (!a) return;
+    links.forEach(function (l) { l.classList.remove('is-active'); });
     a.classList.add('is-active');
     var sub = a.closest('.sub');
     if (sub && sub.previousElementSibling) sub.previousElementSibling.classList.add('is-active');
@@ -86,8 +87,13 @@
     var visible = {};
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { visible[e.target.id] = e.isIntersecting; });
+      /* Last visible section that actually has a link, so a nested
+         article wins over its parent and the hero is skipped. */
       var pick = null;
-      for (var i = 0; i < spied.length; i++) if (visible[spied[i].id]) pick = spied[i].id;
+      for (var i = 0; i < spied.length; i++) {
+        var id = spied[i].id;
+        if (visible[id] && byId[id]) pick = id;
+      }
       if (pick) setActive(pick);
     }, { rootMargin: '-38% 0px -52% 0px', threshold: 0 });
     spied.forEach(function (s) { spy.observe(s); });
