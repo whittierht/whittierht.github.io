@@ -493,10 +493,15 @@ b, strong { font-weight: 600; }
    clipped child is promoted, and the parent's rounded overflow stops
    trimming its corners, so square edges show against the bezel. */
 .js-anim .phone img { clip-path: inset(0 0 100% 0 round 22px); transition: clip-path 1.05s cubic-bezier(.62,0,.22,1); }
-.js-anim .reveal.in .win-body img.loaded,
-.js-anim .win.reveal.in .win-body img.loaded { clip-path: inset(0 0 0 0); }
-.js-anim .reveal.in .phone img.loaded,
-.js-anim .phone.reveal.in img.loaded { clip-path: inset(0 round 22px); }
+/* Deliberately NOT gated on the image having loaded. A clipped image has no
+   rendered area, and the browser will not fetch a lazy image it considers
+   invisible, so requiring .loaded here deadlocked: it could not load until it
+   was shown and would not show until it loaded. The shimmer underneath covers
+   the wait instead. */
+.js-anim .reveal.in .win-body img,
+.js-anim .win.reveal.in .win-body img { clip-path: inset(0 0 0 0); }
+.js-anim .reveal.in .phone img,
+.js-anim .phone.reveal.in img { clip-path: inset(0 round 22px); }
 
 
 .js-anim .plate.reveal figcaption, .js-anim .prod-shot.reveal figcaption { opacity: 0; transition: opacity .7s ease .35s; }
