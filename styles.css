@@ -488,9 +488,15 @@ b, strong { font-weight: 600; }
 .js-anim.hero-settled [data-split] .ch { transform: none !important; transition: none !important; }
 
 /* screenshots develop from the top; the clip is on the image, never on the observed element */
-.js-anim .win-body img, .js-anim .phone img { clip-path: inset(0 0 100% 0); transition: clip-path 1.05s cubic-bezier(.62,0,.22,1); }
-.js-anim .reveal.in .win-body img.loaded, .js-anim .reveal.in .phone img.loaded,
-.js-anim .win.reveal.in .win-body img.loaded, .js-anim .phone.reveal.in img.loaded { clip-path: inset(0 0 0 0); }
+.js-anim .win-body img { clip-path: inset(0 0 100% 0); transition: clip-path 1.05s cubic-bezier(.62,0,.22,1); }
+/* The phone screen is rounded and the clip has to carry that radius. A
+   clipped child is promoted, and the parent's rounded overflow stops
+   trimming its corners, so square edges show against the bezel. */
+.js-anim .phone img { clip-path: inset(0 0 100% 0 round 22px); transition: clip-path 1.05s cubic-bezier(.62,0,.22,1); }
+.js-anim .reveal.in .win-body img.loaded,
+.js-anim .win.reveal.in .win-body img.loaded { clip-path: inset(0 0 0 0); }
+.js-anim .reveal.in .phone img.loaded,
+.js-anim .phone.reveal.in img.loaded { clip-path: inset(0 round 22px); }
 
 
 .js-anim .plate.reveal figcaption, .js-anim .prod-shot.reveal figcaption { opacity: 0; transition: opacity .7s ease .35s; }
