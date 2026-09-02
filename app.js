@@ -207,7 +207,12 @@
   Array.prototype.forEach.call(
     document.querySelectorAll('.win-body img, .phone .screen img, .portrait img, .snap img'),
     function (img) {
-      function done() { img.classList.add('loaded'); }
+      var frame = img.parentElement;
+      function done() {
+        img.classList.add('loaded');
+        /* drop the container shimmer only once the image can cover it */
+        if (frame) frame.classList.add('ready');
+      }
       if (img.complete && img.naturalWidth) done();
       else {
         img.addEventListener('load', done);

@@ -316,16 +316,8 @@ b, strong { font-weight: 600; }
 .phone .screen { border-radius: 22px; overflow: hidden; background: var(--paper-2); position: relative; }
 .phone img { width: 100%; aspect-ratio: 390 / 844; object-fit: cover; object-position: 50% 0; }
 
-/* Desktop and phone sit side by side on a shared baseline. The phone used to
-   be absolutely positioned over the corner, which left it stranded in the
-   middle once the layout stacked. */
-.case-visual {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(120px, 15%, 200px);
-  gap: clamp(.9rem, 1.8vw, 1.8rem);
-  align-items: end;
-}
-.case-visual .phone { width: 100%; }
+.case-visual { position: relative; padding-right: 15%; padding-bottom: 5%; }
+.case-visual .phone { position: absolute; right: 0; bottom: 0; width: 24%; max-width: 250px; }
 
 .case-grid {
   display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
@@ -500,9 +492,7 @@ b, strong { font-weight: 600; }
 .js-anim .reveal.in .win-body img.loaded, .js-anim .reveal.in .phone img.loaded,
 .js-anim .win.reveal.in .win-body img.loaded, .js-anim .phone.reveal.in img.loaded { clip-path: inset(0 0 0 0); }
 
-/* the two photographs fade rather than wipe, but on the same trigger */
-.js-anim .portrait img, .js-anim .snap img { opacity: 0; transition: opacity .55s ease; }
-.js-anim .portrait img.loaded, .js-anim .snap img.loaded { opacity: 1; }
+
 .js-anim .plate.reveal figcaption, .js-anim .prod-shot.reveal figcaption { opacity: 0; transition: opacity .7s ease .35s; }
 .js-anim .plate.reveal.in figcaption, .js-anim .prod-shot.reveal.in figcaption { opacity: 1; }
 
@@ -518,8 +508,7 @@ b, strong { font-weight: 600; }
   .scroll-cue, .grain { display: none; }
   .hero-image { animation: none; transform: none; }
   .win-body img, .phone img { clip-path: none !important; }
-  .portrait img, .snap img { opacity: 1 !important; }
-  .win-body img, .phone .screen img, .portrait img, .snap img { animation: none !important; }
+  .win-body::before, .phone .screen::before, .portrait img, .snap img { animation: none !important; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
@@ -616,7 +605,11 @@ b, strong { font-weight: 600; }
   .ix-sector { grid-column: 1; }
   .ix-year { display: none; }
   .ix-status { grid-column: 2; grid-row: 1; }
-  .case-visual { grid-template-columns: minmax(0, 1fr) clamp(96px, 22%, 150px); gap: .8rem; }
+  /* Narrow screens keep the desktop capture at full width. Side by side
+     shrank it to nothing; the phone overlaps the corner and hangs below
+     instead, so only the phone gets small. */
+  .case-visual { padding: 0 0 14% 0; }
+  .case-visual .phone { right: 2%; bottom: 0; width: 27%; max-width: 132px; }
   .case-grid, .about-grid, .prod-grid, .prod-text.cols { grid-template-columns: 1fr; }
   .case-meta { position: static; }
   .meta { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; }
@@ -646,11 +639,15 @@ b, strong { font-weight: 600; }
 }
 
 /* ---------- loading shimmer ----------
-   Painted as each image's own background, so it shows through until the
-   image itself decodes and covers it. No extra element, and nothing sits
-   over a figcaption. */
-.win-body img, .phone .screen img, .portrait img, .snap img {
-  background-image:
+   On the container, never on the image. The screenshots wipe in from a
+   clip-path, and a clip hides the element's background as well, so a
+   shimmer painted on the image itself is invisible exactly when it is
+   needed. The two photographs are not clipped, so theirs can ride on
+   the image and avoid covering a figcaption. */
+.win-body::before, .phone .screen::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 0;
+  background:
     linear-gradient(100deg,
       transparent 20%,
       color-mix(in srgb, var(--ink) 8%, transparent) 42%,
@@ -659,11 +656,24 @@ b, strong { font-weight: 600; }
       transparent 80%),
     linear-gradient(var(--paper-2), var(--paper-2));
   background-size: 220% 100%, 100% 100%;
-  background-repeat: no-repeat;
   animation: media-sweep 1.5s linear infinite;
 }
-.win-body img.loaded, .phone .screen img.loaded,
-.portrait img.loaded, .snap img.loaded { animation: none; }
+.win-body.ready::before, .phone .screen.ready::before { content: none; }
+.win-body img, .phone .screen img { position: relative; z-index: 1; }
+
+.portrait img, .snap img {
+  background:
+    linear-gradient(100deg,
+      transparent 20%,
+      color-mix(in srgb, var(--ink) 8%, transparent) 42%,
+      color-mix(in srgb, var(--ink) 14%, transparent) 50%,
+      color-mix(in srgb, var(--ink) 8%, transparent) 58%,
+      transparent 80%),
+    linear-gradient(var(--paper-2), var(--paper-2));
+  background-size: 220% 100%, 100% 100%;
+  animation: media-sweep 1.5s linear infinite;
+}
+.portrait img.loaded, .snap img.loaded { animation: none; background: none; }
 @keyframes media-sweep {
   from { background-position: 140% 0, 0 0; }
   to   { background-position: -40% 0, 0 0; }
