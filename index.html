@@ -286,7 +286,7 @@
       <div class="plates">
         <figure class="plate reveal">
           <div class="win"><div class="win-bar">outdoorsforyouth.org/register-for-ofy</div><div class="win-body"><img src="images/ofy-dates.jpg" width="2880" height="1800" alt="The dates and registration page showing session tiles" loading="lazy"></div></div>
-          <figcaption><b>Dates and registration</b> Session tiles, cabin pricing, one Register button.</figcaption>
+          <figcaption><b>Dates and registration</b> Session tiles come from the camp's Salesforce inventory, and the waitlist only appears once a week has sold out.</figcaption>
         </figure>
         <figure class="plate reveal">
           <div class="win"><div class="win-bar">outdoorsforyouth.org/what-is-ofy</div><div class="win-body"><img src="images/ofy-camp.jpg" width="2880" height="1800" alt="The What Is OFY page" loading="lazy"></div></div>
@@ -330,11 +330,11 @@
         </aside>
 
         <div class="case-body reveal">
-          <h4>The site was never slow</h4>
-          <p class="standfirst">Quarter-second TTFB, images already optimized. The actual problems: broken schema, junk sitemap URLs, double-encoded titles, 200KB of builder markup.</p>
-          <p>The brief said the GoDaddy site was slow, and it was not. Time to first byte was about a quarter of a second, the images were already optimized on a CDN, and there was no autoplay video. The problem was control. GoDaddy's builder had generated a broken business schema block with a made-up domain in it, put junk URLs in the sitemap, double-encoded the page titles, and wrapped about 30KB of content in 247KB of markup.</p>
-          <p>I rebuilt it as fourteen hand-coded pages using the client's own copy and prices, compressed and self-hosted her photos, and gave every page one schema graph covering the business, the page type, breadcrumbs, and a seven-service offer catalog. There are no review stars in the markup, because marking up your own ratings is against Google's rules.</p>
-          <p>It has been live on SiteGround since August 2026 with Tag Manager, analytics and Clarity on every page. A crawl after launch came back with no issues: all 211 images have alt text, the structured data validates on every page, and there are no duplicate titles or descriptions.</p>
+          <h4>A builder caps what you can do for search</h4>
+          <p class="standfirst">GoDaddy's builder decided the schema, the sitemap and the titles, and got all three wrong. None of it was editable from inside the builder.</p>
+          <p>The business schema it generated pointed at a made-up domain. The sitemap carried junk URLs. The page titles came out double-encoded. About 30KB of real content shipped inside 247KB of markup. Every one of those is a search problem, and not one of them could be fixed without leaving the platform, because the builder owns that output and does not expose it.</p>
+          <p>So the rebuild was about getting control back. Fourteen hand-coded pages using the client's own copy and prices, her photos compressed and self-hosted, and one schema graph per page covering the business, the page type, breadcrumbs and a seven-service offer catalog. No review stars in the markup, because marking up your own ratings is against Google's rules.</p>
+          <p>Live on SiteGround since August 2026 with Tag Manager, analytics and Clarity on every page. The post-launch crawl came back clean: every image has alt text, the structured data validates on every page, and there are no duplicate titles or descriptions. All of it is now editable, which was the whole point.</p>
           <p class="case-links">
             <a class="txtlink" href="https://nadiawalksdogs.com" target="_blank" rel="noopener">Visit the site</a>
             <a class="txtlink" href="https://nadiawalksdogs.com/services" target="_blank" rel="noopener">Services</a>
@@ -405,7 +405,7 @@
       <div class="prod-grid">
         <figure class="prod-shot reveal">
           <div class="phone"><div class="screen"><img src="images/tarmac-tight.jpg" width="900" height="1951" alt="The Tarmac timeclock on a phone, showing hours today, this week and for the pay period" loading="lazy"></div></div>
-          <figcaption>The timeclock. Hours today, this week, pay period.</figcaption>
+          <figcaption>The phone portal. Staff can also clock in by face at the iPad kiosk, which runs recognition on the device.</figcaption>
         </figure>
         <div class="prod-text reveal">
           <p>The agency's staff time and operations app, including the timeclock: an iPad kiosk, a phone portal and an admin panel. I built it on Firebase and later moved it to AWS Amplify, with Cognito and Google sign-in.</p>
