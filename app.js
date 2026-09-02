@@ -67,6 +67,40 @@
     setTimeout(function () { root.classList.add('hero-settled'); }, 3000);
   }
 
+  /* ------------------------------------------------------ mobile menu */
+  var rail = document.getElementById('rail');
+  var menuBtn = document.getElementById('menuBtn');
+  var scrim = document.getElementById('railScrim');
+
+  function setMenu(open) {
+    rail.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (scrim) scrim.hidden = !open;
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  if (menuBtn && rail) {
+    menuBtn.addEventListener('click', function () {
+      setMenu(!rail.classList.contains('open'));
+    });
+    if (scrim) scrim.addEventListener('click', function () { setMenu(false); });
+    /* a link closes it, otherwise the sheet covers what you jumped to */
+    rail.addEventListener('click', function (e) {
+      if (e.target.closest('.toc a')) setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && rail.classList.contains('open')) {
+        setMenu(false);
+        menuBtn.focus();
+      }
+    });
+    /* going back to the desktop rail must not leave the body locked */
+    window.matchMedia('(min-width: 1101px)').addEventListener('change', function (e) {
+      if (e.matches) setMenu(false);
+    });
+  }
+
   /* ------------------------------------------------------ scroll spy */
   var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
   var byId = {};

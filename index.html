@@ -66,9 +66,15 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
+<div class="rail-scrim" id="railScrim" hidden></div>
 <aside class="rail" id="rail">
   <a class="brand" href="#top">Hyrum Whittier</a>
   <p class="clock" id="clock">Rexburg, ID</p>
+
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="rail" aria-label="Open menu">
+    <span class="menu-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="menu-word">Menu</span>
+  </button>
 
   <nav class="toc" aria-label="Sections">
     <a href="#work">Recent Work</a>
@@ -383,7 +389,7 @@
         </figure>
         <div class="prod-text cols reveal">
           <p>The agency's project management system. It replaced Asana. Tasks, subtasks, timers, boards, calendars, KPI dashboards, hours by client, approvals and a live inbox.</p>
-          <ul>
+          <ul class="bullets">
             <li>A REST API with scoped keys, so work can be created and timed from outside the app.</li>
             <li>Messaging runs through Slack's API, so a message sent here lands in the real workspace.</li>
             <li>The old Asana board came across as an archive, columns and tags intact.</li>
@@ -405,7 +411,7 @@
         </figure>
         <div class="prod-text reveal">
           <p>Staff time and operations, including the timeclock: an iPad kiosk, a phone portal and an admin panel. Built on Firebase, later moved to AWS Amplify.</p>
-          <ul>
+          <ul class="bullets">
             <li>PTO accrues per pay period and holidays credit that day's scheduled hours.</li>
             <li>Payroll export separates worked hours from paid hours.</li>
             <li>Face clock-in at the kiosk is opt-in, runs on the device, and no image leaves the iPad.</li>
@@ -423,7 +429,7 @@
       <div class="prod-grid">
         <div class="prod-text reveal">
           <p>The client review board. A canvas where each mockup is a frame and reviewers pin comments to the exact spot. The export names the file, the position and the element, so a fix can be handed straight to whoever is doing it.</p>
-          <ul>
+          <ul class="bullets">
             <li>Frames can be PDFs, HTML files, images, live URLs, or a zipped multi-page site.</li>
             <li>Pins are stored as fractions of the frame, so they hold at any zoom and survive the file being replaced.</li>
           </ul>
@@ -535,7 +541,7 @@
       <p class="standfirst">One account, a national payments processor and its co-branded programs. Research, recommendations and working mockups their own teams take live, so I do not name it here.</p>
     </header>
 
-    <ol class="numlist stagger">
+    <ul class="worklist stagger">
       <li>
         <h4>Keyword architecture</h4>
         <p>Every indexable page mapped to one target keyword, with a keep, rewrite, merge, redirect or retire call on each URL.</p>
@@ -564,7 +570,7 @@
         <h4>Personalized marketing toolkit</h4>
         <p>A marketing page for merchants. A code in the URL swaps in that merchant's own QR code and matches the downloadable assets to their account.</p>
       </li>
-    </ol>
+    </ul>
   </div>
 </section>
 
