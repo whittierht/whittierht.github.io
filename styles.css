@@ -490,8 +490,12 @@ b, strong { font-weight: 600; }
 
 /* screenshots develop from the top; the clip is on the image, never on the observed element */
 .js-anim .win-body img, .js-anim .phone img { clip-path: inset(0 0 100% 0); transition: clip-path 1.05s cubic-bezier(.62,0,.22,1); }
-.js-anim .reveal.in .win-body img, .js-anim .reveal.in .phone img,
-.js-anim .win.reveal.in .win-body img, .js-anim .phone.reveal.in img { clip-path: inset(0 0 0 0); }
+.js-anim .reveal.in .win-body img.loaded, .js-anim .reveal.in .phone img.loaded,
+.js-anim .win.reveal.in .win-body img.loaded, .js-anim .phone.reveal.in img.loaded { clip-path: inset(0 0 0 0); }
+
+/* the two photographs fade rather than wipe, but on the same trigger */
+.js-anim .portrait img, .js-anim .snap img { opacity: 0; transition: opacity .55s ease; }
+.js-anim .portrait img.loaded, .js-anim .snap img.loaded { opacity: 1; }
 .js-anim .plate.reveal figcaption, .js-anim .prod-shot.reveal figcaption { opacity: 0; transition: opacity .7s ease .35s; }
 .js-anim .plate.reveal.in figcaption, .js-anim .prod-shot.reveal.in figcaption { opacity: 1; }
 
@@ -507,6 +511,8 @@ b, strong { font-weight: 600; }
   .scroll-cue, .grain { display: none; }
   .hero-image { animation: none; transform: none; }
   .win-body img, .phone img { clip-path: none !important; }
+  .portrait img, .snap img { opacity: 1 !important; }
+  .win-body img, .phone .screen img, .portrait img, .snap img { animation: none !important; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
@@ -633,30 +639,29 @@ b, strong { font-weight: 600; }
   .case-kicker span + span::before { display: none; }
 }
 
-/* ---------- phone: loading shimmer ----------
-   The screen shows a moving sweep until the image decodes, so a slow
-   connection sees a phone booting rather than an empty slot. */
-.phone .screen::before {
-  content: "";
-  position: absolute; inset: 0; z-index: 1;
-  background:
+/* ---------- loading shimmer ----------
+   Painted as each image's own background, so it shows through until the
+   image itself decodes and covers it. No extra element, and nothing sits
+   over a figcaption. */
+.win-body img, .phone .screen img, .portrait img, .snap img {
+  background-image:
     linear-gradient(100deg,
       transparent 20%,
-      color-mix(in srgb, var(--ink) 9%, transparent) 42%,
-      color-mix(in srgb, var(--ink) 15%, transparent) 50%,
-      color-mix(in srgb, var(--ink) 9%, transparent) 58%,
+      color-mix(in srgb, var(--ink) 8%, transparent) 42%,
+      color-mix(in srgb, var(--ink) 14%, transparent) 50%,
+      color-mix(in srgb, var(--ink) 8%, transparent) 58%,
       transparent 80%),
-    var(--paper-2);
+    linear-gradient(var(--paper-2), var(--paper-2));
   background-size: 220% 100%, 100% 100%;
-  animation: phone-sweep 1.5s linear infinite;
-  transition: opacity .45s ease;
+  background-repeat: no-repeat;
+  animation: media-sweep 1.5s linear infinite;
 }
-.phone .screen.loaded::before { opacity: 0; animation: none; }
-@keyframes phone-sweep {
+.win-body img.loaded, .phone .screen img.loaded,
+.portrait img.loaded, .snap img.loaded { animation: none; }
+@keyframes media-sweep {
   from { background-position: 140% 0, 0 0; }
   to   { background-position: -40% 0, 0 0; }
 }
-.phone .screen img { position: relative; z-index: 2; }
 
 /* ---------- contact form ---------- */
 .form { margin: 2.4rem 0 2rem; display: flex; flex-direction: column; gap: 1.1rem; max-width: 640px; }

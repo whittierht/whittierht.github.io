@@ -201,18 +201,21 @@
     copy.hidden = true;
   }
 
-  /* --------------------------------------------------- phone shimmer */
-  /* Drop the sweep once each phone screenshot has actually decoded. */
-  Array.prototype.forEach.call(document.querySelectorAll('.phone .screen'), function (screen) {
-    var img = screen.querySelector('img');
-    if (!img) return;
-    function done() { screen.classList.add('loaded'); }
-    if (img.complete && img.naturalWidth) done();
-    else {
-      img.addEventListener('load', done);
-      img.addEventListener('error', done);
+  /* ------------------------------------------------------ media loading */
+  /* Every screenshot and photo shimmers until it decodes. The reveal is
+     gated on this class too, so a wipe never opens onto an empty box
+     while the image is still coming down the wire. */
+  Array.prototype.forEach.call(
+    document.querySelectorAll('.win-body img, .phone .screen img, .portrait img, .snap img'),
+    function (img) {
+      function done() { img.classList.add('loaded'); }
+      if (img.complete && img.naturalWidth) done();
+      else {
+        img.addEventListener('load', done);
+        img.addEventListener('error', done);
+      }
     }
-  });
+  );
 
   /* ------------------------------------------------------ contact form */
   /* Posts in the background so the visitor stays on the page. With JS off
