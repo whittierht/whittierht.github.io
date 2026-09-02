@@ -1,4 +1,4 @@
-/* Clock, theme, scroll spy, reveals, the hero letters. Progressive enhancement:
+/* Clock, scroll spy, reveals, the hero letters. Progressive enhancement:
    the page is complete without any of this. */
 (function () {
   'use strict';
@@ -6,21 +6,6 @@
   var root = document.documentElement;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduced) root.classList.add('js-anim');
-
-  /* ---------------------------------------------------------- theme */
-  var themeBtn = document.getElementById('theme');
-  function currentTheme() {
-    var t = root.getAttribute('data-theme');
-    if (t) return t;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  if (themeBtn) {
-    themeBtn.addEventListener('click', function () {
-      var next = currentTheme() === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('hw-theme', next); } catch (e) {}
-    });
-  }
 
   /* ---------------------------------------------------------- clock */
   var clock = document.getElementById('clock');
@@ -174,6 +159,47 @@
     });
   } else if (copy) {
     copy.hidden = true;
+  }
+
+  /* --------------------------------------------------- phone shimmer */
+  /* Drop the sweep once each phone screenshot has actually decoded. */
+  Array.prototype.forEach.call(document.querySelectorAll('.phone .screen'), function (screen) {
+    var img = screen.querySelector('img');
+    if (!img) return;
+    function done() { screen.classList.add('loaded'); }
+    if (img.complete && img.naturalWidth) done();
+    else {
+      img.addEventListener('load', done);
+      img.addEventListener('error', done);
+    }
+  });
+
+  /* ------------------------------------------------------ contact form */
+  /* Posts in the background so the visitor stays on the page. With JS off
+     the form submits normally and the endpoint handles the redirect. */
+  var form = document.getElementById('contactForm');
+  var note = document.getElementById('formNote');
+  if (form && window.fetch) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      note.className = 'f-note';
+      note.textContent = 'Sending...';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        form.reset();
+        note.className = 'f-note ok';
+        note.textContent = 'Sent. I will get back to you.';
+      }).catch(function () {
+        note.className = 'f-note bad';
+        note.textContent = 'That did not send. Email whittierht@gmail.com instead.';
+      }).then(function () { btn.disabled = false; });
+    });
   }
 
   var yr = document.getElementById('yr');

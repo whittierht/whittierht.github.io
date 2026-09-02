@@ -18,7 +18,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c0d0e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0d0e'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='17' fill='%23fafaf8' text-anchor='middle'%3EHW%3C/text%3E%3C/svg%3E">
-<script>try{var t=localStorage.getItem('hw-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
@@ -46,7 +45,7 @@
       "address": { "@type": "PostalAddress", "addressLocality": "Rexburg", "addressRegion": "ID", "addressCountry": "US" },
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "Brigham Young University-Idaho" },
       "knowsAbout": ["Web design", "Web development", "Technical SEO", "Structured data", "Page builder migration", "Local search"],
-      "sameAs": ["https://www.linkedin.com/in/hyrum-whittier/", "https://github.com/whittierht"]
+      "sameAs": ["https://www.linkedin.com/in/hyrum-whittier/"]
     },
     {
       "@type": "WebPage",
@@ -72,7 +71,7 @@
   <p class="clock" id="clock">Rexburg, ID</p>
 
   <nav class="toc" aria-label="Sections">
-    <a href="#work">Work</a>
+    <a href="#work">Recent Work</a>
     <div class="sub">
       <a href="#c-bravo6">Bravo 6 Flight Academy</a>
       <a href="#c-ofy">Outdoors for Youth</a>
@@ -80,9 +79,7 @@
     </div>
     <a href="#products">Applications</a>
     <a href="#tools">Tools</a>
-    <a href="#findings">Audit findings</a>
     <a href="#enterprise">Enterprise</a>
-    <a href="#play">Games</a>
     <a href="#about">About</a>
     <a href="#process">How this works</a>
     <a href="#contact">Contact</a>
@@ -91,11 +88,6 @@
   <div class="rail-foot">
     <p class="status"><span class="live-dot"></span>Taking on new builds<span>Rexburg, Idaho</span></p>
     <a class="mail" href="mailto:whittierht@gmail.com">whittierht@gmail.com</a>
-    <button class="theme" id="theme" type="button" aria-label="Switch between light and dark">
-      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
-      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      <span>Light / dark</span>
-    </button>
   </div>
 </aside>
 
@@ -368,11 +360,6 @@
     </div>
   </article>
 
-  <div class="wrap">
-    <p class="aside reveal">
-      Also this year: <b>Arlington Dog Nanny</b> moved off Wix onto Divi 5. I rebuilt a 39-page nonprofit site from Squarespace into static HTML, keeping the live wording as it was, and gave a fourteen-page dog daycare site in Massachusetts a full schema graph, new metadata and a fix list for its hosting problems. The smaller audits and schema jobs are what the findings section further down is made of.
-    </p>
-  </div>
 </section>
 
 <!-- ============================== 02 APPLICATIONS ============================== -->
@@ -398,7 +385,7 @@
         <div class="prod-text cols reveal">
           <p>The agency's project management system. It replaced Asana. Tasks, subtasks, timers, boards, calendars, timelines, KPI dashboards, hours by client, approvals, and a live inbox.</p>
           <ul class="bullets">
-            <li>A REST API with scoped keys, and an MCP server with 17 tools so tasks can be created, timed and commented on from a chat.</li>
+            <li>A REST API with scoped keys, so tasks can be created, timed and commented on from outside the app.</li>
             <li>Team messaging goes through Slack's API, so a message sent from the app shows up in the real workspace.</li>
             <li>The old Asana board was imported as an archive of 367 tasks and 841 subtasks, with its columns and tags kept. None of it counts as live work.</li>
             <li>There is an arcade of multiplayer games built on Firebase's realtime database, with Elo ladders. A test fails the build if a hand's download cost grows, which is what keeps it inside the free allowance.</li>
@@ -452,7 +439,7 @@
             <li>A design editor inside the app, with snapping guides, rotation, groups, align and distribute, a component library, and live multi-cursor presence.</li>
             <li>Undo and redo on a shared board. Each entry carries its own inverse operation rather than a snapshot.</li>
             <li>Dark mode, folders, board statuses and an admin panel for managing people.</li>
-            <li>An admin-gated REST API and an MCP server. Deleting archives, purging is the only action that destroys anything, and the privacy page says so.</li>
+            <li>An admin-gated REST API. Deleting archives, purging is the only action that destroys anything, and the privacy page says so.</li>
           </ul>
           <p class="row-meta">Vite, React, TypeScript, Tailwind, Firebase. Built June 2026, solo.</p>
         </div>
@@ -480,9 +467,9 @@
         <div class="tl-stack">PHP, GD, JavaScript</div>
       </div>
       <div class="tl-row">
-        <div class="tl-name">FlashCompress<small>Extension, MCP server, CLI</small></div>
+        <div class="tl-name">FlashCompress<small>Extension and CLI</small></div>
         <div class="tl-kind">Browser</div>
-        <div class="tl-desc">Image and video compression in the browser: WebP, JPEG, PNG and AVIF. The server version runs the extension's own worker inside headless Chromium, so the output is byte-for-byte the same.</div>
+        <div class="tl-desc">Image and video compression in the browser: WebP, JPEG, PNG and AVIF. The command line version runs the extension's own worker inside headless Chromium, so the output is byte-for-byte the same.</div>
         <div class="tl-stack">JavaScript, WebAssembly, Puppeteer</div>
       </div>
       <div class="tl-row">
@@ -522,30 +509,6 @@
         <div class="tl-stack">Python, standard library only</div>
       </div>
       <div class="tl-row">
-        <div class="tl-name">Hangar Daily MCP<small>Memphis from a chat</small></div>
-        <div class="tl-kind">MCP server</div>
-        <div class="tl-desc">17 tools over the Memphis API: tasks, subtasks, comments, timers, clients, members. Credentials live in the environment and never in the code.</div>
-        <div class="tl-stack">Node</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-name">Signal MCP<small>Client reporting</small></div>
-        <div class="tl-kind">MCP server</div>
-        <div class="tl-desc">16 tools over a client-reporting API: create reports, add and edit slides, hide rows, set themes and give dates.</div>
-        <div class="tl-stack">Node</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-name">Meeting Notes MCP<small>Calls into tasks</small></div>
-        <div class="tl-kind">MCP server</div>
-        <div class="tl-desc">A bot joins the call and records it. This server reads the meetings, transcripts and action items so they can be filed into Memphis as tasks.</div>
-        <div class="tl-stack">Node</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-name">Enterprise Mockups MCP<small>Plus the REST API</small></div>
-        <div class="tl-kind">MCP server</div>
-        <div class="tl-desc">Boards, frames, comments, slides and folders from a chat. Upload a mockup, replace it in place, read and resolve review comments.</div>
-        <div class="tl-stack">Node, Firebase Functions</div>
-      </div>
-      <div class="tl-row">
         <div class="tl-name">Screenshot Save Prompt<small>macOS utility</small></div>
         <div class="tl-kind">Desktop</div>
         <div class="tl-desc">Dims the screen for Cmd+Shift+4 with a live pixel readout, asks whether you want to save the capture, and keeps the last ten under Cmd+Option+4. Installs as a launch agent.</div>
@@ -569,237 +532,59 @@
         <div class="tl-desc">One HTML file that pulls live numbers from the Memphis API through a scoped key and rotates screens at 1080p on the office TV.</div>
         <div class="tl-stack">HTML, Firebase</div>
       </div>
-      <div class="tl-row">
-        <div class="tl-name">Report generator<small>PPTX engine</small></div>
-        <div class="tl-kind">App</div>
-        <div class="tl-desc">Branded monthly client reports as native, editable PowerPoint files, rendered from one layout model with a pixel-matched HTML preview for checking.</div>
-        <div class="tl-stack">Node, pptxgenjs</div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-name">Competitor Ad Spy<small>Internal tool</small></div>
-        <div class="tl-kind">App</div>
-        <div class="tl-desc">Type a competitor and see their current Google ads, through a pluggable ad source with a 12-hour cache so repeat lookups cost nothing.</div>
-        <div class="tl-stack">React, Express</div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================== 04 FINDINGS ============================== -->
-<section class="sec sec-tint" id="findings" data-spy>
-  <div class="wrap">
-    <header class="sec-head reveal">
-      <p class="label"><span class="num">04</span> Audits</p>
-      <h2>Findings from the audit work</h2>
-      <p class="standfirst">I have audited, marked up or sped up more than twenty local-business sites this year, on WordPress, Divi, Squarespace, Wix and one franchise CMS. The clients are not named here, but the findings are real, and these are the ones worth repeating.</p>
-    </header>
-
-    <ol class="findings stagger">
-      <li>
-        <div>
-          <p class="f-tag">Flooring store, Idaho</p>
-          <p class="f-find">131 of the 191 reachable pages had a canonical tag pointing at the franchise parent's website, and not one of them ranked for anything.</p>
-          <p class="f-note">Rewriting the copy on those pages was never going to work, so the plan moved to the sixty pages the store actually controls.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Dog daycare, Houston</p>
-          <p class="f-find">The schema was there, but it was injected through Tag Manager, so a fetch of the server HTML made it look like there was none.</p>
-          <p class="f-note">Worth checking the rendered page before calling anything missing. The same audit also found a live search ad naming the wrong city.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Dog daycare, California</p>
-          <p class="f-find">The hero image URL sat 90 percent of the way through a 391,000-character HTML file, in a style block near the end of the body, so the browser could not start loading it until it had parsed almost the whole page.</p>
-          <p class="f-note">A single preload tag in the head is the biggest speed win on that site. The WebP plugin was also producing files larger than the JPEGs it replaced.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Dog groomer, Idaho</p>
-          <p class="f-find">The business had moved, and the citations had not.</p>
-          <p class="f-note">Same zip code, so a quick check looked consistent. There was also no SEO plugin installed at all, which explained why thirteen pages had no meta description.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Dog trainer, Tennessee</p>
-          <p class="f-find">The live structured data had the business name spelled wrong and pointed the logo property at a featured image.</p>
-          <p class="f-note">Only the homepage had any schema, none of the twenty titles was in range, and the server would not negotiate HTTP/2 while serving 71 files per page.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Dog resort, North Carolina</p>
-          <p class="f-find">The WordPress login name was being published on all 23 pages, both in the data layer and in the Twitter card.</p>
-          <p class="f-note">That is a credential-hygiene problem before it is an SEO problem. Otherwise it was the strongest site I looked at this year, scoring 79 out of 100.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Healthcare marketing agency, Idaho</p>
-          <p class="f-find">Zero keywords in the top twenty. It was a standing start, not a decline.</p>
-          <p class="f-note">Most of what did rank was cardiology terms landing on the blog because the agency's name looks like the word cardiac. I did not report those as wins.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Hospital, Idaho</p>
-          <p class="f-find">The hospital shares its name with four bigger places, so national search volume for its own name was meaningless.</p>
-          <p class="f-note">Positions have to come from a rank tracker located in the town itself. The word False was also printing 248 times across thirty specialty pages.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Dog daycare, Texas</p>
-          <p class="f-find">The map-pack grid for dog boarding read 11 to 13 at every point in the city, including the pin on their own address.</p>
-          <p class="f-note">That is a relevance ceiling rather than a proximity problem, so service-area pages would not move it. The site had no backlinks at all, and some of the competitors above it had eight.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Dog park and lodge, Washington</p>
-          <p class="f-find">Squarespace injects its own Organization schema, so the site was carrying two of them with different phone numbers.</p>
-          <p class="f-note">Nothing had been installed wrong. The platform's block and the custom block simply disagreed, across twelve pages. The custom graph now covers 23 schema types and 118 question and answer pairs.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Dog daycare, Massachusetts</p>
-          <p class="f-find">Every URL with a trailing slash returned a 500, and every old WordPress inbound link had a trailing slash.</p>
-          <p class="f-note">One extensionless path also returned a 403 that nothing in the config explained. The metadata and the schema graph shipped the same day, and the hosting problems went into a fix list.</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <p class="f-tag">Developer portfolio, Idaho</p>
-          <p class="f-find">The staging hostname was still inside the structured data on eleven pages, so the articles pointed at an author and a publisher that did not exist.</p>
-          <p class="f-note">Apart from that it was the cleanest crawl of the year: 27 pages, no faults, every image with alt text and dimensions.</p>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
 
 <!-- ============================== 05 ENTERPRISE ============================== -->
 <section class="sec" id="enterprise" data-spy>
   <div class="wrap">
     <header class="sec-head reveal">
-      <p class="label"><span class="num">05</span> Enterprise</p>
+      <p class="label"><span class="num">04</span> Enterprise</p>
       <h2>SEO at national scale</h2>
-      <p class="standfirst">The other half of my week goes to one account: a national payments processor and its co-branded programs, across four websites in the US and Canada. The work there is research, recommendations and working mockups that the client's own teams take live, so I do not name it here.</p>
+      <p class="standfirst">The other half of my week goes to one account: a national payments processor and its co-branded programs, across several sites in the US and Canada. The work is research, recommendations and working mockups that the client's own teams take live, so I do not name it here.</p>
     </header>
 
     <ol class="numlist stagger">
       <li>
-        <h4>Site-wide keyword architecture</h4>
-        <p>Every indexable page mapped to one target keyword, with a retain, optimize, consolidate, redirect or decommission call on each of 238 URLs.</p>
+        <h4>Keyword architecture</h4>
+        <p>Every indexable page mapped to one target keyword, with a keep, rewrite, merge, redirect or retire call on each URL.</p>
       </li>
       <li>
         <h4>Resource and support center rebuilds</h4>
-        <p>Two pitches delivered as working mockups instead of slides, built from a harvested library of the client's real content inside the client's real header and footer.</p>
+        <p>Pitches delivered as working mockups instead of slides, built from the client's real content inside their real header and footer.</p>
       </li>
       <li>
-        <h4>Schema and metadata for 501 pages</h4>
-        <p>One JSON-LD graph plus a rewritten title and description for every indexable page across the four sites. Each graph validated with zero errors, and the work was delivered as per-account workbooks with the issue log attached.</p>
+        <h4>Schema and metadata at scale</h4>
+        <p>A JSON-LD graph plus a rewritten title and description for every indexable page across the account, validated before handover.</p>
       </li>
       <li>
-        <h4>The orphaned library</h4>
-        <p>Five category pages linked to 106 articles, but nothing linked to the category pages, because the View all controls were buttons rather than anchors. That left 87 of 102 articles with no crawlable path from their own section. Googlebot follows links and does not click buttons, so the fix was five anchors and five sitemap entries.</p>
+        <h4>Fixing an orphaned library</h4>
+        <p>A whole article section had no crawlable path into it, because the controls that opened each category were buttons rather than links. Googlebot follows links and does not click buttons.</p>
       </li>
       <li>
         <h4>Content plan restructure</h4>
         <p>One page type per week per account. The template gets built once and rolls across every page of that type, instead of a page picked at random each week.</p>
       </li>
       <li>
-        <h4>FAQ program for a Canadian site</h4>
-        <p>135 questions mapped across 29 pages, 81 of them answerable from copy that was already approved, with the live site's own contradictions flagged before anything was written.</p>
-      </li>
-      <li>
         <h4>Partner bank web audits</h4>
-        <p>Six-dimension scoring of a bank's public web presence, delivered as a scorecard, gap analysis and roadmap. The crawl rig is re-runnable for the next partner.</p>
+        <p>Scoring a bank's public web presence against a fixed framework, delivered as a scorecard, gap analysis and roadmap. The crawl rig is re-runnable for the next partner.</p>
       </li>
       <li>
         <h4>Personalized marketing toolkit</h4>
         <p>A marketing page for merchants. A code in the URL swaps in that merchant's own QR code and matches the downloadable assets to their account.</p>
       </li>
-      <li>
-        <h4>A 220-page partner marketplace</h4>
-        <p>Titles, descriptions and structured data for every listing on a marketplace where 155 pages shared one title and nothing carried a canonical.</p>
-      </li>
     </ol>
   </div>
 </section>
 
-<!-- ============================== 06 GAMES ============================== -->
-<section class="sec sec-tint" id="play" data-spy>
-  <div class="wrap">
-    <header class="sec-head reveal">
-      <p class="label"><span class="num">06</span> Games</p>
-      <h2>Side projects</h2>
-      <p class="standfirst">Games I have built for fun. The rules are covered by tests and the balance is tuned by running simulations, the same way I treat everything else.</p>
-    </header>
-
-    <div class="games">
-      <article class="game reveal">
-        <div class="shot pixel"><img src="images/game-last-light.png" width="2560" height="1440" alt="Last Light: a pixel-art fox running across platforms in a forest" loading="lazy"></div>
-        <div class="game-body">
-          <p class="mono">2D platformer. Vanilla JS, no build step.</p>
-          <h3>Last Light</h3>
-          <p>An endless pixel-art survival platformer with coyote time, jump buffering and a difficulty ramp that keeps creeping. All the assets are CC0, and if a file fails to load the game falls back to coloured shapes instead of breaking.</p>
-        </div>
-      </article>
-      <article class="game reveal">
-        <div class="shot pixel"><img src="images/game-blood-ante.png" width="2560" height="1440" alt="Blood Ante: an arena with enemies closing in and a damage scorebox in the corner" loading="lazy"></div>
-        <div class="game-body">
-          <p class="mono">Roguelike. Vanilla JS, ES modules.</p>
-          <h3>Blood Ante</h3>
-          <p>A survivors-style game where damage is a score formula: base plus chips, times mult, times every xmult. The balance is tuned by a headless bot that plays whole runs, then plays them again with an immortal player to check that the damage quota is actually doing something.</p>
-        </div>
-      </article>
-      <article class="game reveal">
-        <div class="shot"><img src="images/game-dice.jpg" width="2560" height="1440" alt="Dice Tray: a full set of 3D polyhedral dice on a tray" loading="lazy"></div>
-        <div class="game-body">
-          <p class="mono">3D dice roller. Three.js, cannon-es.</p>
-          <h3>Dice Tray</h3>
-          <p>A seven-piece set where each die's collision hull is built from the same vertices as its mesh, so the result is whichever face physically lands up. Gravity runs at about 0.18 g on purpose, because real gravity settles in under a second and is no fun to watch.</p>
-        </div>
-      </article>
-    </div>
-
-    <p class="rule-label reveal">The Memphis arcade</p>
-    <dl class="arcade stagger">
-      <div>
-        <dt>Hangar One<small>Uno, two to six players</small></dt>
-        <dd>Hands are private, which on Firebase's realtime database takes some care because read rules cascade. Each hand lives in a node only its owner can read. A test fails the build if a hand's download cost grows past budget, and sixty full games run in the test suite.</dd>
-      </div>
-      <div>
-        <dt>Radar<small>Battleship with aircraft</small></dt>
-        <dd>Four board sizes. A squadron is private, so the player being shot at is the only one who can say whether it hit, and both squadrons are published at the end so either side can check. The aircraft are drawn SVG, nose to tail across the span.</dd>
-      </div>
-      <div>
-        <dt>Hangar Checkers<small>English draughts</small></dt>
-        <dd>The whole game state is a 64-character string. The jump animation replays the finished move hop by hop and ghosts the captured pieces until the hop reaches them. Three practice bots, 35 tests.</dd>
-      </div>
-      <div>
-        <dt>Hangar Chess<small>Complete chess, three CPUs</small></dt>
-        <dd>Castling, en passant, promotion, stalemate, the fifty-move rule and threefold repetition. Move generation is proved by perft: 4,865,609 leaf nodes from the opening position and 4,085,603 from Kiwipete, all matching. 46 tests, and the piece art is drawn in-house.</dd>
-      </div>
-      <div>
-        <dt>Hangar Sortie<small>Turn-based tactics</small></dt>
-        <dd>Pick three units from six, deploy on an eight-by-eight apron, and alternate activations. Everything is orthogonal on purpose. Unit stats were tuned by simulating colour-swapped bot pairs until every type won between 43 and 56 percent of its drafts.</dd>
-      </div>
-    </dl>
-  </div>
-</section>
 
 <!-- ============================== 07 ABOUT ============================== -->
 <section class="sec" id="about" data-spy>
   <div class="wrap">
     <header class="sec-head reveal">
-      <p class="label"><span class="num">07</span> About</p>
+      <p class="label"><span class="num">05</span> About</p>
       <h2>Background</h2>
     </header>
 
@@ -815,6 +600,15 @@
         <p>The same process runs on a four-page site for a local business as on a five-hundred-page enterprise site, and most of my work is the former.</p>
         <p>I am in Rexburg, Idaho. The photo at the top of the page is the Tetons.</p>
 
+        <figure class="snap reveal">
+          <img src="images/idaho-falls.webp"
+               srcset="images/idaho-falls-sm.webp 800w, images/idaho-falls.webp 1600w"
+               sizes="(max-width: 760px) 92vw, 640px"
+               width="1600" height="1200" loading="lazy" decoding="async"
+               alt="Hyrum Whittier and his wife at the falls in Idaho Falls, with the temple behind them">
+          <figcaption>The falls at Idaho Falls, about half an hour down the road.</figcaption>
+        </figure>
+
         <dl class="cv">
           <div>
             <dt>Education</dt>
@@ -826,7 +620,7 @@
           </div>
           <div>
             <dt>Elsewhere</dt>
-            <dd><b>LinkedIn and GitHub</b><span><a class="txtlink" href="https://www.linkedin.com/in/hyrum-whittier/" target="_blank" rel="noopener">linkedin.com/in/hyrum-whittier</a> &nbsp; <a class="txtlink" href="https://github.com/whittierht" target="_blank" rel="noopener">github.com/whittierht</a></span></dd>
+            <dd><b>LinkedIn</b><span><a class="txtlink" href="https://www.linkedin.com/in/hyrum-whittier/" target="_blank" rel="noopener">linkedin.com/in/hyrum-whittier</a></span></dd>
           </div>
         </dl>
       </div>
@@ -838,9 +632,9 @@
 <section class="sec sec-tint" id="process" data-spy>
   <div class="wrap">
     <header class="sec-head reveal">
-      <p class="label"><span class="num">08</span> Process</p>
+      <p class="label"><span class="num">06</span> Process</p>
       <h2>How this works</h2>
-      <p class="standfirst">What happens after you send me a URL.</p>
+      <p class="standfirst">Every site I build is one hundred percent hand-coded, and I move sites off page builders onto that. What I do not do is work inside a page builder.</p>
     </header>
 
     <ol class="steps stagger">
@@ -850,7 +644,7 @@
       </li>
       <li>
         <h4>I crawl it before I recommend anything</h4>
-        <p>Every page gets checked: status, titles and descriptions with pixel widths, canonicals, structured data, internal links and images. The findings above came out of crawls like that, not out of a checklist.</p>
+        <p>Every page gets checked: status, titles and descriptions with pixel widths, canonicals, structured data, internal links and images. That is where the diagnosis comes from, not a checklist.</p>
       </li>
       <li>
         <h4>You get a written diagnosis</h4>
@@ -878,11 +672,11 @@
       </div>
       <div>
         <dt>I am on Wix or Squarespace. Do I have to move?</dt>
-        <dd>No. Titles, descriptions, structured data and redirects can all be managed inside Wix through its own API, and Squarespace accepts code injection. Moving makes sense when the platform gets in the way of the content, which is what happened with the iframes above.</dd>
+        <dd>To work with me, yes. I build hand-coded sites and I migrate sites onto them, but I do not take on work inside a page builder. Your URLs, wording and rankings come across with you.</dd>
       </div>
       <div>
         <dt>Can you work on my existing site instead of rebuilding it?</dt>
-        <dd>Most of the audit work on this page was exactly that: WordPress, Divi, Squarespace, Wix and a franchise CMS, fixed in place.</dd>
+        <dd>If it is hand-coded or WordPress, yes. Audits, schema, metadata and speed work all happen in place. If it is on a builder, the audit still stands on its own, but the fixes come with the rebuild.</dd>
       </div>
       <div>
         <dt>What do you need from me to start?</dt>
@@ -898,11 +692,46 @@
     <p class="label reveal">Contact</p>
     <h2 class="reveal">Tell me about the site.</h2>
     <p class="standfirst reveal">Building, rebuilding, or diagnosing. Send the URL and what you have tried.</p>
-    <p class="contact-mail reveal"><a href="mailto:whittierht@gmail.com">whittierht@gmail.com</a></p>
+
+    <form class="form reveal" id="contactForm"
+          action="https://formsubmit.co/whittierht@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New enquiry from hyrumwhittier.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <!-- honeypot: bots fill it, people never see it -->
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+
+      <div class="f-row">
+        <div class="f-field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="f-field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="f-field">
+        <label for="f-url">Your website <span>optional</span></label>
+        <input id="f-url" name="website" type="url" placeholder="https://" autocomplete="url">
+      </div>
+
+      <div class="f-field">
+        <label for="f-msg">What is going on with it?</label>
+        <textarea id="f-msg" name="message" rows="5" required></textarea>
+      </div>
+
+      <div class="f-foot">
+        <button class="btn" type="submit">Send</button>
+        <p class="f-note" id="formNote" role="status" aria-live="polite">Goes straight to my inbox. I read every one.</p>
+      </div>
+    </form>
+
     <p class="contact-alt reveal">
+      <a href="mailto:whittierht@gmail.com">whittierht@gmail.com</a>
       <button class="copy" type="button" data-copy="whittierht@gmail.com">Copy address</button>
       <a class="txtlink" href="https://www.linkedin.com/in/hyrum-whittier/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="txtlink" href="https://github.com/whittierht" target="_blank" rel="noopener">GitHub</a>
       <span>Rexburg, Idaho</span>
     </p>
   </div>

@@ -5,22 +5,21 @@
    ========================================================= */
 
 :root {
-  --paper:      #f7f6f2;
-  --paper-2:    #eeece6;
-  --card:       #fbfaf7;
-  --ink:        #131313;
-  --ink-2:      #3a3a38;
-  --muted:      #6b6b66;
-  --faint:      #a3a29c;
-  --rule:       #dad8d0;
-  --rule-soft:  #e7e5de;
-  --rule-strong:#131313;
-  --accent:     #c4451f;
-  --accent-soft:#fbe9e2;
-  --on-accent:  #ffffff;
-  --live:       #1d7a4f;
-  --shadow:     0 30px 70px -40px rgba(19,19,19,.4), 0 2px 6px -2px rgba(19,19,19,.12);
-
+  --paper:      #0c0d0e;
+  --paper-2:    #131517;
+  --card:       #16181a;
+  --ink:        #f2f1ee;
+  --ink-2:      #ccd1d5;
+  --muted:      #9aa1a7;
+  --faint:      #8b9299;
+  --rule:       #2b2f33;
+  --rule-soft:  #202326;
+  --rule-strong:#f2f1ee;
+  --accent:     #ff7a54;
+  --accent-soft:#2a1a14;
+  --on-accent:  #0c0d0e;
+  --live:       #46b97e;
+  --shadow:     0 30px 70px -40px rgba(0,0,0,.8), 0 2px 6px -2px rgba(0,0,0,.5);
   /* the hero and the contact panel are dark in both themes; literal values */
   --hero-bg:    #0c0d0e;
   --hero-ink:   #f2f1ee;
@@ -28,10 +27,10 @@
   --hero-label: rgba(242,241,238,.56);
   --hero-rule:  rgba(242,241,238,.3);
   --hero-accent:#ff6a42;
-  --inv-bg:     #0c0d0e;
-  --inv-ink:    #f2f1ee;
-  --inv-muted:  #878d92;
-  --inv-rule:   #26292c;
+  --inv-bg:     #f2f1ee;
+  --inv-ink:    #0c0d0e;
+  --inv-muted:  #5f656a;
+  --inv-rule:   rgba(12,13,14,.16);
 
   --display: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -41,55 +40,9 @@
   --max: 1180px;
   --pad: clamp(20px, 4vw, 56px);
 
-  color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper:      #0c0d0e;
-    --paper-2:    #131517;
-    --card:       #16181a;
-    --ink:        #f2f1ee;
-    --ink-2:      #c3c7ca;
-    --muted:      #878d92;
-    --faint:      #5f656a;
-    --rule:       #26292c;
-    --rule-soft:  #1c1f21;
-    --rule-strong:#f2f1ee;
-    --accent:     #ff6a42;
-    --accent-soft:#2a1a14;
-    --on-accent:  #0c0d0e;
-    --live:       #46b97e;
-    --shadow:     0 30px 70px -40px rgba(0,0,0,.8), 0 2px 6px -2px rgba(0,0,0,.5);
-    --inv-bg:     #f2f1ee;
-    --inv-ink:    #0c0d0e;
-    --inv-muted:  #5f656a;
-    --inv-rule:   rgba(12,13,14,.16);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper:      #0c0d0e;
-  --paper-2:    #131517;
-  --card:       #16181a;
-  --ink:        #f2f1ee;
-  --ink-2:      #c3c7ca;
-  --muted:      #878d92;
-  --faint:      #5f656a;
-  --rule:       #26292c;
-  --rule-soft:  #1c1f21;
-  --rule-strong:#f2f1ee;
-  --accent:     #ff6a42;
-  --accent-soft:#2a1a14;
-  --on-accent:  #0c0d0e;
-  --live:       #46b97e;
-  --shadow:     0 30px 70px -40px rgba(0,0,0,.8), 0 2px 6px -2px rgba(0,0,0,.5);
-  --inv-bg:     #f2f1ee;
-  --inv-ink:    #0c0d0e;
-  --inv-muted:  #5f656a;
-  --inv-rule:   rgba(12,13,14,.16);
   color-scheme: dark;
 }
+
 
 /* ---------- base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -201,7 +154,7 @@ b, strong { font-weight: 600; }
 
 .rail-foot { margin-top: auto; display: flex; flex-direction: column; gap: 12px; padding-top: 16px; border-top: 1px solid var(--rule); }
 .rail-foot .status { font-size: .8rem; color: var(--ink-2); margin: 0; }
-.rail-foot .status span { display: block; font-size: .74rem; color: var(--muted); margin-top: .15rem; padding-left: 1rem; }
+.rail-foot .status span:not(.live-dot) { display: block; font-size: .74rem; color: var(--muted); margin-top: .15rem; padding-left: 1rem; }
 .rail-foot .mail { font-size: .8rem; text-decoration: none; color: var(--ink); word-break: break-all; }
 .rail-foot .mail:hover { color: var(--accent); }
 .theme {
@@ -210,12 +163,6 @@ b, strong { font-weight: 600; }
 }
 .theme svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .theme:hover { color: var(--ink); }
-.theme .sun, :root[data-theme="dark"] .theme .moon { display: none; }
-:root[data-theme="dark"] .theme .sun { display: block; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme .moon { display: none; }
-  :root:not([data-theme="light"]) .theme .sun { display: block; }
-}
 
 .main { margin-left: var(--rail); }
 
@@ -619,4 +566,75 @@ b, strong { font-weight: 600; }
   .cv > div { grid-template-columns: 1fr; gap: .4rem; }
   .case-kicker span { display: block; }
   .case-kicker span + span::before { display: none; }
+}
+
+/* ---------- phone: loading shimmer ----------
+   The screen shows a moving sweep until the image decodes, so a slow
+   connection sees a phone booting rather than an empty slot. */
+.phone .screen::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(100deg,
+      transparent 20%,
+      color-mix(in srgb, var(--ink) 9%, transparent) 42%,
+      color-mix(in srgb, var(--ink) 15%, transparent) 50%,
+      color-mix(in srgb, var(--ink) 9%, transparent) 58%,
+      transparent 80%),
+    var(--paper-2);
+  background-size: 220% 100%, 100% 100%;
+  animation: phone-sweep 1.5s linear infinite;
+  transition: opacity .45s ease;
+}
+.phone .screen.loaded::before { opacity: 0; animation: none; }
+@keyframes phone-sweep {
+  from { background-position: 140% 0, 0 0; }
+  to   { background-position: -40% 0, 0 0; }
+}
+.phone .screen img { position: relative; z-index: 2; }
+
+/* ---------- contact form ---------- */
+.form { margin: 2.4rem 0 2rem; display: flex; flex-direction: column; gap: 1.1rem; max-width: 640px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.f-field { display: flex; flex-direction: column; gap: .4rem; }
+.f-field label {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--inv-muted);
+}
+.f-field label span { text-transform: none; letter-spacing: 0; opacity: .7; }
+.f-field input, .f-field textarea {
+  font: inherit; font-size: .95rem; color: var(--inv-ink);
+  background: color-mix(in srgb, var(--inv-ink) 5%, transparent);
+  border: 1px solid var(--inv-rule); border-radius: 3px;
+  padding: .7rem .8rem; width: 100%;
+  transition: border-color .2s ease, background .2s ease;
+}
+.f-field textarea { resize: vertical; min-height: 7rem; }
+.f-field input:focus, .f-field textarea:focus {
+  outline: none; border-color: var(--accent);
+  background: color-mix(in srgb, var(--inv-ink) 8%, transparent);
+}
+.f-field input:focus-visible, .f-field textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.f-foot { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
+.btn {
+  font-family: var(--display); font-size: .92rem; font-weight: 600;
+  background: var(--inv-ink); color: var(--inv-bg);
+  border: 1px solid var(--inv-ink); border-radius: 3px;
+  padding: .7rem 1.6rem; cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn[disabled] { opacity: .55; cursor: default; }
+.f-note { margin: 0; font-size: .82rem; color: var(--inv-muted); }
+.f-note.ok { color: var(--accent); font-weight: 600; }
+.f-note.bad { color: #d4553a; font-weight: 600; }
+
+@media (max-width: 640px) { .f-row { grid-template-columns: 1fr; } }
+
+/* ---------- a photo inside a text column ---------- */
+.snap { margin: 1.8rem 0 .4rem; max-width: 640px; }
+.snap img { width: 100%; border-radius: 4px; border: 1px solid var(--rule); }
+.snap figcaption {
+  margin-top: .6rem; font-size: .8rem; line-height: 1.5; color: var(--muted);
 }
