@@ -423,7 +423,7 @@ b, strong { font-weight: 600; }
 
 /* ---------- about ---------- */
 .about-grid { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
-.about-side { display: flex; flex-direction: column; gap: 1.6rem; position: sticky; top: 1.5rem; }
+.about-side { position: sticky; top: 1.5rem; }
 .portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(var(--gs, 0)); }
 .js-anim .portrait img { transition: filter .35s linear; }
 .portrait figcaption { margin-top: .7rem; padding-top: .7rem; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: .68rem; color: var(--muted); }
@@ -437,11 +437,6 @@ b, strong { font-weight: 600; }
 .cv dd span { display: block; font-size: .87rem; color: var(--muted); }
 
 /* ---------- process ---------- */
-.steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(2rem, 4vw, 3.5rem); border-top: 1px solid var(--rule-strong); }
-.steps li { counter-increment: s; padding: 1.5rem 0 1.8rem; border-bottom: 1px solid var(--rule); position: relative; }
-.steps li::before { content: counter(s, decimal-leading-zero); display: block; font-family: var(--mono); font-size: .7rem; letter-spacing: .06em; color: var(--accent); margin-bottom: .9rem; }
-.steps h4 { margin-bottom: .55rem; }
-.steps p { font-size: .9rem; color: var(--muted); }
 .faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(2rem, 4vw, 4rem); border-top: 1px solid var(--rule-strong); }
 .faq > div { padding: 1.15rem 0 1.3rem; border-bottom: 1px solid var(--rule); }
 .faq dt { font-family: var(--display); font-weight: 600; font-size: .98rem; letter-spacing: -.022em; margin-bottom: .4rem; }
@@ -611,15 +606,13 @@ b, strong { font-weight: 600; }
   .case-visual { padding-right: 0; padding-bottom: 0; }
   .case-visual .phone { position: static; width: 46%; max-width: 220px; margin: -12% auto 0; transform: translateX(28%); }
   .case-grid, .about-grid, .prod-grid, .prod-text.cols { grid-template-columns: 1fr; }
-  .case-meta, .portrait { position: static; }
-  .portrait { max-width: 15rem; }
+  .case-meta { position: static; }
   .meta { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; }
   .plates { grid-template-columns: 1fr 1fr; }
   .plates .plate:last-child { grid-column: 1 / -1; }
   .tl-head { display: none; }
   .tl-row { grid-template-columns: 1fr 1fr; gap: .5rem 1.5rem; }
   .tl-desc, .tl-stack { grid-column: 1 / -1; }
-  .steps { grid-template-columns: 1fr; }
   .faq { grid-template-columns: 1fr; }
   .arcade > div { grid-template-columns: 1fr; gap: .3rem; }
 }
@@ -712,23 +705,19 @@ b, strong { font-weight: 600; }
 }
 
 /* ---------- about: side rail + price callout ---------- */
-.about-side .snap { margin: 0; max-width: none; }
-.about-side .snap figcaption { margin-top: .6rem; font-family: var(--mono); font-size: .68rem; color: var(--muted); }
+.about-text .portrait { margin: 1.6rem 0; max-width: 20rem; }
+.about-text .snap { margin: 1.8rem 0 0; }
 .about-h {
   margin: 2.4rem 0 .9rem;
   font-family: var(--mono); font-size: .68rem; font-weight: 500;
   letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
 }
-.price {
-  margin-top: 1.6rem !important;
-  padding: 1.1rem 1.3rem;
-  border: 1px solid var(--rule);
-  border-left: 2px solid var(--accent);
-  border-radius: 0 4px 4px 0;
-  background: var(--paper-2);
-  font-size: .97rem !important;
+/* Price sits with the questions, set as a plain line. No accent rail. */
+.price-line {
+  margin: 1.1rem 0 0;
+  font-size: 1.02rem; color: var(--ink-2); max-width: 58ch;
 }
-.price b { font-family: var(--display); font-size: 1.15rem; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
+.price-line b { font-family: var(--display); font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
 
 @media (max-width: 900px) {
   .about-side { position: static; }
