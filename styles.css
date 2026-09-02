@@ -551,8 +551,11 @@ b, strong { font-weight: 600; }
   .toc .sub { display: block; padding-left: 1rem; margin: 0; }
   .toc .sub a { font-size: .88rem; color: var(--muted); }
 
+  /* Below the rail, not above it. The sheet lives inside .rail, which is
+     positioned and so caps its children's z-index inside its own stacking
+     context; a scrim above .rail therefore paints over the open menu. */
   .rail-scrim {
-    position: fixed; inset: 56px 0 0 0; z-index: 65;
+    position: fixed; inset: 56px 0 0 0; z-index: 55;
     background: rgba(0,0,0,.55);
     animation: scrim-in .2s ease both;
   }
