@@ -20,10 +20,8 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f0f0e'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='17' fill='%23ff5326' text-anchor='middle'%3EHW%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Covered+By+Your+Grace&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<!-- Only this class hides anything before the motion starts. No JS, or reduced motion, and the page renders complete. -->
-<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-anim');setTimeout(function(){document.documentElement.classList.add('ready')},3500)}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -85,200 +83,169 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
-  <div class="hero-pin" id="heroPin">
-    <h1 class="name" id="name" aria-label="Hyrum Whittier">
-      <span class="nl" aria-hidden="true">Hyrum</span>
-      <span class="nl" aria-hidden="true">Whittier</span>
-    </h1>
-
-    <div class="hero-foot">
-      <p class="statement">I build websites, and I do the <em>search work</em> behind them.</p>
-      <p class="status"><span class="dot"></span>Taking on new builds <span class="where" id="clock">Rexburg, Idaho</span></p>
-    </div>
-
-    <div class="pile" id="pile">
-      <figure class="print pr-b">
-        <div class="print-in">
-          <img src="images/memphis-1000.webp" width="1000" height="498" alt="The Memphis dashboard, the agency's project management app" decoding="async">
-        </div>
-      </figure>
-      <figure class="print pr-c">
-        <div class="print-in">
-          <img src="images/b6-home-800.webp" width="800" height="500" alt="Homepage of Bravo 6 Flight Academy" decoding="async">
-        </div>
-      </figure>
-      <figure class="print pr-a" id="feature">
-        <div class="print-in">
-          <a class="win-bar" href="https://loafa-band.web.app" target="_blank" rel="noopener">loafa-band.web.app</a>
-          <video class="vid" muted loop playsinline preload="none" width="1120" height="700"
-                 poster="images/loafa-home-1600.webp" data-src="video/loafa.mp4" data-hero
-                 aria-label="Screen recording of the Loafa band site being scrolled"></video>
-        </div>
-        <figcaption class="sticker hand">the best looking one</figcaption>
-      </figure>
-    </div>
+  <h1 class="name" aria-label="Hyrum Whittier"><span class="nl" aria-hidden="true">Hyrum</span> <span class="nl" aria-hidden="true">Whittier</span></h1>
+  <div class="hero-foot">
+    <p class="statement">I build websites, and I do the <em>search work</em> behind them.</p>
+    <p class="status">Rexburg, Idaho<br><span class="dot"></span>Taking on new builds</p>
   </div>
 </section>
 
 <!-- ============================== WORK ============================== -->
-<section class="proj proj-loafa" id="work">
-  <div class="wrap">
-    <header class="proj-head">
-      <h2 class="proj-title" data-kin>Loafa</h2>
-      <p class="proj-meta" data-rise>Band site<br>Provo, Utah<br>2026</p>
-      <p class="proj-line" data-rise>Alt rock from Provo. One HTML file with no libraries: song previews, a discography that scrolls sideways through the years, press clippings and past shows.</p>
-      <p class="proj-go" data-rise><a class="go" href="https://loafa-band.web.app" target="_blank" rel="noopener">loafa-band.web.app</a></p>
-    </header>
-  </div>
+<!-- Every block from here down opens the same way: a rule, the title on the left, the text on the right, then the pictures. -->
+<div class="work" id="work">
 
-  <div class="reel" id="reel">
-    <div class="reel-track" id="reelTrack">
-      <figure class="plate"><img src="images/loafa-hero2-800.webp" srcset="images/loafa-hero2-800.webp 800w, images/loafa-hero2-1600.webp 1600w" sizes="(min-width:900px) 100vh, 86vw" width="1600" height="1000" alt="Loafa hero with taped photos of the band and the line A unique sound but oddly familiar" loading="lazy" decoding="async"><figcaption>Hero</figcaption></figure>
-      <figure class="plate"><img src="images/loafa-single-800.webp" srcset="images/loafa-single-800.webp 800w, images/loafa-single-1600.webp 1600w" sizes="(min-width:900px) 100vh, 86vw" width="1600" height="1000" alt="The Unit 210 single on a yellow band, with a cardboard record sleeve and vinyl" loading="lazy" decoding="async"><figcaption>Unit 210</figcaption></figure>
-      <figure class="plate plate-phone"><img src="images/loafa-m-390.webp" srcset="images/loafa-m-390.webp 390w, images/loafa-m-780.webp 780w" sizes="(min-width:900px) 30vh, 40vw" width="780" height="1688" alt="The Loafa homepage on a phone" loading="lazy" decoding="async"><figcaption>Phone</figcaption></figure>
-      <figure class="plate"><img src="images/loafa-music-800.webp" srcset="images/loafa-music-800.webp 800w, images/loafa-music-1600.webp 1600w" sizes="(min-width:900px) 100vh, 86vw" width="1600" height="1000" alt="The music section with five songs to start with, each with a play button" loading="lazy" decoding="async"><figcaption>Music</figcaption></figure>
-      <figure class="plate"><img src="images/loafa-disc2-800.webp" srcset="images/loafa-disc2-800.webp 800w, images/loafa-disc2-1600.webp 1600w" sizes="(min-width:900px) 100vh, 86vw" width="1600" height="1000" alt="The discography timeline at 2024, showing the Identity Crisis album and its track list" loading="lazy" decoding="async"><figcaption>Discography</figcaption></figure>
-      <figure class="plate"><img src="images/loafa-press-800.webp" srcset="images/loafa-press-800.webp 800w, images/loafa-press-1600.webp 1600w" sizes="(min-width:900px) 100vh, 86vw" width="1600" height="1000" alt="Press reviews set as torn paper clippings" loading="lazy" decoding="async"><figcaption>Press</figcaption></figure>
-      <figure class="plate"><img src="images/loafa-live2-800.webp" srcset="images/loafa-live2-800.webp 800w, images/loafa-live2-1600.webp 1600w" sizes="(min-width:900px) 100vh, 86vw" width="1600" height="1000" alt="The live section with a stack of concert photos" loading="lazy" decoding="async"><figcaption>Live</figcaption></figure>
-      <figure class="plate"><img src="images/loafa-about-800.webp" srcset="images/loafa-about-800.webp 800w, images/loafa-about-1600.webp 1600w" sizes="(min-width:900px) 100vh, 86vw" width="1600" height="1000" alt="About Loafa, set as a shipping label on a wooden board with taped photos" loading="lazy" decoding="async"><figcaption>About</figcaption></figure>
-      <figure class="plate"><img src="images/loafa-book-800.webp" srcset="images/loafa-book-800.webp 800w, images/loafa-book-1600.webp 1600w" sizes="(min-width:900px) 100vh, 86vw" width="1600" height="1000" alt="The Book Loafa footer on yellow with the band's mascot" loading="lazy" decoding="async"><figcaption>Booking</figcaption></figure>
+  <!-- ---------- Loafa ---------- -->
+  <article class="proj" id="c-loafa">
+    <div class="wrap">
+      <header class="head">
+        <h2 class="title">Loafa</h2>
+        <div class="head-info">
+          <p class="lede">Alt rock from Provo. One HTML file with no libraries: song previews, a discography that scrolls sideways through the years, press clippings and past shows.</p>
+          <p class="meta"><span>Band site</span><span>Provo, Utah</span><span>2026</span></p>
+        </div>
+      </header>
+
+      <div class="lead">
+        <figure class="win">
+          <a class="win-bar" href="https://loafa-band.web.app" target="_blank" rel="noopener">loafa-band.web.app</a>
+          <video class="vid" muted loop playsinline preload="none" width="1120" height="700" poster="images/loafa-home-1600.webp" data-src="video/loafa.mp4" aria-label="Screen recording of the Loafa band site being scrolled"></video>
+        </figure>
+        <figure class="device">
+          <img src="images/loafa-m-390.webp" srcset="images/loafa-m-390.webp 390w, images/loafa-m-780.webp 780w" sizes="(min-width:900px) 20vw, 52vw" width="780" height="1688" alt="The Loafa homepage on a phone" decoding="async">
+        </figure>
+      </div>
+
+      <div class="shots shots--8">
+        <figure class="shot" data-rv><img src="images/loafa-hero2-800.webp" srcset="images/loafa-hero2-800.webp 800w, images/loafa-hero2-1600.webp 1600w" sizes="(min-width:900px) 48vw, 92vw" width="1600" height="1000" alt="Loafa hero with taped photos of the band and the line A unique sound but oddly familiar" loading="lazy" decoding="async"><figcaption>Hero</figcaption></figure>
+        <figure class="shot" data-rv><img src="images/loafa-single-800.webp" srcset="images/loafa-single-800.webp 800w, images/loafa-single-1600.webp 1600w" sizes="(min-width:900px) 48vw, 92vw" width="1600" height="1000" alt="The Unit 210 single on a yellow band, with a cardboard record sleeve and vinyl" loading="lazy" decoding="async"><figcaption>Unit 210</figcaption></figure>
+        <figure class="shot" data-rv><img src="images/loafa-music-800.webp" srcset="images/loafa-music-800.webp 800w, images/loafa-music-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The music section with five songs to start with, each with a play button" loading="lazy" decoding="async"><figcaption>Music</figcaption></figure>
+        <figure class="shot" data-rv><img src="images/loafa-disc2-800.webp" srcset="images/loafa-disc2-800.webp 800w, images/loafa-disc2-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The discography timeline at 2024, showing the Identity Crisis album and its track list" loading="lazy" decoding="async"><figcaption>Discography</figcaption></figure>
+        <figure class="shot" data-rv><img src="images/loafa-press-800.webp" srcset="images/loafa-press-800.webp 800w, images/loafa-press-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="Press reviews set as torn paper clippings" loading="lazy" decoding="async"><figcaption>Press</figcaption></figure>
+        <figure class="shot" data-rv><img src="images/loafa-live2-800.webp" srcset="images/loafa-live2-800.webp 800w, images/loafa-live2-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The live section with a stack of concert photos" loading="lazy" decoding="async"><figcaption>Live</figcaption></figure>
+        <figure class="shot" data-rv><img src="images/loafa-about-800.webp" srcset="images/loafa-about-800.webp 800w, images/loafa-about-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="About Loafa, set as a shipping label on a wooden board with taped photos" loading="lazy" decoding="async"><figcaption>About</figcaption></figure>
+        <figure class="shot" data-rv><img src="images/loafa-book-800.webp" srcset="images/loafa-book-800.webp 800w, images/loafa-book-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The Book Loafa footer on yellow with the band's mascot" loading="lazy" decoding="async"><figcaption>Booking</figcaption></figure>
+      </div>
     </div>
-  </div>
-</section>
+  </article>
 
-<p class="between wrap" data-rise>The next three were rescues off page builders.</p>
+  <!-- ---------- Bravo 6 ---------- -->
+  <article class="proj" id="c-bravo6">
+    <div class="wrap">
+      <header class="head">
+        <h2 class="title">Bravo 6<br>Flight Academy</h2>
+        <div class="head-info">
+          <p class="lede">A Divi site rebuilt as 135 static pages, generated by two Python scripts. Both tools in the Resources menu are new.</p>
+          <p class="meta"><span>Flight training</span><span>Rexburg and Pocatello, Idaho</span><span>2026</span></p>
+        </div>
+      </header>
 
-<!-- ---------- Bravo 6 ---------- -->
-<article class="proj" id="c-bravo6">
-  <div class="wrap">
-    <header class="proj-head">
-      <h2 class="proj-title" data-rise>Bravo 6<br>Flight Academy</h2>
-      <p class="proj-meta" data-rise>Flight training<br>Rexburg and Pocatello, Idaho<br>2026</p>
-      <p class="proj-line" data-rise>A Divi site rebuilt as 135 static pages, generated by two Python scripts. Both tools in the Resources menu are new.</p>
-      <p class="proj-go" data-rise><a class="go" href="https://bravo6flightacademy.com" target="_blank" rel="noopener">bravo6flightacademy.com</a></p>
-    </header>
+      <div class="lead" data-rv>
+        <figure class="win">
+          <a class="win-bar" href="https://bravo6flightacademy.com" target="_blank" rel="noopener">bravo6flightacademy.com</a>
+          <video class="vid" muted loop playsinline preload="none" width="1120" height="700" poster="images/b6-home-1600.webp" data-src="video/b6.mp4" aria-label="Screen recording of the Bravo 6 Flight Academy homepage being scrolled"></video>
+        </figure>
+        <figure class="device">
+          <img src="images/b6-m-390.webp" srcset="images/b6-m-390.webp 390w, images/b6-m-780.webp 780w" sizes="(min-width:900px) 20vw, 52vw" width="780" height="1688" alt="The Bravo 6 homepage on a phone" loading="lazy" decoding="async">
+        </figure>
+      </div>
 
-    <div class="stage">
-      <figure class="win" data-wipe>
-        <a class="win-bar" href="https://bravo6flightacademy.com" target="_blank" rel="noopener">bravo6flightacademy.com</a>
-        <video class="vid" muted loop playsinline preload="none" width="1120" height="700" poster="images/b6-home-1600.webp" data-src="video/b6.mp4" aria-label="Screen recording of the Bravo 6 Flight Academy homepage being scrolled"></video>
-      </figure>
-      <figure class="phone" data-speed="1.4">
-        <img src="images/b6-m-390.webp" srcset="images/b6-m-390.webp 390w, images/b6-m-780.webp 780w" sizes="(min-width:900px) 17vw, 34vw" width="780" height="1688" alt="The Bravo 6 homepage on a phone" loading="lazy" decoding="async">
-      </figure>
+      <div class="shots">
+        <figure class="shot" data-rv>
+          <a href="https://bravo6flightacademy.com/flyable/" target="_blank" rel="noopener"><img src="images/b6-flyable-800.webp" srcset="images/b6-flyable-800.webp 800w, images/b6-flyable-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The Is It Flyable Today tool with a live verdict, current conditions and the forecast" loading="lazy" decoding="async"></a>
+          <figcaption><b>Is It Flyable Today</b> Live airport weather scored against the school's own limits.</figcaption>
+        </figure>
+        <figure class="shot" data-rv>
+          <a href="https://bravo6flightacademy.com/training-area-map/" target="_blank" rel="noopener"><img src="images/b6-map-800.webp" srcset="images/b6-map-800.webp 800w, images/b6-map-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="Training area map with practice area boundaries drawn over an aeronautical chart" loading="lazy" decoding="async"></a>
+          <figcaption><b>Training area map</b> Practice areas over an FAA sectional chart.</figcaption>
+        </figure>
+        <figure class="shot" data-rv>
+          <a href="https://bravo6flightacademy.com/in-the-news/" target="_blank" rel="noopener"><img src="images/b6-news-800.webp" srcset="images/b6-news-800.webp 800w, images/b6-news-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The In the News page laid out like a newspaper, with datelines and a featured story" loading="lazy" decoding="async"></a>
+          <figcaption><b>Newsroom</b> Press coverage, laid out like print.</figcaption>
+        </figure>
+      </div>
     </div>
+  </article>
 
-    <div class="plates pl-a">
-      <figure class="plate" data-wipe>
-        <a href="https://bravo6flightacademy.com/flyable/" target="_blank" rel="noopener"><img src="images/b6-flyable-800.webp" srcset="images/b6-flyable-800.webp 800w, images/b6-flyable-1600.webp 1600w" sizes="(min-width:900px) 62vw, 92vw" width="1600" height="1000" alt="The Is It Flyable Today tool with a live verdict, current conditions and the forecast" loading="lazy" decoding="async"></a>
-        <figcaption><b>Is It Flyable Today</b> Live airport weather scored against the school's own limits.</figcaption>
-      </figure>
-      <figure class="plate" data-wipe>
-        <a href="https://bravo6flightacademy.com/training-area-map/" target="_blank" rel="noopener"><img src="images/b6-map-800.webp" srcset="images/b6-map-800.webp 800w, images/b6-map-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="Training area map with practice area boundaries drawn over an aeronautical chart" loading="lazy" decoding="async"></a>
-        <figcaption><b>Training area map</b> Practice areas over an FAA sectional chart.</figcaption>
-      </figure>
-      <figure class="plate" data-wipe>
-        <a href="https://bravo6flightacademy.com/in-the-news/" target="_blank" rel="noopener"><img src="images/b6-news-800.webp" srcset="images/b6-news-800.webp 800w, images/b6-news-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The In the News page laid out like a newspaper, with datelines and a featured story" loading="lazy" decoding="async"></a>
-        <figcaption><b>Newsroom</b> Press coverage, laid out like print.</figcaption>
-      </figure>
+  <!-- ---------- Outdoors for Youth ---------- -->
+  <article class="proj" id="c-ofy">
+    <div class="wrap">
+      <header class="head">
+        <h2 class="title">Outdoors for Youth</h2>
+        <div class="head-info">
+          <p class="lede">Off Wix. Twenty-two pages, every slug matched to the old site so the rankings carried over. The seven-step registration form saves answers so a parent can finish later.</p>
+          <p class="meta"><span>Teen adventure camp</span><span>Newdale, Idaho</span><span>2026</span></p>
+        </div>
+      </header>
+
+      <div class="lead lead--flip" data-rv>
+        <figure class="win">
+          <a class="win-bar" href="https://www.outdoorsforyouth.org" target="_blank" rel="noopener">outdoorsforyouth.org</a>
+          <video class="vid" muted loop playsinline preload="none" width="1120" height="700" poster="images/ofy-home-1600.webp" data-src="video/ofy.mp4" aria-label="Screen recording of the Outdoors for Youth homepage being scrolled"></video>
+        </figure>
+        <figure class="device">
+          <img src="images/ofy-m-390.webp" srcset="images/ofy-m-390.webp 390w, images/ofy-m-780.webp 780w" sizes="(min-width:900px) 20vw, 52vw" width="780" height="1688" alt="The Outdoors for Youth homepage on a phone" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="shots">
+        <figure class="shot" data-rv>
+          <a href="https://www.outdoorsforyouth.org/register-for-ofy" target="_blank" rel="noopener"><img src="images/ofy-dates-800.webp" srcset="images/ofy-dates-800.webp 800w, images/ofy-dates-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The dates and registration page showing session tiles" loading="lazy" decoding="async"></a>
+          <figcaption><b>Dates and registration</b> Session tiles come from the camp's Salesforce inventory.</figcaption>
+        </figure>
+        <figure class="shot" data-rv>
+          <a href="https://www.outdoorsforyouth.org/what-is-ofy" target="_blank" rel="noopener"><img src="images/ofy-camp-800.webp" srcset="images/ofy-camp-800.webp 800w, images/ofy-camp-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The What Is OFY page" loading="lazy" decoding="async"></a>
+          <figcaption><b>The camp</b> Former iframe content, now real markup.</figcaption>
+        </figure>
+        <figure class="shot" data-rv>
+          <a href="https://www.outdoorsforyouth.org/gallery" target="_blank" rel="noopener"><img src="images/ofy-gallery-800.webp" srcset="images/ofy-gallery-800.webp 800w, images/ofy-gallery-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The photo gallery grid" loading="lazy" decoding="async"></a>
+          <figcaption><b>Gallery</b> More than two hundred of the camp's own photos.</figcaption>
+        </figure>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
 
-<!-- ---------- Outdoors for Youth ---------- -->
-<article class="proj proj--flip" id="c-ofy">
-  <div class="wrap">
-    <header class="proj-head">
-      <h2 class="proj-title" data-rise>Outdoors for Youth</h2>
-      <p class="proj-meta" data-rise>Teen adventure camp<br>Newdale, Idaho<br>2026</p>
-      <p class="proj-line" data-rise>Off Wix. Twenty-two pages, every slug matched to the old site so the rankings carried over. The seven-step registration form saves answers so a parent can finish later.</p>
-      <p class="proj-go" data-rise><a class="go" href="https://www.outdoorsforyouth.org" target="_blank" rel="noopener">outdoorsforyouth.org</a></p>
-    </header>
-
-    <div class="stage">
-      <figure class="win" data-wipe>
-        <a class="win-bar" href="https://www.outdoorsforyouth.org" target="_blank" rel="noopener">outdoorsforyouth.org</a>
-        <video class="vid" muted loop playsinline preload="none" width="1120" height="700" poster="images/ofy-home-1600.webp" data-src="video/ofy.mp4" aria-label="Screen recording of the Outdoors for Youth homepage being scrolled"></video>
-      </figure>
-      <figure class="phone" data-speed="1.4">
-        <img src="images/ofy-m-390.webp" srcset="images/ofy-m-390.webp 390w, images/ofy-m-780.webp 780w" sizes="(min-width:900px) 17vw, 34vw" width="780" height="1688" alt="The Outdoors for Youth homepage on a phone" loading="lazy" decoding="async">
-      </figure>
+  <!-- ---------- Nadia's, kept small ---------- -->
+  <article class="proj" id="c-nadia">
+    <div class="wrap">
+      <div class="also">
+        <figure class="shot" data-rv>
+          <a href="https://nadiawalksdogs.com" target="_blank" rel="noopener"><img src="images/nadia-home-800.webp" srcset="images/nadia-home-800.webp 800w, images/nadia-home-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="Homepage of Nadia's Dog Nanny Services" loading="lazy" decoding="async"></a>
+        </figure>
+        <div class="also-text">
+          <h2 class="title title--sm">Nadia's Dog Nanny Services</h2>
+          <p class="lede">GoDaddy's builder decided the schema, the sitemap and the titles, and got all three wrong. Now it is fourteen hand-coded pages with one schema graph each.</p>
+          <p class="meta"><span>Boarding and daycare</span><span>Phoenix, Arizona</span><span>2026</span></p>
+          <p class="also-go"><a class="go" href="https://nadiawalksdogs.com" target="_blank" rel="noopener">nadiawalksdogs.com</a></p>
+        </div>
+        <p class="also-note">Search work also runs on accounts I have not rebuilt, including Madison Health.</p>
+      </div>
     </div>
+  </article>
 
-    <div class="plates pl-b">
-      <figure class="plate" data-wipe>
-        <a href="https://www.outdoorsforyouth.org/register-for-ofy" target="_blank" rel="noopener"><img src="images/ofy-dates-800.webp" srcset="images/ofy-dates-800.webp 800w, images/ofy-dates-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The dates and registration page showing session tiles" loading="lazy" decoding="async"></a>
-        <figcaption><b>Dates and registration</b> Session tiles come from the camp's Salesforce inventory.</figcaption>
-      </figure>
-      <figure class="plate" data-wipe>
-        <a href="https://www.outdoorsforyouth.org/what-is-ofy" target="_blank" rel="noopener"><img src="images/ofy-camp-800.webp" srcset="images/ofy-camp-800.webp 800w, images/ofy-camp-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The What Is OFY page" loading="lazy" decoding="async"></a>
-        <figcaption><b>The camp</b> Former iframe content, now real markup.</figcaption>
-      </figure>
-      <figure class="plate" data-wipe>
-        <a href="https://www.outdoorsforyouth.org/gallery" target="_blank" rel="noopener"><img src="images/ofy-gallery-800.webp" srcset="images/ofy-gallery-800.webp 800w, images/ofy-gallery-1600.webp 1600w" sizes="(min-width:900px) 62vw, 92vw" width="1600" height="1000" alt="The photo gallery grid" loading="lazy" decoding="async"></a>
-        <figcaption><b>Gallery</b> More than two hundred of the camp's own photos.</figcaption>
-      </figure>
-    </div>
-  </div>
-</article>
-
-<!-- ---------- Nadia's ---------- -->
-<article class="proj" id="c-nadia">
-  <div class="wrap">
-    <header class="proj-head">
-      <h2 class="proj-title" data-rise>Nadia's Dog Nanny Services</h2>
-      <p class="proj-meta" data-rise>Boarding and daycare<br>Phoenix, Arizona<br>2026</p>
-      <p class="proj-line" data-rise>GoDaddy's builder decided the schema, the sitemap and the titles, and got all three wrong. Now it is fourteen hand-coded pages with one schema graph each.</p>
-      <p class="proj-go" data-rise><a class="go" href="https://nadiawalksdogs.com" target="_blank" rel="noopener">nadiawalksdogs.com</a></p>
-    </header>
-
-    <div class="stage">
-      <figure class="win" data-wipe>
-        <a class="win-bar" href="https://nadiawalksdogs.com" target="_blank" rel="noopener">nadiawalksdogs.com</a>
-        <video class="vid" muted loop playsinline preload="none" width="1120" height="700" poster="images/nadia-home-1600.webp" data-src="video/nadia.mp4" aria-label="Screen recording of the Nadia's Dog Nanny Services homepage being scrolled"></video>
-      </figure>
-      <figure class="phone" data-speed="1.4">
-        <img src="images/nadia-m-390.webp" srcset="images/nadia-m-390.webp 390w, images/nadia-m-780.webp 780w" sizes="(min-width:900px) 17vw, 34vw" width="780" height="1688" alt="The Nadia's Dog Nanny Services homepage on a phone" loading="lazy" decoding="async">
-      </figure>
-    </div>
-
-    <div class="plates pl-c">
-      <figure class="plate" data-wipe>
-        <a href="https://nadiawalksdogs.com/services" target="_blank" rel="noopener"><img src="images/nadia-services-800.webp" srcset="images/nadia-services-800.webp 800w, images/nadia-services-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The services page of Nadia's Dog Nanny Services" loading="lazy" decoding="async"></a>
-        <figcaption><b>Services</b> Seven services, verified prices, marked up as an offer catalog.</figcaption>
-      </figure>
-      <figure class="plate" data-wipe>
-        <a href="https://nadiawalksdogs.com/boarding" target="_blank" rel="noopener"><img src="images/nadia-boarding-800.webp" srcset="images/nadia-boarding-800.webp 800w, images/nadia-boarding-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The boarding page of Nadia's Dog Nanny Services" loading="lazy" decoding="async"></a>
-        <figcaption><b>Boarding</b> Her own photos, compressed and self-hosted.</figcaption>
-      </figure>
-      <figure class="plate" data-wipe>
-        <a href="https://nadiawalksdogs.com/education-1" target="_blank" rel="noopener"><img src="images/nadia-edu-800.webp" srcset="images/nadia-edu-800.webp 800w, images/nadia-edu-1600.webp 1600w" sizes="(min-width:900px) 31vw, 92vw" width="1600" height="1000" alt="The education and credentials page of Nadia's Dog Nanny Services" loading="lazy" decoding="async"></a>
-        <figcaption><b>Credentials</b> Real certifications. No review-star markup.</figcaption>
-      </figure>
-    </div>
-  </div>
-</article>
-
-<p class="between between--plain wrap" data-rise>Search work also runs on accounts I have not rebuilt, including Madison Health.</p>
+</div>
 
 <!-- ============================== APPLICATIONS ============================== -->
 <section class="apps" id="apps">
   <div class="wrap">
-    <h2 class="kin" data-kin>Applications</h2>
-    <p class="sec-line" data-rise>Three internal products I built for the agency. All behind a company sign-in, so screenshots are all I can show.</p>
+    <header class="head">
+      <h2 class="title">Applications</h2>
+      <div class="head-info">
+        <p class="lede">Three internal products I built for the agency. All behind a company sign-in, so screenshots are all I can show.</p>
+      </div>
+    </header>
 
-    <div class="apps-shots">
-      <figure class="win app-memphis" data-wipe>
+    <div class="lead" data-rv>
+      <figure class="win">
         <div class="win-bar">memphis.hangarmarketing.com</div>
-        <img src="images/memphis-1000.webp" srcset="images/memphis-1000.webp 1000w, images/memphis-2000.webp 2000w" sizes="(min-width:900px) 84vw, 92vw" width="2000" height="995" alt="The Memphis home screen: a greeting, hours today, a 131 day streak, tasks this week, and overdue and upcoming work" loading="lazy" decoding="async">
+        <img src="images/memphis-1000.webp" srcset="images/memphis-1000.webp 1000w, images/memphis-2000.webp 2000w" sizes="(min-width:900px) 72vw, 92vw" width="2000" height="995" alt="The Memphis home screen: a greeting, hours today, a 131 day streak, tasks this week, and overdue and upcoming work" loading="lazy" decoding="async">
       </figure>
-      <figure class="phone app-tarmac" data-speed="1.6">
-        <img src="images/tarmac-460.webp" srcset="images/tarmac-460.webp 460w, images/tarmac-920.webp 920w" sizes="(min-width:900px) 19vw, 40vw" width="920" height="2000" alt="The Tarmac timeclock on a phone, showing hours today, this week and for the pay period, with a Clock In button" loading="lazy" decoding="async">
+      <figure class="device">
+        <img src="images/tarmac-460.webp" srcset="images/tarmac-460.webp 460w, images/tarmac-920.webp 920w" sizes="(min-width:900px) 16vw, 52vw" width="920" height="2000" alt="The Tarmac timeclock on a phone, showing hours today, this week and for the pay period, with a Clock In button" loading="lazy" decoding="async">
       </figure>
     </div>
 
     <div class="apps-text">
-      <div class="app" data-rise>
+      <div class="app">
         <h3>Memphis</h3>
         <p class="url">memphis.hangarmarketing.com</p>
         <p>The agency's project management system, and the reason we stopped paying for Asana.</p>
@@ -288,7 +255,7 @@
           <li>The old Asana board came across as an archive</li>
         </ul>
       </div>
-      <div class="app" data-rise>
+      <div class="app">
         <h3>Tarmac</h3>
         <p class="url">tarmac.hangarmarketing.com</p>
         <p>Staff time and operations: an iPad kiosk, a phone portal and an admin panel.</p>
@@ -298,7 +265,7 @@
           <li>Face clock-in is opt-in, and no image leaves the iPad</li>
         </ul>
       </div>
-      <div class="app" data-rise>
+      <div class="app">
         <h3>Enterprise Mockups</h3>
         <p class="url">enterprisemockups.web.app</p>
         <p>The client review board. Reviewers pin comments to the exact spot, and the export names the file, the position and the element.</p>
@@ -314,8 +281,12 @@
 <!-- ============================== TOOLS + ENTERPRISE ============================== -->
 <section class="paper" id="tools">
   <div class="wrap">
-    <h2 class="kin" data-kin>Tools</h2>
-    <p class="sec-line" data-rise>Browser extensions, a WordPress plugin, command line scripts and a few internal apps, all built for the client work.</p>
+    <header class="head">
+      <h2 class="title">Tools</h2>
+      <div class="head-info">
+        <p class="lede">Browser extensions, a WordPress plugin, command line scripts and a few internal apps, all built for the client work.</p>
+      </div>
+    </header>
 
     <ul class="rows">
       <li><span class="r-name">SEO Meta Manager</span><span class="r-kind">WordPress plugin</span><span class="r-desc">Spreadsheet-style meta editor with CSV bulk upload. Overrides Yoast and Rank Math.</span><span class="r-stack">PHP, GD, JavaScript</span></li>
@@ -333,8 +304,12 @@
     </ul>
 
     <div class="ent" id="enterprise">
-      <h2 class="kin" data-kin>Enterprise</h2>
-      <p class="sec-line" data-rise>SEO at national scale, on one account: a national payments processor and its co-branded programs. Their teams take the work live, so I do not name it here.</p>
+      <header class="head">
+        <h2 class="title">Enterprise</h2>
+        <div class="head-info">
+          <p class="lede">SEO at national scale, on one account: a national payments processor and its co-branded programs. Their teams take the work live, so I do not name it here.</p>
+        </div>
+      </header>
 
       <ul class="rows rows-2">
         <li><span class="r-name">Keyword architecture</span><span class="r-desc">Every indexable page mapped to one target keyword.</span></li>
@@ -355,27 +330,34 @@
     <img src="images/tetons-1280.webp" srcset="images/tetons-1280.webp 1280w, images/tetons-2560.webp 2560w" sizes="100vw" width="2560" height="903" alt="Grand Teton mountain range reflected across a wide lake" loading="lazy" decoding="async">
   </div>
 
-  <div class="wrap about-grid">
-    <div class="about-pics">
-      <figure class="snap snap-a" data-speed="0.6">
-        <img src="images/hyrum-400.webp" srcset="images/hyrum-400.webp 400w, images/hyrum-800.webp 800w" sizes="(min-width:900px) 24vw, 56vw" width="800" height="800" alt="Portrait of Hyrum Whittier" loading="lazy" decoding="async">
-      </figure>
-      <figure class="snap snap-b" data-speed="1.3">
-        <img src="images/idaho-falls-sm.webp" srcset="images/idaho-falls-sm.webp 800w, images/idaho-falls.webp 1600w" sizes="(min-width:900px) 30vw, 70vw" width="1600" height="1200" alt="Hyrum Whittier and his wife at the falls in Idaho Falls, with the temple behind them" loading="lazy" decoding="async">
-        <figcaption class="hand">My wife and me at the falls in Idaho Falls.</figcaption>
-      </figure>
-    </div>
+  <div class="wrap">
+    <header class="head">
+      <h2 class="title">About</h2>
+      <div class="head-info">
+        <p class="lede">I care what a site looks like. A business can be doing everything right and still lose the job because its website looks thrown together, and that is a fixable problem.</p>
+      </div>
+    </header>
 
-    <div class="about-text">
-      <h2 class="kin" data-kin>About</h2>
-      <p class="lead" data-rise>I care what a site looks like. A business can be doing everything right and still lose the job because its website looks thrown together, and that is a fixable problem.</p>
-      <p data-rise>So I build sites that look like someone cared, then do the search work underneath. When a tool I need does not exist, I build that too.</p>
-      <p data-rise>From 2019 to 2021 I served a Spanish-speaking mission for The Church of Jesus Christ of Latter-day Saints in Tampa, Florida. My wife and I married in 2022 and we live in Rexburg. Those are the Tetons up there, close enough to visit on a Saturday.</p>
-      <dl class="cv" data-rise>
-        <div><dt>Education</dt><dd>B.S. Web Design and Development, Brigham Young University-Idaho</dd></div>
-        <div><dt>Current</dt><dd>SEO Specialist and Internal Tools Builder at a marketing agency in Rexburg</dd></div>
-        <div><dt>Elsewhere</dt><dd><a class="go" href="https://www.linkedin.com/in/hyrum-whittier/" target="_blank" rel="noopener">LinkedIn</a></dd></div>
-      </dl>
+    <div class="about-grid">
+      <div class="about-pics" data-rv>
+        <figure class="shot">
+          <img src="images/hyrum-400.webp" srcset="images/hyrum-400.webp 400w, images/hyrum-800.webp 800w" sizes="(min-width:900px) 20vw, 40vw" width="800" height="800" alt="Portrait of Hyrum Whittier" loading="lazy" decoding="async">
+        </figure>
+        <figure class="shot">
+          <img src="images/idaho-falls-sm.webp" srcset="images/idaho-falls-sm.webp 800w, images/idaho-falls.webp 1600w" sizes="(min-width:900px) 27vw, 54vw" width="1600" height="1200" alt="Hyrum Whittier and his wife at the falls in Idaho Falls, with the temple behind them" loading="lazy" decoding="async">
+          <figcaption>My wife and me at the falls in Idaho Falls.</figcaption>
+        </figure>
+      </div>
+
+      <div class="about-text">
+        <p>So I build sites that look like someone cared, then do the search work underneath. When a tool I need does not exist, I build that too.</p>
+        <p>From 2019 to 2021 I served a Spanish-speaking mission for The Church of Jesus Christ of Latter-day Saints in Tampa, Florida. My wife and I married in 2022 and we live in Rexburg. Those are the Tetons up there, close enough to visit on a Saturday.</p>
+        <dl class="cv">
+          <div><dt>Education</dt><dd>B.S. Web Design and Development, Brigham Young University-Idaho</dd></div>
+          <div><dt>Current</dt><dd>SEO Specialist and Internal Tools Builder at a marketing agency in Rexburg</dd></div>
+          <div><dt>Elsewhere</dt><dd><a class="go" href="https://www.linkedin.com/in/hyrum-whittier/" target="_blank" rel="noopener">LinkedIn</a></dd></div>
+        </dl>
+      </div>
     </div>
   </div>
 </section>
@@ -383,10 +365,12 @@
 <!-- ============================== PRICING + QUESTIONS ============================== -->
 <section class="ask" id="questions">
   <div class="wrap">
-    <h2 class="price" data-rise>Builds start at
-      <span class="circled">$1,500<svg viewBox="0 0 260 96" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M34 20 C 96 2, 214 4, 244 34 C 268 62, 196 90, 118 90 C 46 90, 2 72, 12 44 C 20 22, 70 10, 132 10"/></svg></span>
-    </h2>
-    <p class="sec-line" data-rise>Bigger projects cost more, and you get the number before you commit to anything. New build or a rebuild off a page builder, it is hand-coded either way. I do not work inside a page builder.</p>
+    <header class="head">
+      <h2 class="title">Builds start at <span class="hot">$1,500</span></h2>
+      <div class="head-info">
+        <p class="lede">Bigger projects cost more, and you get the number before you commit to anything. New build or a rebuild off a page builder, it is hand-coded either way. I do not work inside a page builder.</p>
+      </div>
+    </header>
 
     <div class="faq">
       <details>
@@ -416,48 +400,54 @@
 <!-- ============================== CONTACT ============================== -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <h2 class="contact-title" data-rise>Tell me about the site.</h2>
-    <p class="sec-line" data-rise>Building, rebuilding, or diagnosing. Send the URL and what you have tried.</p>
+    <header class="head">
+      <h2 class="title">Tell me about the site.</h2>
+      <div class="head-info">
+        <p class="lede">Building, rebuilding, or diagnosing. Send the URL and what you have tried.</p>
+      </div>
+    </header>
 
-    <form class="form" id="contactForm" action="https://formsubmit.co/whittierht@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New enquiry from hyrumwhittier.com">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <!-- honeypot: bots fill it, people never see it -->
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+    <div class="contact-grid">
+      <form class="form" id="contactForm" action="https://formsubmit.co/whittierht@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry from hyrumwhittier.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- honeypot: bots fill it, people never see it -->
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
 
-      <div class="f-row">
-        <div class="f-field">
-          <label for="f-name">Name</label>
-          <input id="f-name" name="name" type="text" required autocomplete="name">
+        <div class="f-row">
+          <div class="f-field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="f-field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" required autocomplete="email">
+          </div>
         </div>
+
         <div class="f-field">
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" required autocomplete="email">
+          <label for="f-url">Your website <span>optional</span></label>
+          <input id="f-url" name="website" type="url" placeholder="https://" autocomplete="url">
         </div>
-      </div>
 
-      <div class="f-field f-url">
-        <label for="f-url">Your website <span>optional</span></label>
-        <input id="f-url" name="website" type="url" placeholder="https://" autocomplete="url">
-      </div>
+        <div class="f-field">
+          <label for="f-msg">What is going on with it?</label>
+          <textarea id="f-msg" name="message" rows="4" required></textarea>
+        </div>
 
-      <div class="f-field f-msg">
-        <label for="f-msg">What is going on with it?</label>
-        <textarea id="f-msg" name="message" rows="4" required></textarea>
-      </div>
+        <div class="f-foot">
+          <button class="send" type="submit">Send</button>
+          <p class="f-note" id="formNote" role="status" aria-live="polite"></p>
+        </div>
+      </form>
 
-      <div class="f-foot">
-        <button class="send" type="submit" data-magnet>Send</button>
-        <p class="f-note" id="formNote" role="status" aria-live="polite"></p>
-      </div>
-    </form>
-
-    <p class="contact-alt">
-      <a href="mailto:whittierht@gmail.com">whittierht@gmail.com</a>
-      <button class="copy" type="button" data-copy="whittierht@gmail.com">Copy address</button>
-      <a href="https://www.linkedin.com/in/hyrum-whittier/" target="_blank" rel="noopener">LinkedIn</a>
-    </p>
+      <p class="contact-alt">
+        <a href="mailto:whittierht@gmail.com">whittierht@gmail.com</a>
+        <button class="copy" type="button" data-copy="whittierht@gmail.com">Copy address</button>
+        <a href="https://www.linkedin.com/in/hyrum-whittier/" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </div>
   </div>
 </section>
 
@@ -471,9 +461,6 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>

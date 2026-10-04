@@ -1,8 +1,9 @@
 /* =========================================================
    Hyrum Whittier. Portfolio, third edition.
-   Black paper, bone ink, one hot orange. Archivo on its width axis.
+   Black paper, bone ink, one hot orange. Archivo, condensed.
+   One twelve-column grid. Every section opens with the same head:
+   a rule, the title on the left, the text on the right.
    Hard edges, no shadows, no gradients. No framework, no build step.
-   The page renders complete without app.js; that file only adds motion.
    ========================================================= */
 
 :root {
@@ -20,11 +21,11 @@
   --nav: 56px;
   --pad: clamp(16px, 2.4vw, 40px);
   --gap: clamp(12px, 1.6vw, 28px);
+  --sec: clamp(84px, 15vh, 180px);
   --bar: 31px;
 
   --sans: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --hand: "Covered By Your Grace", "Segoe Print", "Bradley Hand", cursive;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -36,8 +37,6 @@ html {
   text-size-adjust: 100%;
 }
 html.menu-open { overflow: hidden; }
-html.lenis, html.lenis body { height: auto; }
-.lenis.lenis-stopped { overflow: hidden; }
 
 body {
   margin: 0;
@@ -72,9 +71,7 @@ ul { padding: 0; list-style: none; }
 .skip:focus { left: 0; }
 
 .wrap { padding: 0 var(--pad); }
-.hand { font-family: var(--hand); font-weight: 400; }
-section, article { scroll-margin-top: var(--nav); }
-main:focus, section:focus, article:focus { outline: none; }
+[id] { scroll-margin-top: var(--nav); }
 
 /* ------------------------------------------------------------ nav */
 .top {
@@ -113,118 +110,51 @@ main:focus, section:focus, article:focus { outline: none; }
 .menu-btn { display: none; }
 
 /* ------------------------------------------------------------ hero */
-.hero { position: relative; }
-.hero-pin {
-  --p: 0;
-  --w0: 94%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100svh;
-  padding: calc(var(--nav) + 14px) var(--pad) 24px;
-  overflow: hidden;
+/* The name spans the column exactly, in CSS alone. The hero is a size
+   container, so 100cqw is the column. The divisors are the measured width
+   of the ink in ems at weight 900: "WHITTIER" at wdth 62 is 3.6em, and
+   "HYRUM WHITTIER" on one line at wdth 62 is 6.3125em. On the stacked
+   version HYRUM is widened to 89.44 so both lines come out the same.
+   The small negative margins pull the H's side bearing out of the column,
+   so the letter itself sits on the left edge. */
+.hero {
+  container-type: inline-size;
+  padding: calc(var(--nav) + clamp(14px, 2.6vh, 30px)) var(--pad) clamp(40px, 7vh, 80px);
 }
-
-/* The two lines are fitted edge to edge by app.js, which solves the width
-   axis per line. The fallbacks here are close enough to read as intended. */
 .name {
-  --w1: 86;
-  --w2: 62;
-  position: relative;
-  z-index: 1;
-  order: 1;
-  font-size: var(--name-size, 24.8vw);
+  font-size: calc((100vw - 2 * var(--pad)) / 3.6);
+  font-size: calc(100cqw / 3.6);
   font-weight: 900;
+  font-variation-settings: "wdth" 62;
   line-height: .8;
   letter-spacing: -.012em;
   text-transform: uppercase;
-  opacity: calc(1 - var(--p) * .8);
-}
-.nl {
-  display: block;
-  width: max-content;
   white-space: nowrap;
 }
-.nl:first-child { font-variation-settings: "wdth" var(--w, var(--w1)); }
-.nl:last-child  { font-variation-settings: "wdth" var(--w, var(--w2)); }
-
-.pile {
-  position: relative;
-  z-index: 2;
-  order: 2;
-  margin: 10vw 0 13vw;
-}
-.print { margin: 0; }
-.print-in {
-  overflow: hidden;
-  border: 1px solid var(--edge);
-  background: var(--ink-2);
-}
-.print img, .print video { display: block; width: 100%; height: auto; }
-
-.pr-a {
-  position: relative;
-  z-index: 3;
-  width: var(--w0);
-  margin-left: auto;
-  rotate: -2deg;
-}
-.pr-b {
-  position: absolute;
-  z-index: 1;
-  width: 66%;
-  left: -5%;
-  top: -15%;
-  rotate: -7deg;
-  translate: calc(var(--p) * 12vw) calc(var(--p) * -40vh);
-  opacity: calc(1 - var(--p) * 2.2);
-}
-.pr-c {
-  position: absolute;
-  z-index: 2;
-  width: 52%;
-  right: -7%;
-  bottom: -12%;
-  rotate: 6deg;
-  translate: calc(var(--p) * -30vw) calc(var(--p) * 10vh);
-  opacity: calc(1 - var(--p) * 2.2);
-}
-
-.sticker {
-  position: absolute;
-  z-index: 4;
-  right: -.3rem;
-  top: -1.1rem;
-  padding: .3em .6em .22em;
-  background: var(--hot);
-  color: var(--ink);
-  font-size: clamp(1.25rem, 1.9vw, 1.9rem);
-  line-height: 1;
-  white-space: nowrap;
-  rotate: 4deg;
-  opacity: calc(1 - var(--p) * 5);
+.nl { display: block; }
+.nl:first-child {
+  margin-left: -.065em;
+  font-variation-settings: "wdth" 89.44;
 }
 
 .hero-foot {
-  position: relative;
-  z-index: 3;
-  order: 3;
-  opacity: calc(1 - var(--p) * 3.5);
+  display: grid;
+  gap: 1.1rem var(--gap);
+  margin-top: clamp(18px, 3vh, 34px);
 }
 .statement {
   max-width: 17em;
-  font-size: clamp(1.55rem, 2.5vw, 2.7rem);
+  font-size: clamp(1.5rem, 2.4vw, 2.6rem);
   font-weight: 600;
   font-stretch: 88%;
-  line-height: 1.06;
+  line-height: 1.08;
   letter-spacing: -.01em;
 }
 .statement em { font-style: normal; color: var(--hot); }
 .status {
-  margin-top: 1rem;
   font-family: var(--mono);
-  font-size: .8rem;
+  font-size: .78rem;
+  line-height: 1.7;
   color: var(--dim);
 }
 .dot {
@@ -234,9 +164,68 @@ main:focus, section:focus, article:focus { outline: none; }
   margin-right: .7em;
   background: var(--hot);
 }
-.where { margin-left: 1.4em; white-space: nowrap; }
 
-/* window chrome, shared by the hero print and every project window */
+/* ------------------------------------------------------------ type */
+.title {
+  font-size: clamp(2.6rem, 5.6vw, 6.25rem);
+  font-weight: 900;
+  font-stretch: 62%;
+  line-height: .9;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.title--sm {
+  font-size: clamp(1.9rem, 3vw, 3.2rem);
+  line-height: .95;
+}
+.hot { color: var(--hot); }
+.lede {
+  max-width: 46ch;
+  font-size: clamp(1.06rem, 1.3vw, 1.32rem);
+  line-height: 1.38;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2rem 1.6em;
+  margin-top: .9rem;
+  font-family: var(--mono);
+  font-size: .76rem;
+  color: var(--dim);
+}
+.go {
+  padding-bottom: 2px;
+  border-bottom: 1px solid currentColor;
+  font-family: var(--mono);
+  font-size: .85rem;
+}
+.go:hover { color: var(--hot); }
+a.win-bar::after, .go::after { content: " \2197"; }
+
+/* the head every section opens with */
+.head {
+  display: grid;
+  gap: .9rem var(--gap);
+  margin-bottom: clamp(22px, 4vh, 44px);
+  padding-top: clamp(14px, 2vh, 22px);
+  border-top: 1px solid var(--line);
+}
+
+/* ------------------------------------------------------------ projects */
+.proj { padding-top: var(--sec); }
+.proj:first-child { padding-top: 0; }
+
+/* a browser window beside a phone, in one row of the grid */
+.lead {
+  display: grid;
+  gap: var(--gap);
+}
+.win {
+  border: 1px solid var(--edge);
+  background: var(--ink-2);
+}
+.win img { display: block; width: 100%; height: auto; }
 .win-bar {
   display: block;
   height: var(--bar);
@@ -250,7 +239,6 @@ main:focus, section:focus, article:focus { outline: none; }
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-a.win-bar::after, .go::after { content: " \2197"; }
 a.win-bar:hover { color: var(--hot); }
 .vid {
   display: block;
@@ -260,201 +248,72 @@ a.win-bar:hover { color: var(--hot); }
   object-fit: cover;
   background: var(--ink-2);
 }
-
-/* Only the intro hides anything, and only until app.js says it is ready.
-   The inline script in the head flips this on a timer if app.js never runs. */
-.js-anim:not(.ready) .name { visibility: hidden; }
-.js-anim:not(.ready) .pile .print-in,
-.js-anim:not(.ready) .statement,
-.js-anim:not(.ready) .status,
-.js-anim:not(.ready) .sticker { opacity: 0; }
-
-/* ------------------------------------------------------------ type */
-.proj-title, .kin, .price, .contact-title {
-  font-weight: 900;
-  font-stretch: 62%;
-  text-transform: uppercase;
-  letter-spacing: -.012em;
-}
-[data-kin] {
-  display: block;
-  width: max-content;
-  white-space: nowrap;
-  font-variation-settings: "wdth" var(--w, 62);
-}
-.kin {
-  font-size: clamp(3.4rem, 13vw, 15rem);
-  line-height: .82;
-}
-.sec-line {
-  max-width: 40ch;
-  margin-top: 1.4rem;
-  font-size: clamp(1.1rem, 1.55vw, 1.5rem);
-  font-weight: 500;
-  line-height: 1.3;
-}
-.go {
-  padding-bottom: 2px;
-  border-bottom: 1px solid currentColor;
-  font-family: var(--mono);
-  font-size: .85rem;
-}
-.go:hover { color: var(--hot); }
-
-/* ------------------------------------------------------------ projects */
-.proj { padding-top: clamp(84px, 16vh, 200px); }
-.proj-head {
+.device {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--gap);
-  row-gap: 1.3rem;
-  align-items: start;
-  margin-bottom: clamp(28px, 6vh, 72px);
+  place-items: center;
+  padding: 9% 0;
+  border: 1px solid var(--line);
+  background: var(--ink-2);
 }
-.proj-title {
-  grid-column: 1 / -1;
-  font-size: clamp(3.1rem, 10.5vw, 12rem);
-  line-height: .84;
-  text-wrap: balance;
-}
-.proj-loafa .proj-title {
-  font-size: 25vw;
-  line-height: .78;
-}
-.proj-meta {
-  grid-column: 1 / -1;
-  font-family: var(--mono);
-  font-size: .78rem;
-  line-height: 1.65;
-  color: var(--dim);
-}
-.proj-line {
-  grid-column: 1 / -1;
-  max-width: 38ch;
-  font-size: clamp(1.12rem, 1.55vw, 1.5rem);
-  font-weight: 500;
-  line-height: 1.3;
-}
-.proj-go { grid-column: 1 / -1; }
-
-.between {
-  margin-top: clamp(100px, 22vh, 260px);
-  font-family: var(--hand);
-  font-size: clamp(1.9rem, 3.6vw, 3.5rem);
-  line-height: 1;
-  color: var(--hot);
-  rotate: -1.5deg;
-  transform-origin: left center;
-}
-.between--plain {
-  max-width: 34rem;
-  margin-left: auto;
-  font-family: var(--sans);
-  font-size: 1.0625rem;
-  line-height: 1.45;
-  color: var(--dim);
-  rotate: none;
-}
-
-/* the Loafa reel: a swipe strip by default, pinned and scrubbed on desktop */
-.reel {
-  --ph: 54vw;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: var(--pad);
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-}
-.reel::-webkit-scrollbar { display: none; }
-.reel-track {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--gap);
-  width: max-content;
-  padding: 0 var(--pad);
-}
-.reel .plate {
-  flex: none;
-  scroll-snap-align: start;
-}
-.reel .plate img {
-  width: auto;
-  max-width: none;
-  height: var(--ph);
-}
-.reel .plate figcaption {
-  font-family: var(--mono);
-  font-size: .74rem;
-}
-
-.plate img {
+.device img {
   display: block;
-  width: 100%;
+  width: 52%;
   height: auto;
+  border: 1px solid var(--edge);
+}
+
+/* stills continue the same grid under the lead */
+.shots {
+  display: grid;
+  gap: clamp(20px, 2.6vw, 36px) var(--gap);
+  margin-top: var(--gap);
+}
+.shot img { display: block; width: 100%; height: auto; }
+.shot > img, .shot > a {
+  display: block;
   border: 1px solid var(--line);
 }
-.plate a { display: block; overflow: hidden; }
-.plate a img { transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
-.plate a:hover img { transform: scale(1.035); }
-.plate figcaption {
-  margin-top: .7rem;
+.shot > a { overflow: hidden; }
+.shot > a img { transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+.shot > a:hover img { transform: scale(1.03); }
+.shot figcaption {
+  margin-top: .6rem;
   font-size: .9rem;
   line-height: 1.35;
   color: var(--dim);
 }
-.plate figcaption b {
+.shot figcaption b {
   margin-right: .5em;
   font-weight: 700;
   color: var(--bone);
 }
 
-/* window plus phone */
-.stage { position: relative; }
-.win {
-  border: 1px solid var(--edge);
-  background: var(--ink-2);
-}
-.win img { display: block; width: 100%; height: auto; }
-.phone {
-  position: relative;
-  z-index: 2;
-  width: 34%;
-  margin: -20% 4% 0 auto;
-  border: 1px solid var(--edge);
-  background: var(--ink);
-}
-.proj--flip .phone { margin: -20% auto 0 4%; }
-.phone img { display: block; width: 100%; height: auto; }
-
-.plates {
+/* the smaller job at the end of the work */
+.also {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(22px, 5vw, 40px) var(--gap);
-  margin-top: clamp(36px, 8vh, 110px);
+  gap: 1.3rem var(--gap);
+  padding-top: clamp(14px, 2vh, 22px);
+  border-top: 1px solid var(--line);
 }
-.pl-a .plate:nth-child(1),
-.pl-b .plate:nth-child(3),
-.pl-c .plate:nth-child(1) { grid-column: 1 / -1; }
+.also-text .lede { margin-top: 1rem; }
+.also-go { margin-top: 1.1rem; }
+.also-note {
+  max-width: 30ch;
+  font-size: .95rem;
+  line-height: 1.45;
+  color: var(--dim);
+}
 
 /* ------------------------------------------------------------ applications */
-.apps { padding: clamp(100px, 20vh, 240px) 0 clamp(80px, 14vh, 180px); }
-.apps-shots {
-  position: relative;
-  margin-top: clamp(32px, 7vh, 90px);
-}
-.app-tarmac {
-  width: 40%;
-  margin: -14% 4% 0 auto;
-}
+.apps { padding: var(--sec) 0; }
 .apps-text {
   display: grid;
-  gap: clamp(36px, 6vw, 56px) var(--gap);
-  margin-top: clamp(44px, 9vh, 110px);
+  gap: clamp(32px, 5vw, 48px) var(--gap);
+  margin-top: clamp(40px, 7vh, 80px);
 }
 .app { padding-top: 1.1rem; border-top: 1px solid var(--edge); }
 .app h3 {
-  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  font-size: clamp(1.9rem, 3vw, 3.2rem);
   font-weight: 900;
   font-stretch: 62%;
   line-height: .95;
@@ -476,14 +335,12 @@ a.win-bar:hover { color: var(--hot); }
 
 /* ------------------------------------------------------------ tools + enterprise */
 .paper {
-  padding: clamp(84px, 15vh, 190px) 0;
+  padding: var(--sec) 0;
   background: var(--paper);
   color: var(--ink);
 }
-.rows {
-  margin-top: clamp(32px, 6vh, 72px);
-  border-bottom: 1px solid var(--line-ink);
-}
+.paper .head { border-top-color: var(--line-ink); }
+.rows { border-bottom: 1px solid var(--line-ink); }
 .rows li {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -493,7 +350,7 @@ a.win-bar:hover { color: var(--hot); }
   border-top: 1px solid var(--line-ink);
 }
 .r-name {
-  font-size: clamp(1.3rem, 1.9vw, 1.95rem);
+  font-size: clamp(1.25rem, 1.7vw, 1.75rem);
   font-weight: 800;
   font-stretch: 75%;
   line-height: 1.05;
@@ -506,57 +363,39 @@ a.win-bar:hover { color: var(--hot); }
 .r-desc, .r-stack { grid-column: 1 / -1; }
 .r-desc { font-size: 1rem; line-height: 1.4; }
 .rows-2 li { grid-template-columns: minmax(0, 1fr); }
-.ent { margin-top: clamp(100px, 18vh, 220px); }
+.ent { margin-top: var(--sec); }
 
 /* ------------------------------------------------------------ about */
-.about { padding-bottom: clamp(84px, 15vh, 190px); }
+.about { padding-bottom: var(--sec); }
 .pano {
-  height: clamp(220px, 56vh, 640px);
+  height: clamp(200px, 46vh, 520px);
+  margin-bottom: clamp(56px, 10vh, 120px);
   overflow: hidden;
 }
 .pano img {
   display: block;
   width: 100%;
-  max-width: none;
-  height: 120%;
+  height: 100%;
   object-fit: cover;
 }
+.about-grid {
+  display: grid;
+  gap: clamp(28px, 6vw, 44px) var(--gap);
+}
+/* 3 to 4 makes the square portrait and the 4:3 photo the same height */
 .about-pics {
-  position: relative;
-  z-index: 2;
-  margin-top: clamp(-150px, -9vw, -44px);
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  gap: var(--gap);
+  align-items: start;
 }
-.snap {
-  border: 8px solid var(--bone);
-  background: var(--bone);
+.about-text p {
+  max-width: 36em;
+  color: var(--dim);
 }
-.snap img { display: block; width: 100%; height: auto; }
-.snap-a { width: 52%; rotate: -3deg; }
-.snap-b {
-  position: relative;
-  width: 72%;
-  margin: -16% 0 0 26%;
-  rotate: 2.5deg;
-}
-.snap figcaption {
-  padding: .5rem .2rem .1rem;
-  font-size: 1.3rem;
-  line-height: 1.05;
-  color: var(--ink);
-}
-.about-text { padding-top: clamp(56px, 10vh, 120px); }
-.about-text p { max-width: 36em; margin-top: 1.1rem; color: var(--dim); }
-.about-text .lead {
-  margin-top: 1.8rem;
-  font-size: clamp(1.35rem, 2.1vw, 2.1rem);
-  font-weight: 600;
-  font-stretch: 88%;
-  line-height: 1.16;
-  letter-spacing: -.005em;
-  color: var(--bone);
-}
+.about-text p + p { margin-top: 1.1rem; }
 .cv {
-  margin-top: 2.2rem;
+  margin-top: 2rem;
   border-bottom: 1px solid var(--line);
 }
 .cv div {
@@ -574,40 +413,8 @@ a.win-bar:hover { color: var(--hot); }
 }
 
 /* ------------------------------------------------------------ pricing + questions */
-.ask {
-  padding: clamp(84px, 15vh, 190px) 0;
-  border-top: 1px solid var(--line);
-}
-.price {
-  font-size: clamp(3.3rem, 12.5vw, 15rem);
-  line-height: .9;
-}
-.circled {
-  position: relative;
-  display: inline-block;
-  white-space: nowrap;
-}
-.circled svg {
-  position: absolute;
-  left: -8%;
-  top: -9%;
-  width: 116%;
-  height: 122%;
-  overflow: visible;
-  pointer-events: none;
-}
-.circled path {
-  fill: none;
-  stroke: var(--hot);
-  stroke-width: 3.2;
-  stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-}
-.faq {
-  margin-top: clamp(40px, 8vh, 100px);
-  border-bottom: 1px solid var(--line);
-}
+.ask { padding-bottom: var(--sec); }
+.faq { border-bottom: 1px solid var(--line); }
 .faq details { border-top: 1px solid var(--line); }
 .faq summary {
   display: flex;
@@ -615,7 +422,7 @@ a.win-bar:hover { color: var(--hot); }
   align-items: baseline;
   gap: 1.5rem;
   padding: 1.05rem 0;
-  font-size: clamp(1.15rem, 1.7vw, 1.6rem);
+  font-size: clamp(1.1rem, 1.5vw, 1.45rem);
   font-weight: 600;
   font-stretch: 90%;
   line-height: 1.2;
@@ -640,22 +447,20 @@ a.win-bar:hover { color: var(--hot); }
 
 /* ------------------------------------------------------------ contact */
 .contact {
-  padding: clamp(84px, 15vh, 190px) 0 clamp(60px, 10vh, 120px);
+  padding: var(--sec) 0 clamp(60px, 10vh, 120px);
   background: var(--hot);
   color: var(--ink);
 }
-.contact-title {
-  font-size: clamp(3.3rem, 12.5vw, 15rem);
-  line-height: .84;
-  text-wrap: balance;
+.contact .head { border-top-color: rgba(15,15,14,.36); }
+.contact-grid {
+  display: grid;
+  gap: clamp(36px, 7vw, 56px) var(--gap);
 }
 .form {
   display: grid;
-  gap: 1.7rem;
-  max-width: 60rem;
-  margin-top: clamp(36px, 7vh, 90px);
+  gap: 1.6rem;
 }
-.f-row { display: grid; gap: 1.7rem; }
+.f-row { display: grid; gap: 1.6rem; }
 .f-field label {
   display: block;
   font-size: .95rem;
@@ -678,7 +483,7 @@ a.win-bar:hover { color: var(--hot); }
   background: transparent;
   color: var(--ink);
   font: inherit;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 .f-field textarea { resize: vertical; }
 .f-field ::placeholder { color: rgba(15,15,14,.5); }
@@ -695,13 +500,13 @@ a.win-bar:hover { color: var(--hot); }
   gap: 1rem 1.6rem;
 }
 .send {
-  padding: .42em 1.5em .36em;
+  padding: .5em 1.7em .42em;
   border: 0;
   border-radius: 0;
   background: var(--ink);
   color: var(--bone);
   font: inherit;
-  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
   font-weight: 900;
   font-stretch: 62%;
   text-transform: uppercase;
@@ -714,8 +519,8 @@ a.win-bar:hover { color: var(--hot); }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: .8rem 2rem;
-  margin-top: clamp(40px, 8vh, 90px);
+  align-content: start;
+  gap: .8rem 1.6rem;
   font-family: var(--mono);
   font-size: .88rem;
 }
@@ -794,127 +599,79 @@ a.win-bar:hover { color: var(--hot); }
   .links .links-cta:hover { background: none; color: var(--hot); }
 }
 
-/* ------------------------------------------------------------ desktop hero */
-/* Landscape only. A tall, narrow window keeps the stacked phone hero. */
-@media (min-width: 900px) and (min-aspect-ratio: 1/1) {
-  .hero-pin {
-    --w0: clamp(380px, min(38vw, 60vh), 820px);
-    --wT: min(92vw, calc((100svh - var(--nav) - var(--bar) - 7vh) * 1.6));
-    --b0: clamp(18px, 3vh, 36px);
-    --h0: calc(var(--w0) / 1.6 + var(--bar));
-    height: 100svh;
-    min-height: 560px;
-    padding-bottom: var(--b0);
-  }
-  .name {
-    --w1: 104;
-    --w2: 76;
-    font-size: var(--name-size, 20.4vw);
-  }
-  .pile {
-    position: absolute;
-    inset: 0;
-    margin: 0;
-    pointer-events: none;
-  }
-  .print { position: absolute; pointer-events: auto; }
+@media (min-width: 560px) {
+  .f-row { grid-template-columns: 1fr 1fr; }
+}
 
-  /* The signature moment. app.js scrubs --p from 0 to 1 while the hero is
-     pinned; the Loafa print grows from the pile into a centered window. */
-  .pr-a {
-    width: calc(var(--w0) + (var(--wT) - var(--w0)) * var(--p));
-    right: calc(var(--pad) + (50% - var(--wT) / 2 - var(--pad)) * var(--p));
-    bottom: calc(var(--b0) + ((100svh - var(--nav) - var(--wT) / 1.6 - var(--bar)) / 2 - var(--b0)) * var(--p));
-    margin: 0;
-    rotate: calc(-2deg * (1 - var(--p)));
-  }
-  /* the other two prints fan out to the left, clear of the name */
-  .pr-b {
-    width: calc(var(--w0) * .78);
-    left: auto;
-    top: auto;
-    right: calc(var(--pad) + var(--w0) * .5);
-    bottom: calc(var(--b0) + var(--w0) * .2);
-    rotate: -6deg;
-    translate: calc(var(--p) * -24vw) calc(var(--p) * -14vh);
-  }
-  .pr-c {
-    width: calc(var(--w0) * .5);
-    right: calc(var(--pad) + var(--w0) * .93);
-    bottom: var(--b0);
-    rotate: 5deg;
-    translate: calc(var(--p) * -34vw) calc(var(--p) * 12vh);
-  }
-  .sticker {
-    left: -1.3rem;
-    right: auto;
-    top: -2.1rem;
-    rotate: -6deg;
-  }
-  .hero-foot { max-width: calc(100% - var(--w0) * 1.56); }
+/* ------------------------------------------------------------ tablet */
+@media (min-width: 600px) and (max-width: 899px) {
+  .device { padding: 6% 0; }
+  .device img { width: 34%; }
+  .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shots:not(.shots--8) .shot:first-child { grid-column: 1 / -1; }
+  .apps-text { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ------------------------------------------------------------ desktop */
+/* Three lines keep coming back: the left edge, column 7 and column 10. */
 @media (min-width: 900px) {
-  .proj-meta { grid-column: 1 / 4; }
-  .proj-line { grid-column: 4 / 10; }
-  .proj-go   { grid-column: 10 / -1; justify-self: end; }
-
-  .reel { --ph: min(70vh, 48vw); }
-  .reel.is-pinned {
-    display: flex;
-    align-items: center;
-    height: calc(100svh - var(--nav));
-    overflow: hidden;
-    scroll-snap-type: none;
+  .name {
+    margin-left: -.04em;
+    font-size: calc((100vw - 2 * var(--pad)) / 6.3125);
+    font-size: calc(100cqw / 6.3125);
+  }
+  .nl { display: inline; }
+  .nl:first-child {
+    margin-left: 0;
+    font-variation-settings: inherit;
   }
 
-  .stage {
-    display: grid;
+  .hero-foot,
+  .head,
+  .lead,
+  .shots,
+  .also,
+  .about-grid,
+  .contact-grid {
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: var(--gap);
-    align-items: end;
-  }
-  .stage .win { grid-column: 1 / 11; grid-row: 1; }
-  .stage .phone {
-    grid-column: 11 / 13;
-    grid-row: 1;
-    width: 130%;
-    margin: 0 0 -9% -30%;
-  }
-  .proj--flip .stage .win { grid-column: 3 / 13; }
-  .proj--flip .stage .phone {
-    grid-column: 1 / 3;
-    margin: 0 0 -9% 0;
   }
 
-  .plates { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .pl-a .plate:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
-  .pl-b .plate:nth-child(1) { grid-column: 1; grid-row: 1; }
-  .pl-b .plate:nth-child(2) { grid-column: 1; grid-row: 2; }
-  .pl-b .plate:nth-child(3) { grid-column: 2 / 4; grid-row: 1 / 3; }
-  .pl-c .plate:nth-child(1) { grid-column: auto; }
-  .pl-c .plate:nth-child(2) { margin-top: 7vh; }
-  .pl-c .plate:nth-child(3) { margin-top: 14vh; }
+  .hero-foot { align-items: end; }
+  .statement { grid-column: 1 / 9; }
+  .status { grid-column: 10 / -1; }
 
-  .apps-shots {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: var(--gap);
-    align-items: end;
-  }
-  .app-memphis { grid-column: 1 / 12; grid-row: 1; }
-  .app-tarmac {
-    grid-column: 10 / 13;
+  .head { align-items: end; }
+  .head > .title { grid-column: 1 / 7; }
+  .head-info { grid-column: 7 / -1; }
+
+  .lead .win { grid-column: 1 / 10; grid-row: 1; }
+  .lead .device {
+    position: relative;
+    grid-column: 10 / -1;
     grid-row: 1;
-    justify-self: end;
-    width: 78%;
-    margin: 0 0 clamp(-190px, -11vw, -70px);
+    padding: 0;
   }
-  .apps-text {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: calc(11vw + clamp(48px, 9vh, 110px));
+  /* out of flow, so the window alone sets the height of the row */
+  .lead .device img {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    width: auto;
+    max-width: none;
+    height: 86%;
+    translate: -50% 0;
   }
+  .lead--flip .win { grid-column: 4 / -1; }
+  .lead--flip .device { grid-column: 1 / 4; }
+
+  .shots .shot { grid-column: span 4; }
+  .shots--8 .shot:nth-child(-n+2) { grid-column: span 6; }
+
+  .also .shot { grid-column: 1 / 5; }
+  .also-text { grid-column: 5 / 10; padding-right: var(--gap); }
+  .also-note { grid-column: 10 / -1; }
+
+  .apps-text { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   .rows li {
     grid-template-columns: minmax(0, 3.2fr) minmax(0, 1.7fr) minmax(0, 5fr) minmax(0, 2.6fr);
@@ -922,37 +679,37 @@ a.win-bar:hover { color: var(--hot); }
   }
   .r-desc, .r-stack { grid-column: auto; }
   .r-stack { text-align: right; }
-  .rows-2 li { grid-template-columns: minmax(0, 4.9fr) minmax(0, 7.6fr); }
+  .rows-2 li { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  .about-grid {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: var(--gap);
-  }
-  .about-pics { grid-column: 1 / 6; }
-  .about-text { grid-column: 7 / 13; }
-  .snap-a { width: 60%; }
-  .snap-b { width: 80%; margin: -14% 0 0 20%; }
+  .about-pics { grid-column: 1 / 7; }
+  .about-text { grid-column: 7 / -1; }
 
-  .form {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: clamp(40px, 6vw, 110px);
-    max-width: none;
-  }
-  .f-row { grid-column: 1; grid-template-columns: 1fr 1fr; }
-  .f-url { grid-column: 1; }
-  .f-msg {
-    display: flex;
+  .faq details p { margin-left: calc(50% + var(--gap) / 2); }
+
+  .form { grid-column: 7 / -1; grid-row: 1; }
+  .contact-alt {
+    grid-column: 1 / 6;
+    grid-row: 1;
     flex-direction: column;
-    grid-column: 2;
-    grid-row: 1 / 3;
+    align-items: flex-start;
   }
-  .f-msg textarea { flex: 1; }
-  .f-foot { grid-column: 2; }
 }
 
-/* "none", not a tiny duration: any live transition would make app.js
-   measure the type one frame stale while it fits the headings. */
+/* ------------------------------------------------------------ motion */
+/* All of it: links glide to their section, and pictures fade in once.
+   app.js adds .rv-on only when it is running and motion is welcome. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+.rv-on [data-rv] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
+}
+.rv-on [data-rv].in {
+  opacity: 1;
+  transform: none;
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition: none !important;
