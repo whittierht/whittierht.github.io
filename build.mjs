@@ -21,6 +21,27 @@ for (const p of pages) {
   console.log('wrote', out.slice(ROOT.length));
 }
 
+// Pages that moved. GitHub Pages can't send a server redirect, so the old
+// URL gets a tiny page that forwards to the new one and names it canonical.
+const moved = { '/local-seo/': '/seo/' };
+for (const [from, to] of Object.entries(moved)) {
+  const out = join(ROOT, from, 'index.html');
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moved</title>
+<link rel="canonical" href="${SITE}${to}">
+<meta http-equiv="refresh" content="0; url=${to}">
+<script>location.replace('${to}' + location.hash);</script>
+</head>
+<body><p>This page moved to <a href="${to}">${SITE}${to}</a>.</p></body>
+</html>
+`);
+  console.log('wrote', out.slice(ROOT.length), '->', to);
+}
+
 const urls = pages
   .filter((p) => !p.noindex)
   .sort((a, b) => (b.priority || 0.5) - (a.priority || 0.5) || a.path.localeCompare(b.path))

@@ -32,7 +32,7 @@ export default {
     body: `
         <p>Every page sits in its own folder, so clean URLs work on ordinary shared hosting with no rewrite rules.</p>
         <p>Both tools in the Resources menu are new. Is It Flyable Today checks live airport weather against the school's own minimums. The training area map draws the practice areas over an FAA sectional chart.</p>
-        <p>Rexburg and Pocatello each have their own page, with schema for that location. There's more on those on the <a href="/local-seo/#towns">local SEO page</a>.</p>`,
+        <p>Rexburg and Pocatello each have their own page, with schema for that location. There's more on those on the <a href="/seo/#local">SEO page</a>.</p>`,
     links: [
       [B6 + '/', 'Visit the site'],
       [B6 + '/flyable/', 'Is It Flyable Today'],

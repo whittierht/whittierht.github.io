@@ -17,14 +17,16 @@ robots.txt
 .nojekyll           keeps GitHub Pages from running the files through Jekyll
 ```
 
-The built pages (`index.html`, `local-seo/`, `work/`, `tools/`, `about/`, `contact/`, `404.html`) and `sitemap.xml` are output. Edit `src/` and rebuild instead of editing them.
+The built pages (`index.html`, `seo/`, `work/`, `tools/`, `about/`, `contact/`, `404.html`) and `sitemap.xml` are output. Edit `src/` and rebuild instead of editing them.
+
+`local-seo/` is output too: the SEO page used to live there, so `build.mjs` writes a small page that forwards to `/seo/`. Add to `moved` in `build.mjs` if another page changes address.
 
 ## Pages
 
 | URL | What's on it |
 | --- | --- |
-| `/` | Hero, background strip, local SEO first, the project list, Blood Ante, apps |
-| `/local-seo/` | Places, what I check, town pages, migrations, page builders, the Rexburg crawl, enterprise work |
+| `/` | Hero, background strip, SEO first, the project list, Blood Ante, apps |
+| `/seo/` | Enterprise work for the payments processor, local businesses and town pages, what I check |
 | `/work/` | One screenshot per project |
 | `/work/<project>/` | Loafa, Bravo 6 Flight Academy, Outdoors for Youth, Nadia's Dog Nanny, Blood Ante |
 | `/tools/` | Memphis, Tarmac, Enterprise Mockups and the smaller tools |

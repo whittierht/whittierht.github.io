@@ -15,7 +15,7 @@ export default {
     <p class="standfirst">It may have moved when the site was rebuilt. These are the main pages.</p>
     <p class="case-links">
       <a class="btn btn--light" href="/">Home</a>
-      <a class="txtlink" href="/local-seo/">Local SEO</a>
+      <a class="txtlink" href="/seo/">SEO</a>
       <a class="txtlink" href="/work/">Work</a>
       <a class="txtlink" href="/contact/">Contact</a>
     </p>
