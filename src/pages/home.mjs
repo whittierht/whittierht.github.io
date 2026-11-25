@@ -1,27 +1,30 @@
-import { img, win, phone, SITE, EMAIL, WHERE } from '../lib.mjs';
-import { workIndex } from './work.mjs';
+import { img, SITE, EMAIL, WHERE } from '../lib.mjs';
+import { projects, row, tile, pick } from './work.mjs';
+
+// The four apps from my job lead the list, then the biggest client work.
+const rows = pick('Memphis', 'Tarmac', 'Helios', 'Traffic Control', 'Printology', 'Bravo 6 Flight Academy', 'Outdoors for Youth', 'Muscle Activation Center');
+const tiles = pick('RexRide', 'Loafa', 'Blood Ante');
 
 export default {
   path: '/',
   slug: 'home',
   nav: 'home',
   priority: 1,
-  title: 'Hyrum Whittier | Web Design and Local SEO in Utah and Idaho',
-  ogTitle: 'Hyrum Whittier, web design and local SEO',
-  description: 'Hand-coded websites and local SEO in Utah and Idaho. Work for a band from Provo, a flight school, a teen camp and a dog daycare in Phoenix.',
+  title: 'Hyrum Whittier | Websites, Web Apps and SEO in Utah and Idaho',
+  ogTitle: 'Hyrum Whittier, websites, web apps and SEO',
+  description: 'I build websites and web apps, and I do SEO, in Utah and Idaho. Work for a flight school, a teen camp and a print shop, plus four apps built at my job.',
   schema: [
     {
       '@type': 'ProfessionalService',
       '@id': SITE + '/#service',
-      name: 'Hyrum Whittier, Web Design and Local SEO',
+      name: 'Hyrum Whittier, Websites, Web Apps and SEO',
       url: SITE + '/',
       image: SITE + '/images/share.png',
       email: 'mailto:' + EMAIL,
       founder: { '@id': SITE + '/#person' },
       address: { '@type': 'PostalAddress', addressLocality: 'Rexburg', addressRegion: 'ID', addressCountry: 'US' },
       areaServed: [{ '@type': 'State', name: 'Utah' }, { '@type': 'State', name: 'Idaho' }],
-      priceRange: 'From $2,000',
-      knowsAbout: ['Local SEO', 'Web design', 'Structured data', 'Page builder migration'],
+      knowsAbout: ['Web applications', 'Web design', 'Local SEO', 'Structured data', 'Page builder migration'],
     },
   ],
   body: `
@@ -29,110 +32,62 @@ export default {
   ${img('tetons', 'The Grand Teton range reflected across a wide lake', { cls: 'hero-image', eager: true, sizes: '130vw' })}
   <div class="grain" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="kicker reveal">Web design and local SEO <i>/</i> ${WHERE}</p>
-    <h1 class="name" data-split>
-      <span class="ln"><span>Hyrum</span></span>
-      <span class="ln"><span>Whittier</span></span>
-    </h1>
+    <div class="hero-top">
+      <p class="kicker reveal">Websites, apps and SEO <i>/</i> ${WHERE}</p>
+      <h1 class="name" data-split>
+        <span class="ln"><span>Hyrum</span></span>
+        <span class="ln"><span>Whittier</span></span>
+      </h1>
+      <figure class="hero-face">${img('hyrum', 'Hyrum Whittier', { sizes: '(max-width: 900px) 30vw, 290px', eager: true })}</figure>
+    </div>
     <div class="hero-foot">
-      <p class="hero-statement reveal">I build websites, and I do the <span class="hl">search work</span> behind them.</p>
+      <p class="hero-statement reveal">I build websites and apps, and I do the <span class="hl">SEO</span> so people find them.</p>
+      <p class="hero-role reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 8v10H8"/></svg>Developer and<br>SEO specialist</p>
     </div>
   </div>
-  <div class="scroll-cue" aria-hidden="true"><span>Scroll</span></div>
 </section>
 
-<section class="creds" aria-label="Background">
-  <div class="wrap creds-grid">
-    <div class="cred">
-      <p class="cred-k">Education</p>
-      <p class="cred-v">B.S. Web Design and Development</p>
-      <p class="cred-n">Brigham Young University-Idaho</p>
+<section class="sec intro" aria-label="What I do">
+  <div class="wrap intro-grid">
+    <p class="intro-big reveal">I build websites, and I build apps. The agency I work at runs every day on an app I made. A camp I work with takes payments through a sign-up form I built.</p>
+    <div class="intro-side reveal">
+      <p>I do SEO full time at a marketing agency in Rexburg, Idaho. On my own time I build sites and apps for small businesses in ${WHERE}.</p>
+      <a class="round" href="/about/"><span>About me</span></a>
     </div>
-    <div class="cred">
-      <p class="cred-k">Current role</p>
-      <p class="cred-v">SEO Specialist and Internal Tools Builder</p>
-      <p class="cred-n">A year and a half of SEO, on enterprise and local accounts.</p>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="work-h">
+  <div class="wrap">
+    <h2 class="rows-label" id="work-h">Apps and websites I've built lately</h2>
+    <ul class="rows stagger">
+${rows.map((p) => row(p)).join('\n')}
+    </ul>
+  </div>
+</section>
+
+<section class="sec" aria-label="More work">
+  <div class="wrap">
+    <div class="tiles">
+${tiles.map(tile).join('\n')}
     </div>
-    <div class="cred">
-      <p class="cred-k">Sectors</p>
-      <p class="cred-v">Local service businesses to enterprise</p>
-      <p class="cred-n">Recent work spans music, pet care, aviation, camps, healthcare, home services and payments.</p>
-    </div>
-    <div class="cred">
-      <p class="cred-k">Websites</p>
-      <p class="cred-v">Taking on new builds</p>
-      <p class="cred-n">Hand-coded, from $2,000. ${WHERE}.</p>
-    </div>
+    <p class="rows-more reveal"><a class="ring" href="/work/">More work <sup>${projects.length}</sup></a></p>
   </div>
 </section>
 
 <section class="sec" aria-labelledby="seo-h">
   <div class="wrap">
     <header class="sec-head reveal">
-      <p class="label"><span class="num">01</span> SEO</p>
-      <h2 id="seo-h">Search is the day job</h2>
-      <p class="standfirst">I've been doing SEO for a year and a half as the SEO specialist at a marketing agency in Rexburg. Some of my accounts are enterprise and some are local businesses. The sites I build get the same work.</p>
+      <h2 id="seo-h">SEO is my full-time job</h2>
+      <p class="standfirst">I've been doing SEO for a year and a half at a marketing agency in Rexburg. One of my accounts is a national payments processor, and the rest are local businesses. Every site I build gets the same work.</p>
     </header>
     <ul class="index index--places stagger">
-      <li><div class="ix"><span class="ix-name">Nationwide</span><span class="ix-who">A payments processor</span><span class="ix-sector">Keyword architecture and schema on every page</span></div></li>
+      <li><div class="ix"><span class="ix-name">Nationwide</span><span class="ix-who">A payments processor</span><span class="ix-sector">Keywords and schema for every page</span></div></li>
       <li><div class="ix"><span class="ix-name">Rexburg and Pocatello</span><span class="ix-who">Bravo 6 Flight Academy</span><span class="ix-sector">A page for each town, with its own schema</span></div></li>
-      <li><div class="ix"><span class="ix-name">Rexburg, Idaho</span><span class="ix-who">Madison Health</span><span class="ix-sector">Search work on the site they already had</span></div></li>
+      <li><div class="ix"><span class="ix-name">Rexburg, Idaho</span><span class="ix-who">Madison Health</span><span class="ix-sector">SEO on the site they already had</span></div></li>
       <li><div class="ix"><span class="ix-name">Newdale, Idaho</span><span class="ix-who">Outdoors for Youth</span><span class="ix-sector">Moved off Wix with every slug kept</span></div></li>
-      <li><div class="ix"><span class="ix-name">Phoenix, Arizona</span><span class="ix-who">Nadia's Dog Nanny Services</span><span class="ix-sector">Off GoDaddy, with the schema fixed</span></div></li>
     </ul>
-    <p class="sec-more reveal"><a class="txtlink" href="/seo/">Enterprise and local SEO</a><a class="txtlink" href="/seo/#enterprise">The enterprise work</a></p>
-  </div>
-</section>
-
-<section class="sec" aria-labelledby="work-h">
-  <div class="wrap">
-    <header class="sec-head reveal">
-      <p class="label"><span class="num">02</span> Selected work</p>
-      <h2 id="work-h">Recent builds</h2>
-      <p class="standfirst">Four hand-coded client sites, all live, and a game of my own.</p>
-    </header>
-${workIndex}
-
-    <div class="feature">
-      <div class="case-visual">
-        <div class="reveal">${win('loafa-top', 'loafa-band.web.app', 'The Loafa home page: a yellow hand-drawn LOAFA logo on black', { sizes: '(max-width: 1100px) 92vw, 760px' })}</div>
-        ${phone('loafa-m', 'The Loafa home page on a phone')}
-      </div>
-      <div class="feature-foot reveal">
-        <p><b>Newest: Loafa.</b> An alt rock band from Provo, in one HTML file with no libraries.</p>
-        <a class="txtlink" href="/work/loafa/">The full project</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec-tint" aria-labelledby="game-h">
-  <div class="wrap">
-    <div class="work-row flat">
-      <div class="reveal">${win('ba-play', 'bloodantegame.web.app', 'Blood Ante in play: pixel-art knights on a card floor, with damage numbers', { sizes: '(max-width: 900px) 92vw, 640px' })}</div>
-      <div class="reveal">
-        <p class="label"><span class="num">03</span> On the side</p>
-        <h2 id="game-h">Blood Ante</h2>
-        <p>I make a game on the side. It's a pixel-art card game that runs in the browser, on a phone or a computer.</p>
-        <p class="case-links"><a class="btn btn--light" href="https://bloodantegame.web.app/">Play Blood Ante</a><a class="txtlink" href="/work/blood-ante/">How it plays</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" aria-labelledby="apps-h">
-  <div class="wrap">
-    <header class="sec-head reveal">
-      <p class="label"><span class="num">04</span> Beyond websites</p>
-      <h2 id="apps-h">Apps and tools</h2>
-      <p class="standfirst">When a tool I need doesn't exist, I build it. Three of them turned into full apps for the agency.</p>
-    </header>
-    <ul class="worklist three stagger">
-      <li><h3>Memphis</h3><p>The agency's project management system, and the reason we stopped paying for Asana.</p></li>
-      <li><h3>Tarmac</h3><p>Staff time and payroll: an iPad kiosk, a phone portal and an admin panel.</p></li>
-      <li><h3>Enterprise Mockups</h3><p>The client review board. Reviewers pin comments to the exact spot.</p></li>
-    </ul>
-    <p class="sec-more reveal"><a class="txtlink" href="/tools/">The apps and twelve smaller tools</a></p>
+    <p class="rows-more reveal"><a class="ring" href="/seo/">More about my SEO work</a></p>
   </div>
 </section>
 `,

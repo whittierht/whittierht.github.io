@@ -1,29 +1,73 @@
-import { win } from '../lib.mjs';
+import { win, shot, clip } from '../lib.mjs';
 
+// Every project, most impressive first. `off` marks one that isn't live yet.
+// `short` is the line used on the home page.
 export const projects = [
   {
-    href: '/work/loafa/',
-    name: 'Loafa',
-    img: 'loafa-top',
-    url: 'loafa-band.web.app',
-    alt: 'The Loafa home page: a yellow hand-drawn LOAFA logo on black',
-    kicker: ['Band site', 'Provo, Utah', '2026'],
-    place: 'Provo, Utah',
-    line: 'Band site. One HTML file, every release on a sideways timeline.',
-    text: 'An alt rock band from Provo. The site is one HTML file with no libraries. Every song has a preview, and all eight releases sit on a sideways timeline.',
-    live: 'https://loafa-band.web.app/',
+    href: '/tools/#memphis',
+    name: 'Memphis',
+    img: 'memphis-site',
+    url: 'memphistasks.com',
+    alt: 'The Memphis site: The task board that fills in your timesheet',
+    where: 'Built at my job',
+    what: 'Task and timesheet app, and its site',
+    short: 'Task and timesheet app',
+    off: true,
+  },
+  {
+    href: '/tools/#tarmac',
+    name: 'Tarmac',
+    img: 'tarmac-site',
+    url: 'tarmacflight.com',
+    alt: 'The Tarmac site: First call to checkride',
+    where: 'Built at my job',
+    what: 'Flight school app, and its site',
+    short: 'Flight school app',
+    off: true,
+  },
+  {
+    href: '/tools/#helios',
+    name: 'Helios',
+    img: 'helios',
+    url: 'heliosclock.com',
+    alt: 'The Helios site: Every hour, accounted for',
+    where: 'Built at my job',
+    what: 'Time clock and HR app, and its site',
+    short: 'Time clock and HR app',
+    off: true,
+  },
+  {
+    href: '/tools/#traffic-control',
+    name: 'Traffic Control',
+    img: 'traffic',
+    url: 'trafficcontrolphone.com',
+    alt: 'The Traffic Control site: Your phones, under control',
+    where: 'Built at my job',
+    what: 'Business phone system, and its site',
+    short: 'Business phone system',
+    off: true,
+  },
+  {
+    href: '/work/printology/',
+    name: 'Printology',
+    img: 'pr-home',
+    url: 'Printology rebuild · not live yet',
+    alt: 'The rebuilt Printology home page: Print shop in American Fork and Saratoga Springs, Utah',
+    where: 'American Fork, Utah',
+    what: 'Online store and staff back office',
+    short: 'Online store and back office',
+    off: true,
   },
   {
     href: '/work/bravo-6-flight-academy/',
     name: 'Bravo 6 Flight Academy',
     img: 'b6-home',
+    video: 'b6-hero',
     url: 'bravo6flightacademy.com',
-    alt: 'The Bravo 6 Flight Academy home page',
-    kicker: ['Flight school', 'Rexburg and Pocatello, Idaho', '2026'],
-    place: 'Rexburg and Pocatello, Idaho',
-    line: 'Flight school. WordPress to 135 static pages, plus two tools.',
-    text: 'A Divi site rebuilt as 135 static pages by two Python scripts. Under Resources, Is It Flyable Today checks the weather live. Next to it is a map of the training areas.',
-    live: 'https://bravo6flightacademy.com/',
+    alt: 'The Bravo 6 Flight Academy home page: Take flight',
+    where: 'Rexburg, Idaho',
+    what: 'Website with a cost calculator',
+    short: 'Website and cost calculator',
   },
   {
     href: '/work/outdoors-for-youth/',
@@ -31,23 +75,40 @@ export const projects = [
     img: 'ofy-home',
     url: 'outdoorsforyouth.org',
     alt: 'The Outdoors for Youth home page',
-    kicker: ['Teen adventure camp', 'Newdale, Idaho', '2026'],
-    place: 'Newdale, Idaho',
-    line: 'Teen adventure camp. Off Wix, 22 pages, custom registration.',
-    text: 'Off Wix and onto 22 hand-coded pages, with every slug matched so the rankings carried over. The seven-step registration form saves answers so a parent can finish later.',
-    live: 'https://www.outdoorsforyouth.org/',
+    where: 'Newdale, Idaho',
+    what: 'Website and paid camp registration',
+    short: 'Website and paid registration',
   },
   {
-    href: '/work/nadias-dog-nanny/',
-    name: "Nadia's Dog Nanny Services",
-    img: 'nadia-home',
-    url: 'nadiawalksdogs.com',
-    alt: "The Nadia's Dog Nanny Services home page",
-    kicker: ['Boarding and daycare', 'Phoenix, Arizona', '2026'],
-    place: 'Phoenix, Arizona',
-    line: 'Boarding and daycare. Off GoDaddy, 14 pages, schema on every one.',
-    text: "Off GoDaddy's builder and onto 14 hand-coded pages, one schema graph each. The builder had the schema pointing at a made-up domain.",
-    live: 'https://nadiawalksdogs.com/',
+    href: '/work/muscle-activation-center/',
+    name: 'Muscle Activation Center',
+    img: 'mac-home',
+    url: 'muscleactivationcenter.com',
+    alt: 'The Muscle Activation Center home page: Find the root cause of muscle pain and weakness',
+    where: 'Idaho Falls, Idaho',
+    what: 'Website and session notes app',
+    short: 'Website and notes app',
+  },
+  {
+    href: '/work/rexride/',
+    name: 'RexRide',
+    img: 'rexride-site',
+    url: 'rexride-staging.web.app',
+    alt: 'The RexRide site: Rides out of Rexburg, posted by students',
+    where: 'Rexburg, Idaho',
+    what: 'Ride board app for students',
+    short: 'Ride board app for students',
+    off: true,
+  },
+  {
+    href: '/work/loafa/',
+    name: 'Loafa',
+    img: 'loafa-top',
+    url: 'loafa-band.web.app',
+    alt: 'The Loafa home page: a yellow hand-drawn LOAFA logo on black',
+    where: 'Provo, Utah',
+    what: 'Band website',
+    short: 'Band website',
   },
   {
     href: '/work/blood-ante/',
@@ -55,27 +116,37 @@ export const projects = [
     img: 'ba-play',
     url: 'bloodantegame.web.app',
     alt: 'Blood Ante in play: pixel-art knights on a card floor',
-    kicker: ['My own game', 'Version 0.6'],
-    place: 'My own game',
-    line: 'A pixel-art card game for the browser.',
-    text: 'A pixel-art card game. It runs in the browser on a phone or a computer. Your weapons fire on their own while you pick up playing cards and play them as hands.',
-    live: 'https://bloodantegame.web.app/',
-    liveLabel: 'Play it',
+    where: 'My own game',
+    what: 'Card game for the browser',
+    short: 'Card game for the browser',
   },
 ];
 
-// The list of projects, as rows. Used here and on the home page.
-export const workIndex = `
-    <ol class="index stagger">
-${projects.map((p) => `      <li>
-        <a class="ix" href="${p.href}">
-          <span class="ix-name">${p.name}</span>
-          <span class="ix-sector">${p.line}</span>
-          <span class="ix-place">${p.place}</span>
-          <span class="ix-year">${p.kicker.length > 2 ? p.kicker[2] : ''}</span>
+const state = (p) => `<span class="row-state${p.off ? ' is-off' : ''}">${p.off ? 'Not live yet' : 'Live'}</span>`;
+
+// One project as a row. On a computer the screenshot follows the pointer.
+// On a phone it sits above the name.
+export const row = (p, { where = false } = {}) => `      <li>
+        <a class="row" href="${p.href}" data-peek="${shot(p.img)}"${clip(p.video) ? ` data-peek-video="${clip(p.video)}"` : ''}>
+          <div class="row-shot" aria-hidden="true">${win(p.img, p.url, '', { sizes: '(max-width: 900px) 92vw, 400px', video: p.video })}</div>
+          <span class="row-name"><span>${p.name}</span></span>${where ? `
+          <span class="row-where">${p.where}</span>` : ''}
+          <span class="row-what">${where ? p.what : p.short}</span>
+          ${state(p)}
         </a>
-      </li>`).join('\n')}
-    </ol>`;
+      </li>`;
+
+// One project as a screenshot with its name under it.
+export const tile = (p) => `      <figure class="tile reveal">
+        <a class="shot-link" href="${p.href}" tabindex="-1" aria-hidden="true">${win(p.img, p.url, p.alt, { sizes: '(max-width: 900px) 92vw, 32vw' })}</a>
+        <figcaption><a class="tile-name" href="${p.href}">${p.name}</a>${state(p)}<span class="tile-what">${p.short}</span></figcaption>
+      </figure>`;
+
+export const pick = (...names) => names.map((n) => {
+  const p = projects.find((x) => x.name === n);
+  if (!p) throw new Error('no project called ' + n);
+  return p;
+});
 
 export default {
   path: '/work/',
@@ -84,31 +155,23 @@ export default {
   priority: 0.9,
   pageType: 'CollectionPage',
   title: 'Work | Hyrum Whittier',
-  description: "Websites I've designed and built for Loafa, Bravo 6 Flight Academy, Outdoors for Youth and Nadia's Dog Nanny Services, plus a browser game of my own.",
+  description: "Apps and websites I've built: Memphis, Tarmac, Helios and Traffic Control at my job, and client work for Printology, Bravo 6 Flight Academy and Outdoors for Youth.",
   crumbs: [['Work', '/work/']],
-  image: '/images/loafa-top-1600.webp',
+  image: '/images/memphis-site-1600.webp',
   body: `
 <header class="page-top">
   <div class="wrap">
-    <p class="label reveal">Work</p>
-    <h1 class="reveal">Recent builds</h1>
-    <p class="standfirst reveal">Four hand-coded client sites, all live, and a game of my own. Search work also runs on accounts I haven't rebuilt, like Madison Health in Rexburg.</p>
+    <h1 class="reveal">Apps and websites I've built</h1>
+    <p class="standfirst reveal">The apps from my job are first, and the client work comes after. Five of these are live. The other six aren't live yet.</p>
   </div>
 </header>
 
 <section class="sec" aria-label="Projects">
   <div class="wrap">
-    <div class="work-rows">
-${projects.map((p) => `      <article class="work-row">
-        <div class="reveal">${win(p.img, p.url, p.alt, { sizes: '(max-width: 900px) 92vw, 640px' })}</div>
-        <div class="reveal">
-          <p class="case-kicker">${p.kicker.map((k) => `<span>${k}</span>`).join('')}</p>
-          <h2><a href="${p.href}">${p.name}</a></h2>
-          <p>${p.text}</p>
-          <p class="case-links"><a class="txtlink" href="${p.href}">The full project</a><a class="txtlink" href="${p.live}">${p.liveLabel || p.url}</a></p>
-        </div>
-      </article>`).join('\n')}
-    </div>
+    <div class="rows-head" aria-hidden="true"><span>Project</span><span>Where</span><span>What I built</span><span>Status</span></div>
+    <ol class="rows rows--list stagger">
+${projects.map((p) => row(p, { where: true })).join('\n')}
+    </ol>
   </div>
 </section>
 `,

@@ -1,14 +1,14 @@
 // Shared pieces for every page: the layout, the screenshot frames and the JSON-LD.
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const ROOT = fileURLToPath(new URL('..', import.meta.url));
-export const SITE = 'https://whittierht.github.io';
+export const SITE = 'https://hyrumwhittier.com';
 export const EMAIL = 'whittierht@gmail.com';
 export const LINKEDIN = 'https://www.linkedin.com/in/hyrum-whittier/';
 export const WHERE = 'Utah and Idaho';
-export const VERSION = '5.1';
+export const VERSION = '7.0';
 
 const IMG = join(ROOT, 'images');
 
@@ -47,9 +47,28 @@ export function img(name, alt, { sizes = '100vw', eager = false, cls = '' } = {}
   return `<img src="/images/${src.file}"${srcset} width="${src.w}" height="${src.h}" alt="${esc(alt)}"${load} decoding="async"${cls ? ` class="${cls}"` : ''}>`;
 }
 
+// The address of one size of an image, for the hover preview on project rows.
+export function shot(name, want = 800) {
+  const v = variants(name);
+  return '/images/' + (v.find((x) => x.w >= want) || v[v.length - 1]).file;
+}
+
+// A short silent clip that plays over a screenshot once it scrolls into
+// view. It lives at video/<name>.mp4. The screenshot stays underneath, so
+// a browser that never plays the clip still shows the page.
+const clips = existsSync(join(ROOT, 'video')) ? readdirSync(join(ROOT, 'video')) : [];
+export function clip(name) {
+  if (!name) return '';
+  if (!clips.includes(name + '.mp4')) { console.warn('no video/' + name + '.mp4, showing the still only'); return ''; }
+  return '/video/' + name + '.mp4';
+}
+
 // A desktop screenshot with the page's address above it.
 export function win(name, url, alt, opts = {}) {
-  return `<div class="win"><div class="win-bar">${url}</div><div class="win-body">${img(name, alt, opts)}</div></div>`;
+  const { video, ...rest } = opts;
+  const src = clip(video);
+  const film = src ? `<video class="win-video" data-autoplay muted loop playsinline preload="none" tabindex="-1" aria-hidden="true"><source src="${src}" type="video/mp4"></video>` : '';
+  return `<div class="win"><div class="win-bar">${url}</div><div class="win-body">${img(name, alt, rest)}${film}</div></div>`;
 }
 
 // A phone screenshot.
@@ -74,7 +93,7 @@ export const person = {
   email: 'mailto:' + EMAIL,
   address: { '@type': 'PostalAddress', addressLocality: 'Rexburg', addressRegion: 'ID', addressCountry: 'US' },
   alumniOf: { '@type': 'CollegeOrUniversity', name: 'Brigham Young University-Idaho' },
-  knowsAbout: ['Local SEO', 'Technical SEO', 'Structured data', 'Web design', 'Web development', 'Page builder migration'],
+  knowsAbout: ['Web applications', 'Web development', 'Web design', 'Local SEO', 'Technical SEO', 'Structured data', 'Page builder migration'],
   sameAs: [LINKEDIN],
 };
 
@@ -118,9 +137,9 @@ function graph(p) {
 
 // The sticky top bar. On narrow screens the links fold into a menu.
 const NAV = [
-  { href: '/seo/', label: 'SEO', key: 'seo' },
   { href: '/work/', label: 'Work', key: 'work' },
-  { href: '/tools/', label: 'Apps and tools', key: 'tools' },
+  { href: '/tools/', label: 'Apps', key: 'tools' },
+  { href: '/seo/', label: 'SEO', key: 'seo' },
   { href: '/about/', label: 'About', key: 'about' },
   { href: '/contact/', label: 'Contact', key: 'contact', cls: 'nav-cta' },
 ];
@@ -147,19 +166,20 @@ ${links}
 <div class="nav-scrim" id="navScrim" hidden></div>`;
 }
 
+// A small round photo that sits inside a big heading.
+export const face = `<span class="face" aria-hidden="true">${img('hyrum', '', { sizes: '120px' })}</span>`;
+
 // The light panel that closes every page except Contact.
 const closer = `
-<section class="contact contact--short" aria-labelledby="closer-h">
+<section class="closer" aria-labelledby="closer-h">
   <div class="wrap">
-    <p class="label reveal">Contact</p>
-    <h2 class="reveal" id="closer-h">Tell me about the site.</h2>
-    <p class="standfirst reveal">Websites start at $2,000. Email is the quickest way to reach me.</p>
-    <p class="contact-mail reveal"><a href="mailto:${EMAIL}">${EMAIL}</a></p>
-    <p class="contact-alt reveal">
-      <a class="txtlink" href="/contact/">Contact form and questions</a>
-      <a class="txtlink" href="${LINKEDIN}" rel="me">LinkedIn</a>
-      <span>${WHERE}</span>
+    <h2 class="closer-h reveal" id="closer-h">${face}Let's talk about<br>your site or app</h2>
+    <div class="closer-line reveal"><a class="round" href="/contact/"><span>Get in touch</span></a></div>
+    <p class="closer-links reveal">
+      <a class="ring" href="mailto:${EMAIL}">${EMAIL}</a>
+      <a class="ring" href="${LINKEDIN}" rel="me">LinkedIn</a>
     </p>
+    <p class="closer-note reveal">Rexburg, Idaho. I work with businesses in ${WHERE}.</p>
   </div>
 </section>`;
 
@@ -206,9 +226,10 @@ ${p.noCloser ? '' : closer}
 
 <footer class="colophon">
   <div class="wrap colophon-inner">
-    <p>&copy; 2026 Hyrum Whittier</p>
-    <p class="clock" id="clock">${WHERE}</p>
-    <p><a href="#main">Back to top</a></p>
+    <div><p class="colo-k">Version</p><p>2026 &copy; Hyrum Whittier</p></div>
+    <div><p class="colo-k">Local time</p><p class="clock" id="clock">${WHERE}</p></div>
+    <div><p class="colo-k">Elsewhere</p><p><a href="${LINKEDIN}" rel="me">LinkedIn</a></p></div>
+    <div class="colo-top"><p class="colo-k">Page</p><p><a href="#main">Back to top</a></p></div>
   </div>
 </footer>
 

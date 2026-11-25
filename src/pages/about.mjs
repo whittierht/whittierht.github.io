@@ -1,4 +1,4 @@
-import { img, LINKEDIN } from '../lib.mjs';
+import { img, LINKEDIN, WHERE } from '../lib.mjs';
 
 export default {
   path: '/about/',
@@ -6,18 +6,53 @@ export default {
   nav: 'about',
   priority: 0.7,
   pageType: 'ProfilePage',
-  title: 'About Hyrum Whittier | Web Design and Local SEO',
-  description: 'Hyrum Whittier is an SEO specialist and web designer who lives in Rexburg, Idaho, with a B.S. in Web Design and Development from BYU-Idaho.',
+  title: 'About Hyrum Whittier | Websites, Web Apps and SEO',
+  description: 'Hyrum Whittier is an SEO specialist who builds websites and web apps. He lives in Rexburg, Idaho, and has a B.S. in Web Design and Development from BYU-Idaho.',
   crumbs: [['About', '/about/']],
   image: '/images/idaho-falls-1600.webp',
   body: `
-<section class="hero hero--short" aria-label="About">
-  ${img('tetons', 'The Grand Teton range reflected across a wide lake', { cls: 'hero-image', eager: true, sizes: '130vw' })}
-  <div class="grain" aria-hidden="true"></div>
+<header class="page-top">
   <div class="wrap">
-    <p class="kicker reveal">Hyrum Whittier</p>
-    <h1 class="page-name reveal">About</h1>
-    <p class="hero-statement reveal">I care what a site looks like, and whether anyone can find it.</p>
+    <h1 class="reveal">Hi, I'm Hyrum.</h1>
+  </div>
+</header>
+
+<section class="sec" aria-label="About me">
+  <div class="wrap about-top">
+    <div class="about-text reveal">
+      <p class="about-lead">I'm the SEO specialist at a marketing agency in Rexburg, Idaho. I also build websites and apps, at work and on my own.</p>
+      <p>When we need a tool at work and it doesn't exist, I build it. Memphis started that way, because the agency outgrew Asana. Now we run on it every day, and three more of my <a href="/tools/">apps from work</a> have their own websites.</p>
+      <p>On my own time I build sites and apps for small businesses in ${WHERE}. I use the business's own photos, and every site gets the same SEO work I do at my job.</p>
+    </div>
+    <figure class="portrait reveal">
+      ${img('hyrum', 'Portrait of Hyrum Whittier', { sizes: '(max-width: 900px) 352px, 480px' })}
+      <figcaption>Hyrum Whittier. Rexburg, Idaho.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="offer-h">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <h2 id="offer-h">What I can build for you</h2>
+    </header>
+    <ol class="offer stagger">
+      <li>
+        <span class="num">01</span>
+        <h3>Websites</h3>
+        <p>I design and code the whole site myself, and you own the files when it's done. If you're on Wix, GoDaddy or WordPress, I keep your URLs the same so your rankings can come with you.</p>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <h3>Apps</h3>
+        <p>I've built a sign-up form that takes payments, a flight cost calculator and full apps that a business runs on. If it runs in a browser, I can probably build it.</p>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <h3>SEO</h3>
+        <p>It's what I do all day at my job. Every site I build gets it, and I can work on a site you already have too.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -31,7 +66,7 @@ export default {
             <dd><b>Bachelor of Science, Web Design and Development</b><span>Brigham Young University-Idaho, Rexburg</span></dd>
           </div>
           <div>
-            <dt>Current</dt>
+            <dt>Current job</dt>
             <dd><b>SEO Specialist and Internal Tools Builder</b><span>Marketing agency, Rexburg, Idaho</span></dd>
           </div>
           <div>
@@ -42,23 +77,8 @@ export default {
       </div>
 
       <div class="about-text reveal">
-        <p class="standfirst">A business can be doing everything right and still lose the job because its website looks thrown together. That's fixable.</p>
-
-        <figure class="portrait">
-          ${img('hyrum', 'Portrait of Hyrum Whittier', { sizes: '320px' })}
-          <figcaption>Hyrum Whittier. Rexburg, Idaho.</figcaption>
-        </figure>
-
-        <p>So I build sites that look like someone cared: real type, real spacing, the client's own photos instead of stock, and pages that hold up on a phone. Then I do the search work underneath. A good-looking site nobody can find is a brochure in a drawer.</p>
-
-        <p>When a tool I need doesn't exist, I build that too. Memphis exists because the agency outgrew Asana. The crawler exists because I wanted every page's title width, canonical and schema in one table.</p>
-
-        <h2 class="about-h">Before this</h2>
-
-        <p>From 2019 to 2021 I served a Spanish-speaking mission for The Church of Jesus Christ of Latter-day Saints in Tampa, Florida. Two years of knocking on doors in a language I was still learning taught me to explain things plainly.</p>
-
-        <p>My wife and I got married in 2022, and we live in Rexburg. The Tetons up top are close enough to visit on a Saturday.</p>
-
+        <p>From 2019 to 2021 I served a Spanish-speaking mission for The Church of Jesus Christ of Latter-day Saints in Tampa, Florida. I learned the language as I went.</p>
+        <p>My wife and I got married in 2022, and we live in Rexburg. The Tetons on my home page are close enough for a Saturday trip.</p>
         <figure class="snap">
           ${img('idaho-falls', 'Hyrum Whittier and his wife at the falls in Idaho Falls, with the temple behind them', { sizes: '(max-width: 900px) 92vw, 640px' })}
           <figcaption>My wife and me at the falls in Idaho Falls.</figcaption>

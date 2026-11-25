@@ -22,32 +22,31 @@ export default {
     gamePlatform: 'Web browser',
     applicationCategory: 'Game',
     operatingSystem: 'Any',
-    softwareVersion: '0.6',
   }],
   body: caseBody({
     name: 'Blood Ante',
-    kicker: ['My own game', 'Version 0.6'],
+    kicker: ['My own game', 'Plays in the browser'],
+    live: BA,
+    liveLabel: 'Play it',
     shot: 'ba-title',
     url: 'bloodantegame.web.app',
     alt: 'The Blood Ante title screen: a red swirl behind pixel-art cards',
     meta: [
-      ['Kind', 'Card game for the browser'],
+      ['What it is', 'A card game for the browser'],
       ['Runs on', 'A phone or a computer'],
       ['Built with', 'Vanilla JavaScript and canvas, no build step'],
       ['Play at', `<a href="${BA}">bloodantegame.web.app</a>`],
     ],
     heading: 'How it plays',
-    standfirst: 'My own game. It runs in the browser, on a phone or a computer.',
+    standfirst: "I make a game on the side. It's a pixel-art card game that runs in the browser, on a phone or a computer.",
     body: `
         <p class="tagline">Ten floors an ante. Find the doors. Build the deck from nothing.</p>
         <p>Your weapons fire on their own. You pick up playing cards along the way and play them as hands, and damage is might times mult.</p>
-        <p>There are four knights to pick from, difficulty from Easy to Extremely Hard, and leaderboards. Sign-in is optional, and every old version is still there to play.</p>
-        <p>All of it is pixel art.</p>`,
-    links: [[BA, 'Play Blood Ante', 'btn btn--light']],
+        <p>There are four knights to pick from, difficulty from Easy to Extremely Hard, and leaderboards. Sign-in is optional, and every old version is still there to play.</p>`,
     plates: [
       plate('ba-knights', 'bloodantegame.web.app', 'Choose Your Knight: four pixel-art knights', 'Choose your knight', 'Four knights to pick from.'),
       plate('ba-play', 'bloodantegame.web.app', 'A floor in play, with cards dropping and damage numbers', 'A floor in play', 'Weapons fire on their own while you collect cards.'),
     ],
-    next: ['/work/loafa/', 'Loafa'],
+    next: ['/work/printology/', 'Printology'],
   }),
 };

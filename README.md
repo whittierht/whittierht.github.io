@@ -1,17 +1,19 @@
-# whittierht.github.io, fifth edition
+# hyrumwhittier.com, seventh edition
 
-Hyrum Whittier's portfolio: web design and local SEO in Utah and Idaho.
+Hyrum Whittier's portfolio: websites, apps and SEO in Utah and Idaho.
 
-It's the second edition's look (dark, the Tetons and the big name) split into separate pages, with a sticky top bar. On phones the links fold into a menu. Static HTML, CSS and vanilla JS. A small Node script writes the pages, with no dependencies.
+Dark pages, one sans at a medium weight, big quiet headings and one orange accent. The home page opens on my name with my photo beside it. The work is a list of names with a preview window that follows the pointer. Every page ends on a light panel with a round "Get in touch" button. Buttons fill with a second colour from the bottom on hover. Static HTML, CSS and vanilla JS. A small Node script writes the pages, with no dependencies.
 
 ```
 build.mjs           node build.mjs writes every page and sitemap.xml
-src/lib.mjs         the layout, the top bar, the contact panel, image helpers, JSON-LD
-src/case.mjs        the layout shared by the five project pages
+src/lib.mjs         the layout, the top bar, the closing panel, image helpers, JSON-LD
+src/case.mjs        the layout shared by the seven project pages
 src/pages/*.mjs     one file per page
+src/pages/work.mjs  the project list, in order, used by the home page too
 styles.css          everything visual
-app.js              clock, phone menu, reveals, copy button, form
+app.js              clock, phone menu, reveals, hover preview, round buttons, button fill, clips, form
 images/             WebP screenshots at two widths, portrait, photos, share card
+video/              b6-hero.mp4, the clip that plays in the Bravo 6 window
 favicon.svg
 robots.txt
 .nojekyll           keeps GitHub Pages from running the files through Jekyll
@@ -25,13 +27,20 @@ The built pages (`index.html`, `seo/`, `work/`, `tools/`, `about/`, `contact/`, 
 
 | URL | What's on it |
 | --- | --- |
-| `/` | Hero, background strip, SEO first, the project list, Blood Ante, apps |
+| `/` | Hero with my name and photo, a short intro, eight projects as a list, three more as screenshots, SEO |
+| `/work/` | All eleven projects in one table |
+| `/work/<project>/` | Printology, Bravo 6 Flight Academy, Outdoors for Youth, Muscle Activation Center, RexRide, Loafa, Blood Ante |
+| `/tools/` | The four apps from work (Memphis, Tarmac, Helios, Traffic Control), Enterprise Mockups and the smaller tools. The top bar calls it Apps. |
 | `/seo/` | Enterprise work for the payments processor, local businesses and town pages, what I check |
-| `/work/` | One screenshot per project |
-| `/work/<project>/` | Loafa, Bravo 6 Flight Academy, Outdoors for Youth, Nadia's Dog Nanny, Blood Ante |
-| `/tools/` | Memphis, Tarmac, Enterprise Mockups and the smaller tools |
-| `/about/` | Background, the mission, family |
+| `/about/` | Who I am, what I can build, background |
 | `/contact/` | The form and common questions |
+
+## Rules for the wording
+
+- No price anywhere on the site.
+- The apps get as much room as the websites.
+- A project that isn't public is "not live yet". Don't call it unfinished or in progress.
+- The order of `projects` in `src/pages/work.mjs` is most impressive first. The home page picks from it by name.
 
 ## Building and running locally
 
@@ -48,17 +57,29 @@ Add a file to `src/pages/` that exports `{ path, slug, nav, title, description, 
 
 - `priority` sets the order in the sitemap. `noindex` leaves the page out of it.
 - `crumbs` adds a BreadcrumbList. `schema` adds extra JSON-LD nodes. `pageType` changes the WebPage type.
-- `image` sets the share image. `noCloser` drops the contact panel at the bottom.
+- `image` sets the share image. `noCloser` drops the closing panel at the bottom.
 
 Add a link to `NAV` in `src/lib.mjs` if the page belongs in the top bar.
 
-## Images
+A project page passes one object to `caseBody()` in `src/case.mjs`. `live` adds the round button over the first screenshot, `liveLabel` changes what it says, and `off: true` adds "Not live yet" beside the title.
 
-`img('name', alt)` finds every `images/name-<width>.webp` and writes the `srcset`, width and height. `win()` puts a screenshot under an address bar, `phone()` frames a phone shot, and `plate()` is a smaller window with a caption.
+## Images and the clip
 
-Client sites were captured on their live domains with headless Chrome: 1440x900 at 2x for desktop, 390x844 at 3x for phones, chat widgets hidden. Desktop shots are WebP at 1600 and 800 wide, phones at 780 and 390. Memphis and Tarmac are screenshots from the running apps.
+`img('name', alt)` finds every `images/name-<width>.webp` and writes the `srcset`, width and height. `win()` puts a screenshot under an address bar, `phone()` frames a phone shot, and `plate()` is a smaller window with a caption. `shot()` gives the address of one size, for the hover preview.
+
+`win(..., { video: 'b6-hero' })` lays `video/b6-hero.mp4` over the screenshot. The clip plays silently while it's on screen. With reduced motion or data saving on, the screenshot stays. If the file is missing the build says so and uses the screenshot alone.
+
+`b6-hero.mp4` is nine seconds of the Bravo 6 home page, recorded from the live site in headless Chrome at 1440x812 and scaled to 1280 wide. The last second fades into the first, so it loops without a jump.
+
+Client sites were captured on their live domains with headless Chrome: 1440x900 at 2x for desktop, 390x844 at 3x for phones, chat widgets hidden. Desktop shots are WebP at 1600 and 800 wide, phones at 780 and 390. The four apps on `/tools/` are shots of their public sites. The Muscle Activation Center notes app and the Printology rebuild were captured from local builds with demo data, since neither is public. Printology shots never show a staff screen with names in it.
 
 `images/share.png` is the home page hero at 1200x630 with the top bar hidden.
+
+The photo in the home hero is `images/hyrum-*.webp`. On a wide screen it runs from the top of the small line above the name down to the baseline of the name. `--face-h` in `styles.css` sets that from the name's size, so change them together. On a phone it sits above the name.
+
+## Buttons
+
+`.round` is the big round button and `.ring` is the outlined pill. Both fill with a second colour that rises from the bottom on hover. With the script running, the colour leaves through the top when the pointer moves away. `--fill` and `--fill-ink` set the two colours, and the light panels swap them.
 
 The Teton photo is by David Chalifoux, CC0.
 
@@ -66,8 +87,8 @@ The Teton photo is by David Chalifoux, CC0.
 
 A push to `main` on `whittierht/whittierht.github.io` publishes the site. Run `node build.mjs` first so the pages and sitemap are current.
 
-The canonical URLs, `og:url`, JSON-LD and sitemap all use `https://whittierht.github.io`. If a custom domain gets pointed at Pages, change `SITE` in `src/lib.mjs`, update `robots.txt`, add a `CNAME` file and rebuild.
+The site lives at `https://hyrumwhittier.com`. The domain is registered at Namecheap, with four A records on `@` pointing at GitHub Pages (185.199.108.153 to 185.199.111.153) and a `www` CNAME to `whittierht.github.io`. The `CNAME` file in the repo tells Pages which domain to serve, and Pages forwards `whittierht.github.io` to it. The canonical URLs, `og:url`, JSON-LD and sitemap all come from `SITE` in `src/lib.mjs`, so if the domain ever changes, change `SITE`, `robots.txt` and `CNAME`, then rebuild.
 
 ## Not used any more
 
-`video/` and some older images (`game-*`, `loafa-hero2`, `loafa-home` and others) are left over from earlier editions. Nothing links to them.
+`video/b6.mp4`, `video/loafa.mp4`, `video/ofy.mp4` and some older images (`game-*`, `loafa-hero2`, `loafa-home` and others) are left over from earlier editions. Nothing links to them.

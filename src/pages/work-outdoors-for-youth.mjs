@@ -9,39 +9,41 @@ export default {
   nav: 'work',
   priority: 0.8,
   title: 'Outdoors for Youth website | Hyrum Whittier',
-  description: 'Outdoors for Youth moved off Wix to 22 hand-coded pages with every slug kept, a seven-step registration form, and session dates from Salesforce.',
+  description: 'Outdoors for Youth moved off Wix to hand-coded pages with every slug kept, and a seven-step registration form that takes payment by card or bank account.',
   crumbs: [['Work', '/work/'], ['Outdoors for Youth', '/work/outdoors-for-youth/']],
   image: '/images/ofy-home-1600.webp',
   schema: [{ '@type': 'WebSite', '@id': OFY + '/#website', name: 'Outdoors for Youth', url: OFY + '/', creator: { '@id': SITE + '/#person' } }],
   body: caseBody({
     name: 'Outdoors for Youth',
     kicker: ['Teen adventure camp', 'Newdale, Idaho', '2026'],
+    live: OFY + '/',
     shot: 'ofy-home',
     url: 'outdoorsforyouth.org',
     alt: 'The Outdoors for Youth home page',
     phone: 'ofy-m',
     phoneAlt: 'The Outdoors for Youth home page on a phone',
     meta: [
-      ['Scope', 'Wix migration, 22 pages, registration flow'],
-      ['Built with', 'HTML, CSS, compiled Tailwind, a custom form engine'],
+      ['What I built', 'The website, and a registration form that takes payments'],
+      ['Built with', 'HTML, CSS, compiled Tailwind, a custom form engine, CardPointe'],
       ['Live at', `<a href="${OFY}/">outdoorsforyouth.org</a>`],
       ['Year', '2026. Live since July.'],
     ],
-    heading: 'Off Wix, rankings intact',
-    standfirst: "On Wix, the camp's best content was locked inside iframes. Search engines saw the frame and not the text.",
+    heading: 'A camp site with paid registration',
+    standfirst: "The big news is registration. It's a custom form I built, it takes payments, and it's finally live.",
     body: `
-        <p>Now it's 22 hand-coded pages, and every slug matches the old site, so the rankings carried over.</p>
-        <p>Registration is a seven-step form. It saves answers so a parent can finish later, and it totals rentals as they're added.</p>
-        <p>The session tiles come from the camp's Salesforce inventory. The waitlist only shows up once a week has sold out.</p>`,
+        <p>Registration for 2027 camp is seven steps, and you pay on the last one by card or bank account. A parent can sign up several campers and pay once.</p>
+        <p>Card numbers get typed inside the card processor's own frame. Only a token comes back, so the numbers never touch the site's server.</p>
+        <p>The form saves your progress on your device, so you can step away and finish later. Rentals and camp apparel are in the form too. Promo codes work, and a camper on the waitlist isn't charged.</p>
+        <p>The session tiles come from the camp's Salesforce inventory. Click one and the form opens with that week already picked.</p>
+        <p>Before all this, the site was on Wix, and the camp's best content was stuck inside iframes. I rebuilt it as 22 hand-coded pages and kept every slug, so the rankings carried over.</p>`,
     links: [
-      [OFY + '/', 'Visit the site'],
-      [OFY + '/register-for-ofy', 'Dates and registration'],
-      [OFY + '/gallery', 'Gallery'],
+      [OFY + '/registration', 'The registration form'],
+      [OFY + '/register-for-ofy', 'Camp dates'],
     ],
     plates: [
-      plate('ofy-dates', 'outdoorsforyouth.org/register-for-ofy', 'The Outdoors for Youth session dates: Pick your adventure week', 'Dates and registration', "Session tiles from the camp's Salesforce inventory."),
-      plate('ofy-gallery', 'outdoorsforyouth.org/gallery', 'The Outdoors for Youth photo gallery', 'Gallery', "More than 200 of the camp's own photos."),
+      plate('ofy-reg', 'outdoorsforyouth.org/registration', 'The Outdoors for Youth registration form on step one of seven, Session Information', 'Registration', 'Seven steps, and you pay on the last one.'),
+      plate('ofy-dates', 'outdoorsforyouth.org/register-for-ofy', 'The Outdoors for Youth session dates: Pick your adventure week', 'Dates', 'Each tile opens the form with that week picked.'),
     ],
-    next: ['/work/nadias-dog-nanny/', "Nadia's Dog Nanny Services"],
+    next: ['/work/muscle-activation-center/', 'Muscle Activation Center'],
   }),
 };

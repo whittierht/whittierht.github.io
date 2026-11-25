@@ -10,14 +10,13 @@ export default {
   body: `
 <header class="page-top lost">
   <div class="wrap">
-    <p class="label">404</p>
     <h1>That page isn't here.</h1>
-    <p class="standfirst">It may have moved when the site was rebuilt. These are the main pages.</p>
+    <p class="standfirst">It might have moved when I rebuilt the site. Try one of these.</p>
     <p class="case-links">
-      <a class="btn btn--light" href="/">Home</a>
-      <a class="txtlink" href="/seo/">SEO</a>
-      <a class="txtlink" href="/work/">Work</a>
-      <a class="txtlink" href="/contact/">Contact</a>
+      <a class="ring" href="/">Home</a>
+      <a class="ring" href="/work/">Work</a>
+      <a class="ring" href="/tools/">Apps</a>
+      <a class="ring" href="/contact/">Contact</a>
     </p>
   </div>
 </header>
