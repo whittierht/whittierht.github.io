@@ -10,7 +10,7 @@ export default {
   priority: 0.7,
   title: 'Blood Ante, a browser card game | Hyrum Whittier',
   description: 'Blood Ante is a pixel-art card game I made. It runs in the browser on a phone or a computer, with four knights, leaderboards and every old version still playable.',
-  crumbs: [['Work', '/work/'], ['Blood Ante', '/work/blood-ante/']],
+  crumbs: [['Blood Ante', '/work/blood-ante/']],
   image: '/images/ba-title-1600.webp',
   schema: [{
     '@type': 'VideoGame',
@@ -47,6 +47,6 @@ export default {
       plate('ba-knights', 'bloodantegame.web.app', 'Choose Your Knight: four pixel-art knights', 'Choose your knight', 'Four knights to pick from.'),
       plate('ba-play', 'bloodantegame.web.app', 'A floor in play, with cards dropping and damage numbers', 'A floor in play', 'Weapons fire on their own while you collect cards.'),
     ],
-    next: ['/work/printology/', 'Printology'],
+    next: ['/work/memphis/', 'Memphis'],
   }),
 };

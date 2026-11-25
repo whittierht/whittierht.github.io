@@ -10,7 +10,7 @@ export default {
   priority: 0.8,
   title: 'Outdoors for Youth website | Hyrum Whittier',
   description: 'Outdoors for Youth moved off Wix to hand-coded pages with every slug kept, and a seven-step registration form that takes payment by card or bank account.',
-  crumbs: [['Work', '/work/'], ['Outdoors for Youth', '/work/outdoors-for-youth/']],
+  crumbs: [['Outdoors for Youth', '/work/outdoors-for-youth/']],
   image: '/images/ofy-home-1600.webp',
   schema: [{ '@type': 'WebSite', '@id': OFY + '/#website', name: 'Outdoors for Youth', url: OFY + '/', creator: { '@id': SITE + '/#person' } }],
   body: caseBody({

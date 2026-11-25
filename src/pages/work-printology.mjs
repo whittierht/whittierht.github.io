@@ -11,7 +11,7 @@ export default {
   priority: 0.8,
   title: 'Printology online store and back office | Hyrum Whittier',
   description: "A full rebuild of Printology's Shopify site as a custom online store and staff back office, for print shops in American Fork and Saratoga Springs. Not live yet.",
-  crumbs: [['Work', '/work/'], ['Printology', '/work/printology/']],
+  crumbs: [['Printology', '/work/printology/']],
   image: '/images/pr-home-1600.webp',
   body: caseBody({
     name: 'Printology',

@@ -10,7 +10,7 @@ export default {
   priority: 0.8,
   title: 'Bravo 6 Flight Academy website | Hyrum Whittier',
   description: "Bravo 6 Flight Academy's Divi site, rebuilt as 165 static pages with a cost calculator, a live weather check, a training area map and pages for Rexburg and Pocatello.",
-  crumbs: [['Work', '/work/'], ['Bravo 6 Flight Academy', '/work/bravo-6-flight-academy/']],
+  crumbs: [['Bravo 6 Flight Academy', '/work/bravo-6-flight-academy/']],
   image: '/images/b6-home-1600.webp',
   schema: [{ '@type': 'WebSite', '@id': B6 + '/#website', name: 'Bravo 6 Flight Academy', url: B6 + '/', creator: { '@id': SITE + '/#person' } }],
   body: caseBody({

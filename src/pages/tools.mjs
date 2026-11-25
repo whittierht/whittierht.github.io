@@ -9,8 +9,8 @@ export const products = [
     name: 'Memphis',
     kind: 'Tasks and timesheets for agencies',
     site: 'memphistasks.com',
-    img: 'memphis-site',
-    alt: 'The Memphis site: The task board that fills in your timesheet',
+    img: 'memphis-app',
+    alt: 'My Tasks in Memphis: tasks grouped by due date, each with a client, a priority and a timer',
     lead: [
       'This is the one we use every day. Our whole agency runs on Memphis, and we dropped Asana for it.',
       'You start a timer on a task and the hours go to the right client, so the timesheet fills itself in.',
@@ -22,7 +22,7 @@ export const products = [
       'Every agency gets its own private Memphis with its own database.',
       "It runs on the web and on iPhone. The What's New page has 123 entries since July.",
     ],
-    access: "It's in early access right now.",
+    access: "It's live. Other agencies can ask for early access.",
   },
   {
     id: 'tarmac',
@@ -42,7 +42,8 @@ export const products = [
       'There are six flight calculators, including an E6B, and a portal for students.',
       'Records get archived, never deleted. Staff sign in with two steps.',
     ],
-    access: 'Other flight schools get in by invitation.',
+    access: "It isn't live yet. Other flight schools get in by invitation.",
+    off: true,
   },
   {
     id: 'helios',
@@ -62,7 +63,7 @@ export const products = [
       'The HR side has a directory, an org chart and onboarding checklists. You sign documents by typing your name.',
       'AWS hosts it, and you sign in with Google.',
     ],
-    access: "It's by invitation only.",
+    access: "It's live, and new teams get in by invitation.",
   },
   {
     id: 'traffic-control',
@@ -82,7 +83,8 @@ export const products = [
       'Other apps can embed its screens, with an API key and webhooks.',
       'One sign-in can cover several businesses.',
     ],
-    access: "It's invite only.",
+    access: "It isn't live yet. It's invite only.",
+    off: true,
   },
 ];
 
@@ -103,7 +105,7 @@ const tools = [
 
 const product = (p) => `
     <article class="prod" id="${p.id}">
-      <div class="prod-head reveal"><h2>${p.name}</h2><p class="state">Not live yet</p></div>
+      <div class="prod-head reveal"><h2>${p.name}</h2><p class="state${p.off ? '' : ' state--live'}">${p.off ? 'Not live yet' : 'Live'}</p></div>
       <p class="mono reveal">${p.kind}</p>
       <div class="prod-grid prod-grid--shot">
         <a class="prod-shot shot-link reveal" href="https://${p.site}/" aria-label="${p.name} at ${p.site}">${win(p.img, p.site, p.alt, { sizes: SIZES })}</a>
@@ -113,7 +115,7 @@ ${p.lead.map((t) => `          <p>${t}</p>`).join('\n')}
 ${p.bullets.map((b) => `            <li>${b}</li>`).join('\n')}
           </ul>
           <p>${p.access}</p>
-          <p class="case-links"><a class="ring" href="https://${p.site}/">${p.site}</a></p>
+          <p class="case-links"><a class="ring" href="/work/${p.id}/">More about ${p.name}</a><a class="txtlink" href="https://${p.site}/">${p.site}</a></p>
         </div>
       </div>
     </article>`;
@@ -124,14 +126,14 @@ export default {
   nav: 'tools',
   priority: 0.8,
   title: "Apps I've built | Hyrum Whittier",
-  description: "Four apps I built at my job, Memphis, Tarmac, Helios and Traffic Control, and the websites for them. They aren't live yet. Plus twelve smaller tools.",
+  description: "Four apps I built at my job, Memphis, Tarmac, Helios and Traffic Control, and the websites for them. Plus twelve smaller tools.",
   crumbs: [['Apps', '/tools/']],
-  image: '/images/memphis-site-1600.webp',
+  image: '/images/memphis-app-1600.webp',
   body: `
 <header class="page-top">
   <div class="wrap">
     <h1 class="reveal">Apps I built at my job</h1>
-    <p class="standfirst reveal">At my job I build the software we run the agency on. Four of those apps turned into products with their own websites. I didn't just make the sites, I made the apps too. They aren't live yet, so right now you get in by invite or early access.</p>
+    <p class="standfirst reveal">At my job I build the software we run the agency on. Four of those apps turned into products, and I made each app and its website. Memphis and Helios are live. Tarmac and Traffic Control let people in by invitation for now.</p>
   </div>
 </header>
 

@@ -23,7 +23,8 @@ for (const p of pages) {
 
 // Pages that moved. GitHub Pages can't send a server redirect, so the old
 // URL gets a tiny page that forwards to the new one and names it canonical.
-const moved = { '/local-seo/': '/seo/', '/work/nadias-dog-nanny/': '/work/' };
+// The Work list is on the home page now, so /work/ forwards there.
+const moved = { '/local-seo/': '/seo/', '/work/': '/#work', '/work/nadias-dog-nanny/': '/#work' };
 for (const [from, to] of Object.entries(moved)) {
   const out = join(ROOT, from, 'index.html');
   mkdirSync(dirname(out), { recursive: true });
@@ -32,9 +33,9 @@ for (const [from, to] of Object.entries(moved)) {
 <head>
 <meta charset="utf-8">
 <title>Moved</title>
-<link rel="canonical" href="${SITE}${to}">
+<link rel="canonical" href="${SITE}${to.split('#')[0]}">
 <meta http-equiv="refresh" content="0; url=${to}">
-<script>location.replace('${to}' + location.hash);</script>
+<script>location.replace('${to}'${to.includes('#') ? '' : ' + location.hash'});</script>
 </head>
 <body><p>This page moved to <a href="${to}">${SITE}${to}</a>.</p></body>
 </html>

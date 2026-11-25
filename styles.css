@@ -131,6 +131,7 @@ b, strong { font-weight: 600; }
   color: var(--accent); white-space: nowrap; margin: 0;
 }
 .state--quiet { color: var(--muted); }
+.state--live { color: var(--muted); }
 
 .btn {
   display: inline-block; white-space: nowrap; text-decoration: none;
@@ -336,7 +337,7 @@ a.ix:hover { padding-left: 1.2rem; }
 /* ---------- case pages ---------- */
 .case { padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem); }
 .case-top { margin-bottom: clamp(1.8rem, 3vw, 2.6rem); }
-.case-kicker { font-size: .84rem; color: var(--muted); margin: 0 0 .9rem; }
+.case-kicker { display: flex; flex-wrap: wrap; align-items: baseline; row-gap: .3rem; font-size: .84rem; color: var(--muted); margin: 0 0 .9rem; }
 .case-kicker span + span::before { content: "\00b7"; margin: 0 .5rem; color: var(--faint); }
 .case-kicker a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule-strong); }
 .case-kicker a:hover { color: var(--accent); border-color: var(--accent); }

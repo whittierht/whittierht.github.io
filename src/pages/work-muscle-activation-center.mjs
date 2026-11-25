@@ -10,7 +10,7 @@ export default {
   priority: 0.8,
   title: 'Muscle Activation Center website and notes app | Hyrum Whittier',
   description: "A website for Muscle Activation Center, a MAT practice in Shelley and Idaho Falls, and the session notes app I'm building to replace their paper notes.",
-  crumbs: [['Work', '/work/'], ['Muscle Activation Center', '/work/muscle-activation-center/']],
+  crumbs: [['Muscle Activation Center', '/work/muscle-activation-center/']],
   image: '/images/mac-home-1600.webp',
   schema: [{ '@type': 'WebSite', '@id': MAC + '/#website', name: 'Muscle Activation Center', url: MAC + '/', creator: { '@id': SITE + '/#person' } }],
   body: caseBody({

@@ -10,7 +10,7 @@ export default {
   priority: 0.8,
   title: 'Loafa band website | Hyrum Whittier',
   description: 'A one-file website for Loafa, an alt rock band from Provo, Utah: 30-second song previews, all eight releases on a sideways timeline, press, shows and booking.',
-  crumbs: [['Work', '/work/'], ['Loafa', '/work/loafa/']],
+  crumbs: [['Loafa', '/work/loafa/']],
   image: '/images/loafa-top-1600.webp',
   schema: [{ '@type': 'WebSite', '@id': LOAFA + '#website', name: 'Loafa', url: LOAFA, creator: { '@id': SITE + '/#person' } }],
   body: caseBody({

@@ -1,9 +1,5 @@
 import { img, SITE, EMAIL, WHERE } from '../lib.mjs';
-import { projects, row, tile, pick } from './work.mjs';
-
-// The four apps from my job lead the list, then the biggest client work.
-const rows = pick('Memphis', 'Tarmac', 'Helios', 'Traffic Control', 'Printology', 'Bravo 6 Flight Academy', 'Outdoors for Youth', 'Muscle Activation Center');
-const tiles = pick('RexRide', 'Loafa', 'Blood Ante');
+import { projects, row } from '../projects.mjs';
 
 export default {
   path: '/',
@@ -49,7 +45,7 @@ export default {
 
 <section class="sec intro" aria-label="What I do">
   <div class="wrap intro-grid">
-    <p class="intro-big reveal">I build websites, and I build apps. The agency I work at runs every day on an app I made. A camp I work with takes payments through a sign-up form I built.</p>
+    <p class="intro-big reveal">My office dropped Asana for Memphis, a task app I wrote. The whole team is in it every day. Outdoors for Youth takes its camp sign-ups and payments through a form of mine.</p>
     <div class="intro-side reveal">
       <p>I do SEO full time at a marketing agency in Rexburg, Idaho. On my own time I build sites and apps for small businesses in ${WHERE}.</p>
       <a class="round" href="/about/"><span>About me</span></a>
@@ -57,21 +53,12 @@ export default {
   </div>
 </section>
 
-<section class="sec" aria-labelledby="work-h">
+<section class="sec" id="work" aria-labelledby="work-h">
   <div class="wrap">
-    <h2 class="rows-label" id="work-h">Apps and websites I've built lately</h2>
+    <h2 class="rows-label" id="work-h">Apps and websites I've built</h2>
     <ul class="rows stagger">
-${rows.map((p) => row(p)).join('\n')}
+${projects.map((p) => row(p)).join('\n')}
     </ul>
-  </div>
-</section>
-
-<section class="sec" aria-label="More work">
-  <div class="wrap">
-    <div class="tiles">
-${tiles.map(tile).join('\n')}
-    </div>
-    <p class="rows-more reveal"><a class="ring" href="/work/">More work <sup>${projects.length}</sup></a></p>
   </div>
 </section>
 

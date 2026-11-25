@@ -9,7 +9,7 @@ export default {
   priority: 0.7,
   title: 'RexRide, a ride board for Rexburg students | Hyrum Whittier',
   description: "RexRide is a ride board app for students in Rexburg, built with React and Firebase. It's on a staging site and isn't live yet.",
-  crumbs: [['Work', '/work/'], ['RexRide', '/work/rexride/']],
+  crumbs: [['RexRide', '/work/rexride/']],
   image: '/images/rexride-site-1600.webp',
   body: caseBody({
     name: 'RexRide',

@@ -53,7 +53,7 @@ ${grid(p, 'h3')}${plates(p)}
 // `off` marks a project that isn't live yet. `live` is the address the
 // round button opens, and `liveLabel` is what the button says.
 export function caseBody(c) {
-  const bits = [`<a href="/work/">Work</a>`, ...c.kicker].map((k) => `<span>${k}</span>`);
+  const bits = [`<a href="/#work">Work</a>`, ...c.kicker].map((k) => `<span>${k}</span>`);
   if (c.off) bits.push('<span class="state">Not live yet</span>');
   return `
 <article class="case">

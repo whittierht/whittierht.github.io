@@ -137,7 +137,7 @@ function graph(p) {
 
 // The sticky top bar. On narrow screens the links fold into a menu.
 const NAV = [
-  { href: '/work/', label: 'Work', key: 'work' },
+  { href: '/#work', label: 'Work', key: 'work' },
   { href: '/tools/', label: 'Apps', key: 'tools' },
   { href: '/seo/', label: 'SEO', key: 'seo' },
   { href: '/about/', label: 'About', key: 'about' },

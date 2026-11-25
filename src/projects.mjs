@@ -1,21 +1,21 @@
-import { win, shot, clip } from '../lib.mjs';
+import { win, shot, clip } from './lib.mjs';
 
-// Every project, most impressive first. `off` marks one that isn't live yet.
-// `short` is the line used on the home page.
+// Every project, most impressive first. This order is the Work list on the
+// home page, and each one has its own page. `off` marks one that isn't live
+// yet.
 export const projects = [
   {
-    href: '/tools/#memphis',
+    href: '/work/memphis/',
     name: 'Memphis',
-    img: 'memphis-site',
+    img: 'memphis-app',
     url: 'memphistasks.com',
-    alt: 'The Memphis site: The task board that fills in your timesheet',
+    alt: 'My Tasks in Memphis: tasks grouped by due date, each with a client, a priority and a timer',
     where: 'Built at my job',
     what: 'Task and timesheet app, and its site',
     short: 'Task and timesheet app',
-    off: true,
   },
   {
-    href: '/tools/#tarmac',
+    href: '/work/tarmac/',
     name: 'Tarmac',
     img: 'tarmac-site',
     url: 'tarmacflight.com',
@@ -26,7 +26,7 @@ export const projects = [
     off: true,
   },
   {
-    href: '/tools/#helios',
+    href: '/work/helios/',
     name: 'Helios',
     img: 'helios',
     url: 'heliosclock.com',
@@ -34,10 +34,9 @@ export const projects = [
     where: 'Built at my job',
     what: 'Time clock and HR app, and its site',
     short: 'Time clock and HR app',
-    off: true,
   },
   {
-    href: '/tools/#traffic-control',
+    href: '/work/traffic-control/',
     name: 'Traffic Control',
     img: 'traffic',
     url: 'trafficcontrolphone.com',
@@ -136,43 +135,8 @@ export const row = (p, { where = false } = {}) => `      <li>
         </a>
       </li>`;
 
-// One project as a screenshot with its name under it.
-export const tile = (p) => `      <figure class="tile reveal">
-        <a class="shot-link" href="${p.href}" tabindex="-1" aria-hidden="true">${win(p.img, p.url, p.alt, { sizes: '(max-width: 900px) 92vw, 32vw' })}</a>
-        <figcaption><a class="tile-name" href="${p.href}">${p.name}</a>${state(p)}<span class="tile-what">${p.short}</span></figcaption>
-      </figure>`;
-
 export const pick = (...names) => names.map((n) => {
   const p = projects.find((x) => x.name === n);
   if (!p) throw new Error('no project called ' + n);
   return p;
 });
-
-export default {
-  path: '/work/',
-  slug: 'work',
-  nav: 'work',
-  priority: 0.9,
-  pageType: 'CollectionPage',
-  title: 'Work | Hyrum Whittier',
-  description: "Apps and websites I've built: Memphis, Tarmac, Helios and Traffic Control at my job, and client work for Printology, Bravo 6 Flight Academy and Outdoors for Youth.",
-  crumbs: [['Work', '/work/']],
-  image: '/images/memphis-site-1600.webp',
-  body: `
-<header class="page-top">
-  <div class="wrap">
-    <h1 class="reveal">Apps and websites I've built</h1>
-    <p class="standfirst reveal">The apps from my job are first, and the client work comes after. Five of these are live. The other six aren't live yet.</p>
-  </div>
-</header>
-
-<section class="sec" aria-label="Projects">
-  <div class="wrap">
-    <div class="rows-head" aria-hidden="true"><span>Project</span><span>Where</span><span>What I built</span><span>Status</span></div>
-    <ol class="rows rows--list stagger">
-${projects.map((p) => row(p, { where: true })).join('\n')}
-    </ol>
-  </div>
-</section>
-`,
-};

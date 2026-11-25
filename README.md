@@ -2,14 +2,14 @@
 
 Hyrum Whittier's portfolio: websites, apps and SEO in Utah and Idaho.
 
-Dark pages, one sans at a medium weight, big quiet headings and one orange accent. The home page opens on my name with my photo beside it. The work is a list of names with a preview window that follows the pointer. Every page ends on a light panel with a round "Get in touch" button. Buttons fill with a second colour from the bottom on hover. Static HTML, CSS and vanilla JS. A small Node script writes the pages, with no dependencies.
+Dark pages, one sans at a medium weight, big quiet headings and one orange accent. The home page opens on my name with my photo beside it. The Work list on the home page is a list of names with a preview window that follows the pointer, and every project has its own page. Every page ends on a light panel with a round "Get in touch" button. Buttons fill with a second colour from the bottom on hover. Static HTML, CSS and vanilla JS. A small Node script writes the pages, with no dependencies.
 
 ```
 build.mjs           node build.mjs writes every page and sitemap.xml
 src/lib.mjs         the layout, the top bar, the closing panel, image helpers, JSON-LD
-src/case.mjs        the layout shared by the seven project pages
+src/case.mjs        the layout shared by the eleven project pages
+src/projects.mjs    the project list, in order, which is the Work list on the home page
 src/pages/*.mjs     one file per page
-src/pages/work.mjs  the project list, in order, used by the home page too
 styles.css          everything visual
 app.js              clock, phone menu, reveals, hover preview, round buttons, button fill, clips, form
 images/             WebP screenshots at two widths, portrait, photos, share card
@@ -21,15 +21,14 @@ robots.txt
 
 The built pages (`index.html`, `seo/`, `work/`, `tools/`, `about/`, `contact/`, `404.html`) and `sitemap.xml` are output. Edit `src/` and rebuild instead of editing them.
 
-`local-seo/` is output too: the SEO page used to live there, so `build.mjs` writes a small page that forwards to `/seo/`. Add to `moved` in `build.mjs` if another page changes address.
+`local-seo/` is output too: the SEO page used to live there, so `build.mjs` writes a small page that forwards to `/seo/`. `/work/` forwards to `/#work` the same way, since the Work list moved to the home page. Add to `moved` in `build.mjs` if another page changes address.
 
 ## Pages
 
 | URL | What's on it |
 | --- | --- |
-| `/` | Hero with my name and photo, a short intro, eight projects as a list, three more as screenshots, SEO |
-| `/work/` | All eleven projects in one table |
-| `/work/<project>/` | Printology, Bravo 6 Flight Academy, Outdoors for Youth, Muscle Activation Center, RexRide, Loafa, Blood Ante |
+| `/` | Hero with my name and photo, a short intro, the Work list with all eleven projects (`#work`, which the top bar's Work link opens), SEO |
+| `/work/<project>/` | Memphis, Tarmac, Helios, Traffic Control, Printology, Bravo 6 Flight Academy, Outdoors for Youth, Muscle Activation Center, RexRide, Loafa, Blood Ante |
 | `/tools/` | The four apps from work (Memphis, Tarmac, Helios, Traffic Control), Enterprise Mockups and the smaller tools. The top bar calls it Apps. |
 | `/seo/` | Enterprise work for the payments processor, local businesses and town pages, what I check |
 | `/about/` | Who I am, what I can build, background |
@@ -40,7 +39,9 @@ The built pages (`index.html`, `seo/`, `work/`, `tools/`, `about/`, `contact/`, 
 - No price anywhere on the site.
 - The apps get as much room as the websites.
 - A project that isn't public is "not live yet". Don't call it unfinished or in progress.
-- The order of `projects` in `src/pages/work.mjs` is most impressive first. The home page picks from it by name.
+- The order of `projects` in `src/projects.mjs` is most impressive first, and the home page shows it in that order. Each project page's `next` link follows the same order and wraps from Blood Ante back to Memphis.
+- Memphis and Helios are live. Tarmac and Traffic Control are not live yet.
+- Nothing on the site names AI, even though some of the products have AI features. Screenshots of the Memphis site leave out its AI menu.
 
 ## Building and running locally
 
@@ -71,7 +72,7 @@ A project page passes one object to `caseBody()` in `src/case.mjs`. `live` adds 
 
 `b6-hero.mp4` is nine seconds of the Bravo 6 home page, recorded from the live site in headless Chrome at 1440x812 and scaled to 1280 wide. The last second fades into the first, so it loops without a jump.
 
-Client sites were captured on their live domains with headless Chrome: 1440x900 at 2x for desktop, 390x844 at 3x for phones, chat widgets hidden. Desktop shots are WebP at 1600 and 800 wide, phones at 780 and 390. The four apps on `/tools/` are shots of their public sites. The Muscle Activation Center notes app and the Printology rebuild were captured from local builds with demo data, since neither is public. Printology shots never show a staff screen with names in it.
+Client sites were captured on their live domains with headless Chrome: 1440x900 at 2x for desktop, 390x844 at 3x for phones, chat widgets hidden. Desktop shots are WebP at 1600 and 800 wide, phones at 780 and 390. The four apps are shots of their public sites, taken one screen at a time so their scroll animations had run. The Memphis shots are its own app screenshots, cropped from its site. No app shot shows a price. The Muscle Activation Center notes app and the Printology rebuild were captured from local builds with demo data, since neither is public. Printology shots never show a staff screen with names in it.
 
 `images/share.png` is the home page hero at 1200x630 with the top bar hidden.
 
