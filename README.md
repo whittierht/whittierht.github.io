@@ -2,7 +2,7 @@
 
 Hyrum Whittier's portfolio: websites, apps and SEO in Utah and Idaho.
 
-Dark pages, one sans at a medium weight, big quiet headings and one orange accent. The home page opens on my name with my photo beside it. The Work list on the home page is a list of names with a preview window that follows the pointer, and every project has its own page. Every page ends on a light panel with a round "Get in touch" button. Buttons fill with a second colour from the bottom on hover. Static HTML, CSS and vanilla JS. A small Node script writes the pages, with no dependencies.
+Dark pages, one sans at a medium weight, big quiet headings and one orange accent. The home page opens on my name with my photo beside it. Right under the hero, the Work list on the home page is a list of names with a preview window that follows the pointer, and every project has its own page. Every page ends on a light panel with a round "Get in touch" button. Buttons fill with a second colour from the bottom on hover. Static HTML, CSS and vanilla JS. A small Node script writes the pages, with no dependencies.
 
 ```
 build.mjs           node build.mjs writes every page and sitemap.xml
@@ -27,7 +27,7 @@ The built pages (`index.html`, `seo/`, `work/`, `tools/`, `about/`, `contact/`, 
 
 | URL | What's on it |
 | --- | --- |
-| `/` | Hero with my name and photo, a short intro, the Work list with all eleven projects (`#work`, which the top bar's Work link opens), SEO |
+| `/` | Hero with my name and photo, then straight into the Work list with all eleven projects (`#work`, which the top bar's Work link opens), SEO |
 | `/work/<project>/` | Memphis, Tarmac, Helios, Traffic Control, Printology, Bravo 6 Flight Academy, Outdoors for Youth, Muscle Activation Center, RexRide, Loafa, Blood Ante |
 | `/tools/` | The four apps from work (Memphis, Tarmac, Helios, Traffic Control), Enterprise Mockups and the smaller tools. The top bar calls it Apps. |
 | `/seo/` | Enterprise work for the payments processor, local businesses and town pages, what I check |

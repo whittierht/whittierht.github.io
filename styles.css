@@ -765,7 +765,7 @@ a.ix:hover { padding-left: 1.2rem; }
 
 /* =========================================================
    Seventh edition pieces: round buttons, outlined links,
-   project rows, tiles, the closing panel.
+   project rows, the closing panel.
    ========================================================= */
 
 /* sections sit closer together, with no rule between them */
@@ -883,16 +883,6 @@ a.ix:hover { padding-left: 1.2rem; }
 .hero-face img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%; }
 .pg-home .hero-foot { grid-template-columns: minmax(0, 1fr) var(--face-w); }
 
-/* ---------- home: the opening lines ---------- */
-.intro { padding-top: clamp(4.5rem, 10vw, 9rem); }
-.intro-grid { display: grid; grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr); gap: clamp(2rem, 7vw, 8rem); align-items: start; }
-.intro-big {
-  margin: 0; font-family: var(--display); font-weight: 500;
-  font-size: clamp(1.45rem, 3vw, 2.7rem); line-height: 1.2; letter-spacing: -.032em; color: var(--ink);
-}
-.intro-side p { font-size: 1rem; line-height: 1.6; color: var(--ink-2); max-width: 36ch; }
-.intro-side .round { margin-top: clamp(2rem, 5vw, 4.5rem); }
-
 /* ---------- project rows ---------- */
 .rows-label {
   font-family: var(--mono); font-size: .64rem; font-weight: 400; letter-spacing: .14em; line-height: 1.4;
@@ -958,20 +948,6 @@ a.ix:hover { padding-left: 1.2rem; }
 .win-video.is-on { opacity: 1; }
 .js-anim .win-video { clip-path: inset(0 0 100% 0); transition: opacity .5s ease, clip-path 1.05s cubic-bezier(.62, 0, .22, 1); }
 .js-anim .reveal.in .win-video, .js-anim .stagger > .lit .win-video { clip-path: inset(0 0 0 0); }
-
-/* ---------- tiles ---------- */
-.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 2.6vw, 2.75rem); align-items: start; }
-.tile figcaption {
-  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: .25rem 1rem;
-  margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--rule);
-}
-.tile-name {
-  font-family: var(--display); font-weight: 500; font-size: clamp(1.3rem, 1.9vw, 1.75rem);
-  letter-spacing: -.035em; line-height: 1.1; text-decoration: none; white-space: nowrap;
-  transition: color .2s ease;
-}
-.tile-name:hover { color: var(--accent); }
-.tile-what { grid-column: 1 / -1; font-size: .92rem; color: var(--muted); }
 
 /* ---------- the closing panel ---------- */
 .closer { background: var(--inv-bg); color: var(--inv-ink); padding: clamp(5rem, 11vw, 9.5rem) 0 clamp(3rem, 6vw, 4.5rem); }
@@ -1063,7 +1039,7 @@ a.ix:hover { padding-left: 1.2rem; }
 
 @media (max-width: 900px) {
   .pg-home .hero { padding-top: calc(var(--bar) + 2.4rem); min-height: min(100vh, 760px); min-height: min(100svh, 760px); }
-  .intro-grid, .contact-grid, .offer, .tiles, .about-top { grid-template-columns: minmax(0, 1fr); }
+  .contact-grid, .offer, .about-top { grid-template-columns: minmax(0, 1fr); }
   .rows-head { display: none; }
   .row, .rows--list .row { grid-template-columns: minmax(0, 1fr) auto; gap: .35rem 1rem; padding: 1.7rem 0 1.5rem; }
   .row-shot { display: block; grid-column: 1 / -1; margin-bottom: 1rem; }

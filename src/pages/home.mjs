@@ -43,16 +43,6 @@ export default {
   </div>
 </section>
 
-<section class="sec intro" aria-label="What I do">
-  <div class="wrap intro-grid">
-    <p class="intro-big reveal">My office dropped Asana for Memphis, a task app I wrote. The whole team is in it every day. Outdoors for Youth takes its camp sign-ups and payments through a form of mine.</p>
-    <div class="intro-side reveal">
-      <p>I do SEO full time at a marketing agency in Rexburg, Idaho. On my own time I build sites and apps for small businesses in ${WHERE}.</p>
-      <a class="round" href="/about/"><span>About me</span></a>
-    </div>
-  </div>
-</section>
-
 <section class="sec" id="work" aria-labelledby="work-h">
   <div class="wrap">
     <h2 class="rows-label" id="work-h">Apps and websites I've built</h2>
